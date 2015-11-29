@@ -1,22 +1,91 @@
+body {
+  font-size: 16px;
+  font-family: "proxima-nova-soft", sans-serif;
+  font-style: normal;
+  color: #3F3F3F;
+}
+
 .off-canvas-menu {
-  padding: 40px 80px 40px 40px;
   background-color: #efefef;
   display: inline-block;
   height: 100%;
-  position: absolute;
+  position: fixed;
+  right: -240px;
+  max-width: 240px;
+  border-left: solid 1px #D8DACC;
+  -moz-transition: right 0.3s ease;
+  -o-transition: right 0.3s ease;
+  -webkit-transition: right 0.3s ease;
+  transition: right 0.3s ease;
+}
+.off-canvas-menu.off-canvas-menu-active {
   right: 0px;
 }
+.off-canvas-menu .off-canvas-menu-opener {
+  width: 50px;
+  height: 50px;
+  background: #D8DACC;
+  position: absolute;
+  left: -50px;
+  top: 20px;
+  cursor: pointer;
+}
+.off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-one, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-two, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-three {
+  position: absolute;
+  top: 10px;
+  left: 12.5px;
+  width: 26px;
+  height: 3px;
+  border-radius: 30%;
+  opacity: 0.7;
+  background-color: #3F3F3F;
+}
+.off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-one {
+  top: 15px;
+}
+.off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-two {
+  top: 23px;
+}
+.off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-three {
+  top: 31px;
+}
 
-.menu ul {
+.off-canvas-nav ul {
   margin: 0px;
-  padding: 0px;
+  padding: 40px 0;
 }
-.menu ul li {
+.off-canvas-nav ul li {
   list-style: none;
+  display: block;
+  line-height: 1.95em;
+  font-size: 0.9em;
 }
-.menu ul li a {
+.off-canvas-nav ul li.menu-item-has-children:after {
+  content: "";
+  float: right;
+  display: inline-block;
+}
+.off-canvas-nav ul li a {
   text-decoration: none;
   color: #555;
   font-weight: 500;
   line-height: 24px;
+  text-transform: uppercase;
+  font-weight: 600;
+  width: 100%;
+  min-width: 240px;
+  display: inline-block;
+  padding: 0 40px;
+}
+.off-canvas-nav .sub-menu {
+  padding: 0;
+  height: 0px;
+  overflow: hidden;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.off-canvas-nav .sub-menu.sub-menu-active {
+  height: auto;
 }
