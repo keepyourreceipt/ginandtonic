@@ -1,5 +1,11 @@
 <?php
 
+function gin_and_tonic_setup() {
+	add_theme_support( 'menus' );
+}
+add_action( 'after_setup_theme', 'gin_and_tonic_setup' );
+
+
 function gin_and_tonic_scripts() {
 	wp_enqueue_style( 'default-css', get_stylesheet_uri() );
   wp_enqueue_style( 'combined-css', get_template_directory_uri() . '/css/dist/combined.css' );

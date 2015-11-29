@@ -6,6 +6,7 @@ var clean       = require('gulp-clean');
 var compass     = require('gulp-compass');
 var livereload  = require('gulp-livereload');
 var concatCss   = require('gulp-concat-css');
+var minifyCss   = require('gulp-minify-css');
 
 // Initi live reload server
 livereload({ start: true })
@@ -29,27 +30,33 @@ gulp.task('copyBower', ['copyBowerCSS', 'copyBowerJS', 'copyBowerFonts'], functi
         .pipe(gulp.dest('./fonts'));
     });
 
-// CSS specific tasks
-gulp.task('combineCss', function() {
-  return gulp.src('./css/*.css')
-    .pipe(concatCss("./dist/combined.css"))
-    .pipe(gulp.dest('./css'));
+
+gulp.task('minify-css', ['combine-css'], function() {
+  return gulp.src('css/dist/combined.css')
+    .pipe(minifyCss({compatibility: 'ie8'}))
+    .pipe(gulp.dest('css/dist/'))
+    .pipe(livereload());
+});
+
+gulp.task('combine-css', ['compass'], function () {
+  return gulp.src('css/*.css')
+    .pipe(concatCss("combined.css"))
+    .pipe(gulp.dest('css/dist/'));
 });
 
 gulp.task('compass', function() {
-  gulp.src('./sass/*.sass')
+  return gulp.src('./sass/*.sass')
     .pipe(compass({
       config_file: './config.rb',
       css: 'css',
       sass: 'sass'
     }))
-    .pipe(gulp.dest('./css'))
-    .pipe(livereload());
+    .pipe(gulp.dest('./css'));
 });
 
 
 // Build project
-gulp.task('build', ['compass'], function() {
+gulp.task('build', ['minify-css'], function() {
 
 });
 
