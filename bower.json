@@ -1,0 +1,21 @@
+{
+  "name": "ginandtonic",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Michael Peterman"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
