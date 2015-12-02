@@ -21,6 +21,7 @@ jQuery(document).ready(function($) {
 
     navOpener.on('click', function() {
       navMenu.toggleClass('off-canvas-menu-active');
+      $('body').toggleClass('menu-open');
     });
   }
 

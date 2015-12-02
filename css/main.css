@@ -3,6 +3,15 @@ body {
   font-family: "proxima-nova-soft", sans-serif;
   font-style: normal;
   color: #3F3F3F;
+  margin-left: 0px;
+  max-width: 100%;
+  -moz-transition: margin-left 0.3s ease;
+  -o-transition: margin-left 0.3s ease;
+  -webkit-transition: margin-left 0.3s ease;
+  transition: margin-left 0.3s ease;
+}
+body.menu-open {
+  margin-left: -200px;
 }
 
 .off-canvas-menu {
@@ -10,7 +19,7 @@ body {
   display: inline-block;
   height: 100%;
   position: fixed;
-  top: 0px;
+  top: 20px;
   right: -240px;
   max-width: 240px;
   z-index: 999;

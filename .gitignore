@@ -3,6 +3,6 @@ bower_components
 css/bootstrap*
 js/bootstrap*
 node_modules
-fonts/glyphi*
 css/dist
 js/dist
+css/fonts

@@ -35,7 +35,7 @@ gulp.task('install-bower', ['copyBowerCSS', 'copyBowerJS', 'copyBowerFonts'], fu
         'bower_components/bootstrap/dist/fonts/**.*',
         'bower_components/components-font-awesome/fonts/**.*'
       ])
-        .pipe(gulp.dest('fonts'));
+        .pipe(gulp.dest('css/fonts'));
     });
 
 
@@ -49,8 +49,7 @@ gulp.task('build-css', ['combine-css'], function() {
 
       gulp.task('combine-css', ['compass'], function () {
         return gulp.src('css/*.css')
-          .pipe(concatCss("combined.css", {
-            rebaseUrls: false }))
+          .pipe(concatCss("combined.css"))
           .pipe(gulp.dest('css/dist/'));
       });
 
@@ -60,6 +59,7 @@ gulp.task('build-css', ['combine-css'], function() {
             config_file: 'config.rb',
             css: 'css',
             sass: 'sass'
+
           }))
           .pipe(gulp.dest('css'));
       });

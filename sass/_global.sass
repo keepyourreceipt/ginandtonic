@@ -4,3 +4,9 @@ body
   font-family: $primary-font-family
   font-style: normal
   color: $dark-grey
+  margin-left: 0px
+  max-width: 100%
+  @include transition( margin-left 0.3s ease )
+
+  &.menu-open
+    margin-left: -200px
