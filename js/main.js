@@ -30,10 +30,14 @@ jQuery(document).ready(function($) {
   }
 
   // Waypoints
-  var waypoints = $('#inview-example').waypoint(function(direction) {
+  $('.waypoint').each(function() {
+    var $element = $(this);
+    var waypoints = $element.waypoint(function( direction ) {
+      $element.addClass('waypoint-active');
+    }, {
+      offset: '75%'
+    })
+  });
 
-  }, {
-    offset: '25%'
-  })
 
 });

@@ -69,27 +69,42 @@ gulp.task('build-css', ['combine-css'], function() {
 
 
 // Build js
-gulp.task('build-js', ['combine-js'], function() {
-  return gulp.src('js/dist/combined.js')
-    .pipe(uglify())
-    .pipe(gulp.dest('js/dist/'));
+
+gulp.task('clean-build-js', ['minify-js'], function () {
+	return gulp.src('js/tmp', {read: false})
+		.pipe(clean());
 });
 
-      gulp.task('combine-js', function() {
-        return gulp.src('js/*.js')
-          .pipe(concat('combined.js'))
+      gulp.task('minify-js', ['combine-js'], function() {
+        return gulp.src('js/tmp/combined.js')
+          .pipe(uglify())
           .pipe(gulp.dest('js/dist/'));
+      });
+
+      gulp.task('combine-js', ['clean-js'], function() {
+        return gulp.src([
+          'bower_components/bootstrap/dist/js/bootstrap.js',
+          'bower_components/waypoints/lib/jquery.waypoints.js',
+          'js/main.js'
+        ])
+          .pipe(concat('combined.js'))
+          .pipe(gulp.dest('js/tmp'));
+      });
+
+      gulp.task('clean-js', function () {
+      	return gulp.src('js/dist', {read: false})
+      		.pipe(clean());
       });
 
 
 // Watch all js and sass files w/livereload
 gulp.task('watch', function() {
   livereload.listen();
-  gulp.watch(['js/**/*.js', 'sass/**/*.sass'], ['build']);
+  gulp.watch(['js/*.js', 'sass/**/*.sass'], ['build']);
 });
 
 // Build project
-gulp.task('build', ['build-css', 'build-js'], function() {
+gulp.task('build', ['build-css', 'clean-build-js'], function() {
   // Silence is golden
 });
 
