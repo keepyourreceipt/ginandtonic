@@ -4,6 +4,7 @@ body {
   color: #3F3F3F;
   margin-left: 0px;
   max-width: 100%;
+  padding: 1000px 0;
   -moz-transition: margin-left 0.3s ease;
   -o-transition: margin-left 0.3s ease;
   -webkit-transition: margin-left 0.3s ease;

@@ -29,4 +29,11 @@ jQuery(document).ready(function($) {
     toggleOffCanvasNav();
   }
 
+  // Waypoints
+  var waypoints = $('#inview-example').waypoint(function(direction) {
+
+  }, {
+    offset: '25%'
+  })
+
 });

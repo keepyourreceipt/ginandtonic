@@ -26,7 +26,10 @@ gulp.task('install-bower', ['copyBowerCSS', 'copyBowerJS', 'copyBowerFonts'], fu
     });
 
     gulp.task('copyBowerJS', function() {
-      return gulp.src('bower_components/bootstrap/dist/js/bootstrap.js')
+      return gulp.src([
+        'bower_components/bootstrap/dist/js/bootstrap.js',
+        'bower_components/waypoints/lib/jquery.waypoints.js'
+        ])
         .pipe(gulp.dest('js'));
     });
 
