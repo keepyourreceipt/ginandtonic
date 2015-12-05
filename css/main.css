@@ -1,6 +1,5 @@
 body {
   font-size: 16px;
-  font-family: "proxima-nova-soft", sans-serif;
   font-style: normal;
   color: #3F3F3F;
   margin-left: 0px;
@@ -14,12 +13,51 @@ body.menu-open {
   margin-left: -200px;
 }
 
+h1 {
+  font-size: 2em;
+  padding-bottom: 0.9em;
+}
+
+h2 {
+  font-size: 1.6em;
+  padding-bottom: 0.8em;
+}
+
+h3 {
+  font-size: 1.4em;
+  padding-bottom: 0.7em;
+}
+
+h4, h5, h6 {
+  font-size: 1.2em;
+  padding-bottom: 0.5em;
+}
+
+p,
+.jumbotron p {
+  font-size: 1.15em;
+  line-height: 1.25em;
+  padding-bottom: 0.5em;
+}
+
+a {
+  text-decoration: none;
+  color: #333333;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+a:hover {
+  color: #699EBF;
+}
+
 .off-canvas-menu {
   background-color: #efefef;
   display: inline-block;
   height: 100%;
   position: fixed;
-  top: 20px;
+  top: 0px;
   right: -240px;
   max-width: 240px;
   z-index: 999;
@@ -38,7 +76,7 @@ body.menu-open {
   background: #D8DACC;
   position: absolute;
   left: -50px;
-  top: 20px;
+  top: 40px;
   cursor: pointer;
 }
 .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-one, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-two, .off-canvas-menu .off-canvas-menu-opener .off-canvas-nav-opener-bar-three {
@@ -99,4 +137,40 @@ body.menu-open {
 }
 .off-canvas-nav .sub-menu.sub-menu-active {
   height: auto;
+}
+
+.footer-copyright {
+  text-align: left;
+  font-size: 0.75em;
+}
+@media screen and (max-width: 768px) {
+  .footer-copyright {
+    text-align: center;
+  }
+}
+
+.footer-social-media {
+  text-align: center;
+}
+.footer-social-media a {
+  padding: 0 5px;
+  text-decoration: none;
+  color: #333333;
+  -moz-transition: color 0.3s ease;
+  -o-transition: color 0.3s ease;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+.footer-social-media a:hover {
+  color: #699EBF;
+}
+
+.footer-back-to-top {
+  text-align: right;
+  font-size: 0.75em;
+}
+@media screen and (max-width: 768px) {
+  .footer-back-to-top {
+    text-align: center;
+  }
 }

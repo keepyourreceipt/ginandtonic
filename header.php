@@ -6,12 +6,22 @@
         <title><?php wp_title(); ?></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="https://use.typekit.net/buc6qub.js"></script>
-        <script>try{Typekit.load({ async: true });}catch(e){}</script>
+        <?php
+          if( the_field('primary_font_scripts', 'option') ) {
+            the_field('primary_font_scripts', 'option');
+          }
+          ?>
     <?php wp_head(); ?>
     </head>
     <body>
-
+      <?php
+        if( get_field('primary_font_family', 'option') ) { ?>
+          <style media="screen">
+            body { font-family: <?php the_field('primary_font_family', 'option'); ?>; }
+          </style>
+        <?php
+        }
+      ?>
       <div class="off-canvas-menu">
         <div class="off-canvas-menu-opener">
           <span class="off-canvas-nav-opener-bar-one"></span>

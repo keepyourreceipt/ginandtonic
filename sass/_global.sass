@@ -1,7 +1,6 @@
 
 body
   font-size: 16px
-  font-family: $primary-font-family
   font-style: normal
   color: $dark-grey
   margin-left: 0px
@@ -10,3 +9,33 @@ body
 
   &.menu-open
     margin-left: -200px
+
+h1
+  font-size: 2em
+  padding-bottom: 0.9em
+
+h2
+  font-size: 1.6em
+  padding-bottom: 0.8em
+
+h3
+  font-size: 1.4em
+  padding-bottom: 0.7em
+
+h4, h5, h6
+  font-size: 1.2em
+  padding-bottom: 0.5em
+
+p,
+.jumbotron p
+  font-size: 1.15em
+  line-height: 1.25em
+  padding-bottom: 0.5em
+
+a
+  text-decoration: none
+  color: $body-copy
+  @include transition( color 0.3s ease )
+
+  &:hover
+    color: $light-blue
