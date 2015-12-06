@@ -70,10 +70,10 @@ gulp.task('build-css', ['combine-css'], function() {
 
 // Build js
 
-gulp.task('clean-build-js', ['minify-js'], function () {
-	return gulp.src('js/tmp', {read: false})
-		.pipe(clean());
-});
+// gulp.task('clean-build-js', ['minify-js'], function () {
+// 	return gulp.src('js/tmp', {read: false})
+// 		.pipe(clean());
+// });
 
       gulp.task('minify-js', ['combine-js'], function() {
         return gulp.src('js/tmp/combined.js')
@@ -85,6 +85,7 @@ gulp.task('clean-build-js', ['minify-js'], function () {
         return gulp.src([
           'bower_components/bootstrap/dist/js/bootstrap.js',
           'bower_components/waypoints/lib/jquery.waypoints.js',
+          'bower_components/scrollme/jquery.scrollme.js',
           'js/main.js'
         ])
           .pipe(concat('combined.js'))
@@ -104,7 +105,7 @@ gulp.task('watch', function() {
 });
 
 // Build project
-gulp.task('build', ['build-css', 'clean-build-js'], function() {
+gulp.task('build', ['build-css', 'minify-js'], function() {
   // Silence is golden
 });
 

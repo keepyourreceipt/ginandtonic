@@ -29,7 +29,7 @@
         <?php } ?>
       </div>
       <div class="col-sm-3 footer-back-to-top">
-        <a href="#">
+        <a data-animate-scroll href="#">
           Back to Top
         </a>
       </div>

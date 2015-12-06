@@ -1,5 +1,12 @@
 jQuery(document).ready(function($) {
 
+  // Set scroll to top link functionality
+  $('a[data-animate-scroll]').on('click', function() {
+    $('html, body').animate({
+      scrollTop:0
+    }, 1400, 'ease');
+  });
+
   function toggleNavSubMenus() {
     var parentLink = $('.menu-item-has-children');
     var subMenuContainer = parentLink.find('.sub-menu');
