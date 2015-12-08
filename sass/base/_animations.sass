@@ -1,5 +1,5 @@
 
-.waypoint
+.waypoint-bottom-to-top
   opacity: 0
   @include transition( all 0.8s ease )
   @include transform( translateY( 60px ) )
@@ -7,3 +7,37 @@
   &.waypoint-active
     opacity: 1
     @include transform( translateY( 0px ) )
+
+.waypoint-left-to-right
+  opacity: 0
+  @include transition( all 0.8s ease )
+  @include transform( translatex( -60px ) )
+
+  &.waypoint-active
+    opacity: 1
+    @include transform( translateX( 0px ) )
+
+.waypoint-right-to-left
+  opacity: 0
+  @include transition( all 0.8s ease )
+  @include transform( translatex( 60px ) )
+
+  &.waypoint-active
+    opacity: 1
+    @include transform( translateX( 0px ) )
+
+.waypoint-fade
+  opacity: 0.3
+  @include transition( all 0.8s ease )
+
+  &.waypoint-active
+    opacity: 1
+
+.anim-time-long
+  @include transition( all 0.8s ease 0.3s )
+
+.anim-time-medium
+  @include transition( all 0.8s ease 0.1s )
+
+.anim-time-short
+  @include transition( all 0.8s ease )
