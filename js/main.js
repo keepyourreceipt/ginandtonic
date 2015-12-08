@@ -1,5 +1,9 @@
 jQuery(document).ready(function($) {
 
+  FastClick.attach(document.body);
+
+  $.stellar();
+
   // Set scroll to top link functionality
   $('a[data-animate-scroll]').on('click', function() {
     $('html, body').animate({

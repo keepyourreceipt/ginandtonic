@@ -1,5 +1,5 @@
 <?php $background_image = get_sub_field('background_image'); ?>
-<div class="jumbotron image-banner" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
+<div class="jumbotron image-banner parallax" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
   <div class="image-overlay">
     <?php // Image overlay ?>
   </div>

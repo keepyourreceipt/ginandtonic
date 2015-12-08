@@ -13,47 +13,37 @@ var uglify      = require('gulp-uglify');
 // Initi live reload server
 livereload({ start: true })
 
-gulp.task('install-bower', ['copyBowerCSS', 'copyBowerJS', 'copyBowerFonts'], function() {
-  // Silence is golden
+gulp.task('copyBowerFonts', function() {
+  return gulp.src([
+    'bower_components/bootstrap/dist/fonts/**.*',
+    'bower_components/components-font-awesome/fonts/**.*'
+  ])
+    .pipe(gulp.dest('css/fonts'));
 });
-
-    gulp.task('copyBowerCSS', function() {
-      return gulp.src([
-        'bower_components/bootstrap/dist/css/bootstrap.css',
-        'bower_components/components-font-awesome/css/font-awesome.css'
-      ])
-        .pipe(gulp.dest('css'));
-    });
-
-    gulp.task('copyBowerJS', function() {
-      return gulp.src([
-        'bower_components/bootstrap/dist/js/bootstrap.js',
-        'bower_components/waypoints/lib/jquery.waypoints.js'
-        ])
-        .pipe(gulp.dest('js'));
-    });
-
-    gulp.task('copyBowerFonts', function() {
-      return gulp.src([
-        'bower_components/bootstrap/dist/fonts/**.*',
-        'bower_components/components-font-awesome/fonts/**.*'
-      ])
-        .pipe(gulp.dest('css/fonts'));
-    });
-
 
 // Build CSS
-gulp.task('build-css', ['combine-css'], function() {
-  return gulp.src('css/dist/combined.css')
-    .pipe(minifyCss({compatibility: 'ie8'}))
-    .pipe(gulp.dest('css/dist/'))
-    .pipe(livereload());
+gulp.task('clean-build-css', ['minify-css'], function () {
+	return gulp.src('css/tmp', {read: false})
+		.pipe(clean());
 });
 
+      gulp.task('minify-css', ['combine-css'], function() {
+        return gulp.src('css/tmp/combined.css')
+          .pipe(minifyCss({compatibility: 'ie8'}))
+          .pipe(gulp.dest('css/dist/'))
+          .pipe(livereload());
+      });
+
       gulp.task('combine-css', ['compass'], function () {
-        return gulp.src('css/*.css')
-          .pipe(concatCss("combined.css"))
-          .pipe(gulp.dest('css/dist/'));
+        return gulp.src([
+            'bower_components/bootstrap/dist/css/bootstrap.css',
+            'bower_components/components-font-awesome/css/font-awesome.css',
+            'css/main.css',
+          ])
+          .pipe(concatCss("combined.css", {
+            rebaseUrls: false
+          }))
+          .pipe(gulp.dest('css/tmp/'));
       });
 
       gulp.task('compass', function() {
@@ -62,18 +52,16 @@ gulp.task('build-css', ['combine-css'], function() {
             config_file: 'config.rb',
             css: 'css',
             sass: 'sass'
-
           }))
           .pipe(gulp.dest('css'));
       });
 
 
 // Build js
-
-// gulp.task('clean-build-js', ['minify-js'], function () {
-// 	return gulp.src('js/tmp', {read: false})
-// 		.pipe(clean());
-// });
+gulp.task('clean-build-js', ['minify-js'], function () {
+	return gulp.src('js/tmp', {read: false})
+		.pipe(clean());
+});
 
       gulp.task('minify-js', ['combine-js'], function() {
         return gulp.src('js/tmp/combined.js')
@@ -85,6 +73,8 @@ gulp.task('build-css', ['combine-css'], function() {
         return gulp.src([
           'bower_components/bootstrap/dist/js/bootstrap.js',
           'bower_components/waypoints/lib/jquery.waypoints.js',
+          'bower_components/jquery.stellar/jquery.stellar.js',
+          'bower_components/fastclick/lib/fastclick.js',
           'bower_components/scrollme/jquery.scrollme.js',
           'js/main.js'
         ])
@@ -105,7 +95,7 @@ gulp.task('watch', function() {
 });
 
 // Build project
-gulp.task('build', ['build-css', 'minify-js'], function() {
+gulp.task('build', ['clean-build-css', 'clean-build-js'], function() {
   // Silence is golden
 });
 

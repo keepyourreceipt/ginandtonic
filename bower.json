@@ -20,7 +20,7 @@
     "components-font-awesome": "~4.5.0",
     "waypoints": "~4.0.0",
     "fastclick": "~1.0.6",
-    "scrollme": "~1.1.0"
+    "jquery.stellar": "~0.6.2"
   },
   "dependencies": {
     "slick-carousel": "~1.5.9"
