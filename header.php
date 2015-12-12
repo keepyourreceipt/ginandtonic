@@ -10,6 +10,9 @@
           if( the_field('primary_font_scripts', 'option') ) {
             the_field('primary_font_scripts', 'option');
           }
+          if( the_field('secondary_font_scripts', 'option') ) {
+            the_field('secondary_font_scripts', 'option');
+          }
           ?>
     <?php wp_head(); ?>
     </head>
@@ -18,6 +21,14 @@
         if( get_field('primary_font_family', 'option') ) { ?>
           <style media="screen">
             body { font-family: <?php the_field('primary_font_family', 'option'); ?>; }
+          </style>
+        <?php
+        }
+      ?>
+      <?php
+        if( get_field('secondary_font_family', 'option') ) { ?>
+          <style media="screen">
+            h1 { font-family: <?php the_field('secondary_font_family', 'option'); ?>; }
           </style>
         <?php
         }

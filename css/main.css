@@ -177,6 +177,14 @@ img {
   opacity: 0.6;
 }
 
+.text-center {
+  text-align: center;
+}
+
+.opacity-lighten {
+  opacity: 0.8;
+}
+
 .uniform-col-height {
   display: -webkit-box;
   display: -webkit-flex;
@@ -323,22 +331,18 @@ footer.jumbotron {
   padding: 5em 0;
 }
 .blog-posts .featured-image {
-  height: 60vh;
   background-size: cover;
   background-position: 50%;
   opacity: 0.8;
 }
 .blog-posts .post-excerpt {
-  height: 35vh;
   margin-bottom: 5vh;
   min-height: 226px;
 }
 .blog-posts .post-category {
-  height: 20vh;
   background-color: #699EBF;
 }
 .blog-posts .post-read-more {
-  height: 20vh;
   background-color: #699EBF;
 }
 .blog-posts img {
@@ -368,7 +372,14 @@ footer.jumbotron {
   z-index: 2;
   color: #efefef;
 }
+.image-banner .table.banner-text-container h1 {
+  padding-bottom: 10px;
+}
 
+.call-to-action {
+  background-position: center;
+  background-size: cover;
+}
 .call-to-action .text-content {
   padding: 2.5em 2em;
 }

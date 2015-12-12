@@ -38,7 +38,7 @@ gulp.task('clean-build-css', ['minify-css'], function () {
         return gulp.src([
             'bower_components/bootstrap/dist/css/bootstrap.css',
             'bower_components/components-font-awesome/css/font-awesome.css',
-            'bower_components/slick-carousel/slick/slick.css',
+            'bower_components/slick-carousel/slick/slick.css',            
             'css/main.css',
           ])
           .pipe(concatCss("combined.css", {

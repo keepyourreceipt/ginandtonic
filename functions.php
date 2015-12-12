@@ -3,6 +3,7 @@
 // Add theme support for optional Wordpress features
 function ginandtonic_setup() {
 	add_theme_support( 'menus' );
+	add_theme_support( 'widgets' );
 }
 add_action( 'after_setup_theme', 'ginandtonic_setup' );
 
@@ -44,3 +45,18 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
+
+
+function blog_sidebar_init() {
+
+	register_sidebar( array(
+		'name'          => 'Blog Sidebar',
+		'id'            => 'blog_sidebar',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'blog_sidebar_init' );

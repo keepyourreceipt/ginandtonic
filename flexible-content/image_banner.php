@@ -8,8 +8,12 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <h2 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_heading'); ?></h2>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-long"><?php the_sub_field('text_sub_heading'); ?></h4>
+            <?php if( get_sub_field('heading_style') == "Use Primary Font" ) { ?>
+              <h2 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_heading'); ?></h2>
+            <?php } else { ?>
+              <h1 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading'); ?></h1>
+            <?php } ?>
+            <h4 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_sub_heading'); ?></h4>
           </div>
         </div>
       </div>
