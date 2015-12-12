@@ -27,13 +27,26 @@ function woocommerce_support() {
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
-		'page_title' 	=> 'Theme Settings',
-		'menu_title'	=> 'Theme Settings',
+		'page_title' 	=> 'Global Content',
+		'menu_title'	=> 'Global Content',
 		'menu_slug' 	=> 'theme-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
 		'icon_url' => 'dashicons-admin-site',
 		'position' => 3
+	));
+}
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Shop Page',
+		'menu_title'	=> 'Shop Page',
+		'menu_slug' 	=> 'shop-page',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'icon_url' => 'dashicons-products',
+		'position' => 4
 	));
 }
 

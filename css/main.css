@@ -181,8 +181,26 @@ img {
   text-align: center;
 }
 
+.linked_buttons {
+  margin-top: 1.5em;
+}
+.linked_buttons a {
+  padding: 0.6em 0.8em;
+  border-radius: 4px;
+  text-align: center;
+  border: solid #D8DACC 1px;
+  background-color: #efefef;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
 .opacity-lighten {
   opacity: 0.8;
+}
+
+.slick-arrow,
+.slick-dots {
+  display: none !important;
 }
 
 .uniform-col-height {
@@ -382,4 +400,11 @@ footer.jumbotron {
 }
 .call-to-action .text-content {
   padding: 2.5em 2em;
+}
+
+.woo-commerce ul {
+  list-style: none;
+}
+.woo-commerce ul li {
+  list-style: none;
 }

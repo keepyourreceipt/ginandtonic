@@ -13,7 +13,28 @@
             <?php } else { ?>
               <h1 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading'); ?></h1>
             <?php } ?>
-            <h4 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_sub_heading'); ?></h4>
+            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_sub_heading'); ?></h4>
+            <?php
+              if( have_rows('buttons') ) { ?>
+                <div class="linked_buttons">
+                  <?php
+                  while ( have_rows('buttons') ) : the_row();
+                    if( get_sub_field('link_type') == "Link to a Page on This Website" ) {
+                      $button_link = get_sub_field('page_to_link_to');
+                      $link_target = null;
+                    } else {
+                      $button_link = get_sub_field('external_website_link');
+                      $link_target = "_blank";
+                    }
+                    ?>
+                      <a class="waypoint waypoint-bottom-to-top anim-time-long" href="<?php echo $button_link ?>" <?php if( $link_target != null ) { echo $link_target; } ?>><?php the_sub_field('button_text'); ?></a>
+                    <?php
+                  endwhile;
+                ?>
+                </div>
+                <?php
+                }
+              ?>
           </div>
         </div>
       </div>
