@@ -1,7 +1,8 @@
 jQuery(document).ready(function($) {
 
-  FastClick.attach(document.body);
+  $('.slide').slick();
 
+  FastClick.attach(document.body);
   $.stellar();
 
   // Set scroll to top link functionality
