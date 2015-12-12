@@ -14,7 +14,7 @@ if( have_rows('flexible_content') ) {
 
     <div class="row">
       <div class="container">
-        <?php the_content(); ?>
+        <h2>This page has no content. Click "Edit Page" to continue.</h2>
       </div>
     </div>
 
