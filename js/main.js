@@ -46,9 +46,9 @@ jQuery(document).ready(function($) {
     });
   }
 
-  if( $('.menu-item-has-children').length ) {
-    toggleNavSubMenus();
-  }
+  // if( $('.menu-item-has-children').length ) {
+  //   toggleNavSubMenus();
+  // }
 
   function toggleOffCanvasNav() {
     var navOpener = $('.off-canvas-menu-opener');
@@ -60,9 +60,28 @@ jQuery(document).ready(function($) {
     });
   }
 
-  if( $('.off-canvas-menu').length ) {
-    toggleOffCanvasNav();
+  // if( $('.off-canvas-menu').length ) {
+  //   toggleOffCanvasNav();
+  // }
+
+
+  if( $('.nav-fixed-top').length ) {
+    $(window).on('scroll', function() {
+      if( $(window).scrollTop() > 10 ) {
+        $('.nav-fixed-top').addClass('active');
+      } else {
+        $('.nav-fixed-top').removeClass('active');
+      }
+    });
   }
+
+  $('.nav-fixed-top ul li').on('mouseenter', function() {
+    $(this).find('.sub-menu').fadeIn(200).addClass('sub-menu-active');
+  });
+
+  $('.nav-fixed-top ul li').on('mouseleave', function() {
+    $(this).find('.sub-menu').slideUp().removeClass('sub-menu-active');
+  });
 
   // Waypoints
   $('.waypoint').each(function() {

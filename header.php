@@ -33,32 +33,59 @@
         <?php
         }
       ?>
-      <div class="off-canvas-menu">
-        <div class="off-canvas-menu-opener">
-          <span class="off-canvas-nav-opener-bar-one"></span>
-          <span class="off-canvas-nav-opener-bar-two"></span>
-          <span class="off-canvas-nav-opener-bar-three"></span>
-        </div>
-        <?php
-          $defaults = array(
-          	'theme_location'  => '',
-          	'menu'            => '',
-          	'container'       => 'div',
-          	'container_class' => 'off-canvas-nav',
-          	'container_id'    => '',
-          	'menu_class'      => 'menu',
-          	'menu_id'         => '',
-          	'echo'            => true,
-          	'fallback_cb'     => 'wp_page_menu',
-          	'before'          => '',
-          	'after'           => '',
-          	'link_before'     => '',
-          	'link_after'      => '',
-          	'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-          	'depth'           => 0,
-          	'walker'          => ''
-          );
+      <?php if( get_field('menu_style', 'option') == "Fixed Top" ) { ?>
+        <div class="nav-fixed-top">
+          <?php
+            $defaults = array(
+              'theme_location'  => '',
+              'menu'            => '',
+              'container'       => 'div',
+              'container_class' => 'nav-fixed-top-inner',
+              'container_id'    => '',
+              'menu_class'      => 'menu',
+              'menu_id'         => '',
+              'echo'            => true,
+              'fallback_cb'     => 'wp_page_menu',
+              'before'          => '',
+              'after'           => '',
+              'link_before'     => '',
+              'link_after'      => '',
+              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+              'depth'           => 0,
+              'walker'          => ''
+            );
 
-          wp_nav_menu( $defaults );
-          ?>
-      </div>
+            wp_nav_menu( $defaults );
+            ?>
+        </div>
+      <?php } else { ?>
+        <div class="off-canvas-menu">
+          <div class="off-canvas-menu-opener">
+            <span class="off-canvas-nav-opener-bar-one"></span>
+            <span class="off-canvas-nav-opener-bar-two"></span>
+            <span class="off-canvas-nav-opener-bar-three"></span>
+          </div>
+          <?php
+            $defaults = array(
+              'theme_location'  => '',
+              'menu'            => '',
+              'container'       => 'div',
+              'container_class' => 'off-canvas-nav',
+              'container_id'    => '',
+              'menu_class'      => 'menu',
+              'menu_id'         => '',
+              'echo'            => true,
+              'fallback_cb'     => 'wp_page_menu',
+              'before'          => '',
+              'after'           => '',
+              'link_before'     => '',
+              'link_after'      => '',
+              'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+              'depth'           => 0,
+              'walker'          => ''
+            );
+
+            wp_nav_menu( $defaults );
+            ?>
+        </div>
+      <?php } ?>

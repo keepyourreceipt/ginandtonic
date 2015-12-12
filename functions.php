@@ -90,3 +90,11 @@ function custom_pre_get_posts( $q ) {
     }
     remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 }
+
+
+function clean_up_admin_menu() {
+    remove_menu_page( 'tools.php' );
+		// remove_menu_page( 'plugins.php' );
+		// remove_menu_page( 'options-general.php' );
+}
+add_action( 'admin_menu', 'clean_up_admin_menu' );
