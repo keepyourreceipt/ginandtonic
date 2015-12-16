@@ -40,7 +40,9 @@
             $company_logo = $company_logo_obj['sizes']['nav-logo'];
           ?>
           <div class="company-logo">
-            <img src="<?php echo $company_logo; ?>" alt="" />
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+              <img src="<?php echo $company_logo; ?>" alt="" />
+            </a>
           </div>
           <?php
             $defaults = array(

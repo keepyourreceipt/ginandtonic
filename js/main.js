@@ -1,5 +1,19 @@
 jQuery(document).ready(function($) {
 
+  $('.ajax-submit-button').on('click', function(e) {
+    e.preventDefault();
+    var $url   = $(this).attr('href'),
+        $this   = $(this);
+    $.ajax({
+      type: "POST",
+      url: $url,
+      success: function() {
+        $this.siblings('.added-to-cart-message').addClass('active');
+      }
+    });
+  });
+
+
   $('.three-column-slider').slick({
     infinite: true,
     slidesToShow: 3,

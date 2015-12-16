@@ -169,6 +169,13 @@ img {
   vertical-align: middle;
 }
 
+.added-to-cart-message {
+  display: none;
+}
+.added-to-cart-message.active {
+  display: block;
+}
+
 .image-overlay {
   position: absolute;
   top: 0px;
@@ -508,6 +515,21 @@ footer.jumbotron {
 }
 .call-to-action .text-content {
   padding: 2.5em 2em;
+}
+
+.latest-products {
+  padding: 10vh 0;
+}
+
+.contact-form {
+  padding: 5vh 0;
+}
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  border-bottom: solid 1px #efefef;
+  outline: none;
+  width: 100%;
 }
 
 .woo-commerce ul {
