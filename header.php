@@ -36,6 +36,13 @@
       <?php if( get_field('menu_style', 'option') == "Fixed Top" ) { ?>
         <div class="nav-fixed-top">
           <?php
+            $company_logo_obj = get_field('company_logo', 'option');
+            $company_logo = $company_logo_obj['sizes']['nav-logo'];
+          ?>
+          <div class="company-logo">
+            <img src="<?php echo $company_logo; ?>" alt="" />
+          </div>
+          <?php
             $defaults = array(
               'theme_location'  => '',
               'menu'            => '',

@@ -4,12 +4,38 @@
   position: fixed
   top: 0
   z-index: 999
-  background-color: #efefef
+  background-color: rgba( 255,255,255,0.8 )
   width: 100%
   padding: 0em 6em
   backface-visibility: hidden
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0,0,0) )
+  @include transition( all 0.3s ease )
+  border-bottom: solid 1px #eee
+
+  &.active
+    background-color: rgba( 255,255,255,1 )
+
+    .company-logo
+      line-height: 60px
+      height: 50px
+
+    ul
+      &.sub-menu
+        top: 60px
+
+      li
+        line-height: 60px
+
+  .company-logo
+    display: inline-block
+    line-height: 80px
+    height: 60px
+    @include transition( all 0.3s ease )
+
+    img
+      height: 100%
+      width: auto
 
   .nav-fixed-top-inner
     float: right
@@ -21,23 +47,37 @@
     li
       display: inline-block
       width: auto
-      line-height: 60px
+      line-height: 80px
       padding: 0 1em
       position: relative
+      @include transition( line-height 0.3s ease )
+
+      &.menu-item-has-children
+        &:after
+          content: "\f078"
+          font-size: 0.6em
+          vertical-align: middle
+          padding-left: 5px
+          font-family: FontAwesome
+          width: auto
+          height: auto
+          display: inline-block
 
       ul.sub-menu
         position: absolute
-        padding-left: 0
+        padding: 1em 1em 1em 0
         margin-left: 0
-        top: 60px
-        min-width: 150px
+        top: 80px
+        min-width: 170px
         background-color: #eeeeee
         opacity: 0
-        @include transition( all 0.3s ease )
+        pointer-events: none
+        @include transition( all 0.25s ease )
         @include transform( translateY( 20px ) )
 
         &.sub-menu-active
           opacity: 1
+          pointer-events: inherit
           @include transform( translateY( 0px ) )
 
         li

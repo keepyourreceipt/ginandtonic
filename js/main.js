@@ -76,11 +76,11 @@ jQuery(document).ready(function($) {
   }
 
   $('.nav-fixed-top ul li').on('mouseenter', function() {
-    $(this).find('.sub-menu').fadeIn(200).addClass('sub-menu-active');
+    $(this).find('.sub-menu').addClass('sub-menu-active');
   });
 
   $('.nav-fixed-top ul li').on('mouseleave', function() {
-    $(this).find('.sub-menu').slideUp().removeClass('sub-menu-active');
+    $(this).find('.sub-menu').removeClass('sub-menu-active');
   });
 
   // Waypoints

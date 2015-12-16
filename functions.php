@@ -58,6 +58,7 @@ add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
+add_image_size( 'nav-logo', 140, 80, false );
 
 
 function blog_sidebar_init() {
