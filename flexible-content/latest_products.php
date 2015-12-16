@@ -8,6 +8,6 @@
         <a href="<?php echo $_SERVER['REQUEST_URI'] . '/?add-to-cart=' . get_the_ID(); ?>">Buy</a>
       </div>
 
-    <?php endwhile; ?>
+    <?php wp_reset_query(); endwhile; ?>
   </div>
 </div>
