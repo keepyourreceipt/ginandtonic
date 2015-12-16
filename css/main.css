@@ -232,7 +232,7 @@ img {
   position: fixed;
   top: 0;
   z-index: 999;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 100%;
   padding: 0em 6em;
   backface-visibility: hidden;
@@ -500,7 +500,7 @@ footer.jumbotron {
 }
 .image-banner .table.banner-text-container {
   height: auto;
-  min-height: 70vh;
+  min-height: 50vh;
   position: relative;
   z-index: 2;
   color: #efefef;

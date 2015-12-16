@@ -1,5 +1,8 @@
 jQuery(document).ready(function($) {
 
+
+  $('.contact-form form p').addClass( 'waypoint waypoint-bottom-to-top anim-time-medium' );
+
   $('.ajax-submit-button').on('click', function(e) {
     e.preventDefault();
     var $url   = $(this).attr('href'),

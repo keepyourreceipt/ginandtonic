@@ -8,7 +8,7 @@
         ?>
           <div class="col-md-4">
             <a class="waypoint waypoint-bottom-to-top" href="<?php the_permalink(); ?>">
-              <?php the_post_thumbnail( 'post-listing' ); ?>
+              <?php the_post_thumbnail( 'post-listing', array( 'class' => 'waypoint waypoint-bottom-to-top anim-time-short' ) ); ?>
             </a>
             <h3 class="waypoint waypoint-bottom-to-top">
               <a href="<?php the_permalink(); ?>">
