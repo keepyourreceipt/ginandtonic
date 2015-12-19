@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-
 <div class="image-banner">
   <?php $background_image = get_field('shop_background_image', 'option'); ?>
   <div class="jumbotron waypoint waypoint waypoint-fade anim-time-short" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
@@ -10,11 +9,7 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <?php if( get_sub_field('heading_style') == "Use Primary Font" ) { ?>
-              <h2 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('shop_text_heading', 'option'); ?></h2>
-            <?php } else { ?>
-              <h1 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('shop_text_heading', 'option'); ?></h1>
-            <?php } ?>
+            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('shop_text_heading', 'option'); ?></h1>
             <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('shop_text_sub_heading', 'option'); ?></h4>
             <?php
               if( have_rows('buttons') ) { ?>

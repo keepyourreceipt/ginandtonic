@@ -46,7 +46,20 @@ if( function_exists('acf_add_options_page') ) {
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
 		'icon_url' => 'dashicons-products',
-		'position' => 4
+		'position' => 6
+	));
+}
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'News Page',
+		'menu_title'	=> 'News Page',
+		'menu_slug' 	=> 'news-page',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false,
+		'icon_url' => 'dashicons-list-view',
+		'position' => 9
 	));
 }
 
@@ -99,3 +112,5 @@ function clean_up_admin_menu() {
 		// remove_menu_page( 'options-general.php' );
 }
 add_action( 'admin_menu', 'clean_up_admin_menu' );
+
+add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );

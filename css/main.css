@@ -460,8 +460,13 @@ footer.jumbotron {
   }
 }
 
+.list-blog-posts {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+}
+
 .blog-posts {
-  padding: 5em 0;
+  padding: 5vh 0;
 }
 .blog-posts .featured-image {
   background-size: cover;
@@ -500,6 +505,7 @@ footer.jumbotron {
 }
 .image-banner .table.banner-text-container {
   height: auto;
+  padding-top: 8vh;
   min-height: 50vh;
   position: relative;
   z-index: 2;
@@ -507,6 +513,12 @@ footer.jumbotron {
 }
 .image-banner .table.banner-text-container h1 {
   padding-bottom: 10px;
+}
+
+.blog .image-banner .table.banner-text-container,
+.post-type-archive-product .image-banner .table.banner-text-container {
+  padding-top: 8vh;
+  min-height: 40vh;
 }
 
 .call-to-action {
@@ -537,4 +549,8 @@ footer.jumbotron {
 }
 .woo-commerce ul li {
   list-style: none;
+}
+
+.product img {
+  width: 100%;
 }

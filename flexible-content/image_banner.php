@@ -6,7 +6,8 @@
     </div>
     <div class="container">
       <div class="row">
-        <div class="table banner-text-container">
+        <?php $content_row_height = get_sub_field('content_row_height'); ?>
+        <div class="table banner-text-container" style="min-height: <?php echo $content_row_height; ?>";>
           <div class="table-cell banner-text">
             <?php if( get_sub_field('heading_style') == "Use Primary Font" ) { ?>
               <h2 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_heading'); ?></h2>

@@ -16,7 +16,7 @@
           ?>
     <?php wp_head(); ?>
     </head>
-    <body>
+    <body <?php body_class(); ?>>
       <?php
         if( get_field('primary_font_family', 'option') ) { ?>
           <style media="screen">
