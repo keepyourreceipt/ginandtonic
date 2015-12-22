@@ -47,6 +47,13 @@
             <?php the_excerpt(); ?>
           </div>
       <?php endwhile; ?>
+      <?php
+          $args = array(
+            'prev_text' => __('<'),
+            'next_text' => __('>')
+          );
+          echo ( paginate_links( $args ));
+      ?>
     </div>
     <div class="col-sm-4 widget-sidebar">
       <?php get_sidebar( 'blog_sidebar' ); ?>

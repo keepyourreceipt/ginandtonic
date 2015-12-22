@@ -163,6 +163,7 @@ img {
 
 .table {
   display: table;
+  margin-bottom: 0;
 }
 .table .table-cell {
   display: table-cell;
@@ -505,7 +506,6 @@ footer.jumbotron {
 }
 .image-banner .table.banner-text-container {
   height: auto;
-  padding-top: 8vh;
   min-height: 50vh;
   position: relative;
   z-index: 2;
