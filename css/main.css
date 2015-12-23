@@ -157,12 +157,12 @@ img {
   height: auto;
 }
 
-.jumbotron {
-  margin-bottom: 0px !important;
+.page-content {
+  min-height: 82vh;
 }
 
-.sidebar {
-  margin-top: 5vh;
+.jumbotron {
+  margin-bottom: 0px !important;
 }
 
 .table {
@@ -470,6 +470,27 @@ footer.jumbotron {
   margin-bottom: 5vh;
 }
 
+.sidebar h2 {
+  margin-bottom: 0;
+  padding-bottom: 1vh;
+  margin-top: 0;
+}
+.sidebar ul {
+  list-style: none;
+  padding-left: 0;
+}
+.sidebar ul li {
+  list-style: none;
+  line-height: 1.6em;
+}
+.sidebar ul li ul li::before {
+  content: "";
+  font-family: FontAwesome;
+  font-size: 0.75em;
+  vertical-align: middle;
+  padding-right: 5px;
+}
+
 .blog-posts {
   padding: 5vh 0;
 }
@@ -558,10 +579,13 @@ footer.jumbotron {
   width: auto;
 }
 
-.woo-commerce ul {
+.page-content .woocommerce {
+  padding: 5vh 0;
+}
+.page-content .woocommerce ul {
   list-style: none;
 }
-.woo-commerce ul li {
+.page-content .woocommerce ul li {
   list-style: none;
 }
 

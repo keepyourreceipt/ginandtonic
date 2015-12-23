@@ -41,7 +41,7 @@
 
 <div class="row">
   <div class="container">
-    <div class="col-sm-8">
+    <div class="col-sm-9">
       <?php
       /**
        * The template for displaying product content in the single-product.php template
@@ -121,8 +121,16 @@
 
       <?php do_action( 'woocommerce_after_single_product' ); ?>
     </div>
-    <div class="col-sm-4 sidebar">
-      <?php get_sidebar( 'blog_sidebar' ); ?>
+    <div class="col-sm-3 sidebar">
+      <?php if ( is_active_sidebar( 'products_sidebar' ) ) { ?>
+      	<div class="sidebar widget-area" role="complementary">
+      		<?php dynamic_sidebar( 'products_sidebar' ); ?>
+      	</div>
+      <?php } else { ?>
+        <div class="sidebar widget-area" role="complementary">
+      		<?php get_sidebar( 'blog_sidebar' ); ?>
+      	</div>
+      <?php } ?>
     </div>
   </div>
 </div>

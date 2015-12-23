@@ -1,4 +1,5 @@
 
+</div> <?php // Page content ?>
   <footer class="jumbotron">
     <div class="container">
       <div class="col-sm-3 footer-copyright">

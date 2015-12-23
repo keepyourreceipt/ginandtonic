@@ -77,12 +77,10 @@ add_image_size( 'nav-logo', 140, 80, false );
 function blog_sidebar_init() {
 
 	register_sidebar( array(
-		'name'          => 'Blog Sidebar',
-		'id'            => 'blog_sidebar',
-		'before_widget' => '<div>',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
+		'before_widget' => '<li id="%1$s" class="widget %2$s">',
+		'after_widget' => '</li>',
+		'before_title' => '<h2 class="widgettitle">',
+		'after_title' => '</h2>',
 	) );
 
 }
