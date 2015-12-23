@@ -161,6 +161,10 @@ img {
   margin-bottom: 0px !important;
 }
 
+.sidebar {
+  margin-top: 5vh;
+}
+
 .table {
   display: table;
   margin-bottom: 0;
@@ -544,6 +548,16 @@ footer.jumbotron {
   width: 100%;
 }
 
+.single-product .image-banner .table.banner-text-container {
+  min-height: 25vh;
+  padding-top: 8vh;
+}
+
+.woocommerce ul.products li.product,
+.woocommerce-page ul.products li.product {
+  width: auto;
+}
+
 .woo-commerce ul {
   list-style: none;
 }
@@ -551,6 +565,12 @@ footer.jumbotron {
   list-style: none;
 }
 
+.product {
+  margin-top: 5vh;
+}
 .product img {
   width: 100%;
+}
+.product .thumbnails {
+  width: 33%;
 }

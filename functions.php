@@ -88,6 +88,8 @@ function blog_sidebar_init() {
 }
 add_action( 'widgets_init', 'blog_sidebar_init' );
 
+
+// Remove tickets from default list products
 add_action( 'pre_get_posts', 'custom_pre_get_posts' );
 
 function custom_pre_get_posts( $q ) {
@@ -113,4 +115,15 @@ function clean_up_admin_menu() {
 }
 add_action( 'admin_menu', 'clean_up_admin_menu' );
 
-add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+// Remove Woo Commerce default stylesheet
+// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
+
+// Remove woo commerce sidebar from single products page
+remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
+
+
+add_action( 'init', 'remove_wc_breadcrumbs' );
+function remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
