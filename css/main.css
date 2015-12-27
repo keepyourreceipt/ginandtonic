@@ -136,7 +136,7 @@ h4, h5, h6 {
 p,
 .jumbotron p {
   font-size: 1.15em;
-  line-height: 1.25em;
+  line-height: 1.5em;
   padding-bottom: 0.5em;
 }
 
@@ -199,11 +199,13 @@ img {
   margin-top: 1.5em;
 }
 .linked_buttons a {
-  padding: 0.6em 0.8em;
-  border-radius: 4px;
+  padding: 0.6em 1.2em;
+  border-radius: 2px;
   text-align: center;
   border: solid #D8DACC 1px;
-  background-color: #efefef;
+  background-color: transparent;
+  color: #efefef;
+  margin: 0 0.5em;
   text-transform: uppercase;
   opacity: 0.7;
 }
@@ -230,6 +232,17 @@ img {
 .row.uniform-col-height div {
   background-size: cover;
   background-position: center;
+}
+
+.scroll-indicator {
+  border: solid 1px #efefef;
+  display: inline-block;
+  padding: 10px 12px;
+  border-radius: 50%;
+  -moz-transform: translateY(-5vh);
+  -ms-transform: translateY(-5vh);
+  -webkit-transform: translateY(-5vh);
+  transform: translateY(-5vh);
 }
 
 .nav-fixed-top {
@@ -544,6 +557,40 @@ footer.jumbotron {
 .post-type-archive-product .image-banner .table.banner-text-container {
   padding-top: 8vh;
   min-height: 40vh;
+}
+
+.hero-image .jumbotron {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+  color: #efefef;
+  position: relative;
+}
+.hero-image .table {
+  height: 80vh;
+  position: relative;
+}
+.hero-image .table h1 {
+  padding: 0.1em 0;
+  margin: 0;
+  font-size: 3.5em;
+}
+.hero-image .table h2 {
+  font-size: 1.3em;
+  letter-spacing: 0.05em;
+  padding: 0 2em;
+  font-weight: 300;
+}
+.hero-image .table .linked_buttons {
+  padding-top: 2em;
+}
+
+.text-editor .jumbotron {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
 .call-to-action {

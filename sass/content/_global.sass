@@ -34,7 +34,7 @@ h4, h5, h6
 p,
 .jumbotron p
   font-size: 1.15em
-  line-height: 1.25em
+  line-height: 1.5em
   padding-bottom: 0.5em
 
 a
@@ -85,11 +85,13 @@ img
   margin-top: 1.5em
 
   a
-    padding: 0.6em 0.8em
-    border-radius: 4px
+    padding: 0.6em 1.2em
+    border-radius: 2px
     text-align: center
     border: solid $button-border 1px
-    background-color: $button-inactive
+    background-color: transparent
+    color: $white
+    margin: 0 0.5em
     text-transform: uppercase
     opacity: 0.7
 
@@ -112,3 +114,10 @@ img
   div
     background-size: cover
     background-position: center
+
+.scroll-indicator
+  border: solid 1px $white
+  display: inline-block
+  padding: 10px 12px
+  border-radius: 50%
+  @include transform( translateY(-5vh) )
