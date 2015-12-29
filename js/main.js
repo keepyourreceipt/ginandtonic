@@ -13,6 +13,7 @@ jQuery(document).ready(function($) {
   }
 
   function addWaypointsFormClasses() {
+    $('div.wpcf7').addClass( 'contact-form' );
     $('.contact-form form p').addClass( 'waypoint waypoint-bottom-to-top anim-time-medium' );
   }
 

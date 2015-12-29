@@ -40,8 +40,8 @@ if( function_exists('acf_add_options_page') ) {
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
-		'page_title' 	=> 'Shop Page',
-		'menu_title'	=> 'Shop Page',
+		'page_title' 	=> 'Shop',
+		'menu_title'	=> 'Shop',
 		'menu_slug' 	=> 'shop-page',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
@@ -53,8 +53,8 @@ if( function_exists('acf_add_options_page') ) {
 if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
-		'page_title' 	=> 'News Page',
-		'menu_title'	=> 'News Page',
+		'page_title' 	=> 'News',
+		'menu_title'	=> 'News',
 		'menu_slug' 	=> 'news-page',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
