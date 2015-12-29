@@ -7191,7 +7191,7 @@ jQuery(document).ready(function($) {
   function themeInit() {
     addWaypointsFormClasses();
     ajaxAddProductToCart();
-    initThreeColumnSlider();
+    // initThreeColumnSlider();
     scrollToTop();
     fixedNavTop();
     fixedNavToggleSubNav();
