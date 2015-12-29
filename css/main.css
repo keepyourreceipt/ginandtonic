@@ -1,4 +1,50 @@
 @charset "UTF-8";
+.center-text {
+  text-align: center;
+}
+
+.table {
+  display: table;
+  margin-bottom: 0;
+}
+.table .table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #333;
+  opacity: 0.6;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.opacity-lighten {
+  opacity: 0.8;
+}
+
+.uniform-col-height {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row.uniform-col-height {
+  margin-right: 0;
+}
+.row.uniform-col-height div {
+  background-size: cover;
+  background-position: center;
+}
+
 .waypoint-bottom-to-top {
   opacity: 0;
   -moz-transition: all 0.8s ease;
@@ -114,12 +160,12 @@ body.menu-open {
 
 h1 {
   font-size: 2em;
-  padding-bottom: 0.9em;
+  padding-bottom: 0.6em;
 }
 
 h2 {
   font-size: 1.6em;
-  padding-bottom: 0.8em;
+  padding-bottom: 0.5em;
 }
 
 h3 {
@@ -130,7 +176,7 @@ h3 {
 
 h4, h5, h6 {
   font-size: 1.2em;
-  padding-bottom: 0.5em;
+  padding-bottom: 0.2em;
 }
 
 p,
@@ -165,34 +211,11 @@ img {
   margin-bottom: 0px !important;
 }
 
-.table {
-  display: table;
-  margin-bottom: 0;
-}
-.table .table-cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
 .added-to-cart-message {
   display: none;
 }
 .added-to-cart-message.active {
   display: block;
-}
-
-.image-overlay {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  background-color: #333;
-  opacity: 0.6;
-}
-
-.text-center {
-  text-align: center;
 }
 
 .linked_buttons {
@@ -210,28 +233,9 @@ img {
   opacity: 0.7;
 }
 
-.opacity-lighten {
-  opacity: 0.8;
-}
-
 .slick-arrow,
 .slick-dots {
   display: none !important;
-}
-
-.uniform-col-height {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.row.uniform-col-height {
-  margin-right: 0;
-}
-.row.uniform-col-height div {
-  background-size: cover;
-  background-position: center;
 }
 
 .scroll-indicator {
@@ -557,6 +561,11 @@ footer.jumbotron {
 .post-type-archive-product .image-banner .table.banner-text-container {
   padding-top: 8vh;
   min-height: 40vh;
+}
+
+.three-column-text {
+  padding-top: 6vh;
+  padding-bottom: 6vh;
 }
 
 .hero-image .jumbotron {
