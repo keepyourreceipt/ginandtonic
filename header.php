@@ -15,6 +15,9 @@
           }
           ?>
     <?php wp_head(); ?>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbuyLNGCjqB0wn5NG-ZInssrccSlY28IY">
+    </script>
     </head>
     <body <?php body_class(); ?>>
       <?php

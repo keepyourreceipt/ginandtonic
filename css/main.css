@@ -53,6 +53,11 @@
   background-position: center;
 }
 
+.remove-padding {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 .waypoint-bottom-to-top {
   opacity: 0;
   -moz-transition: all 0.8s ease;
@@ -597,12 +602,39 @@ footer.jumbotron {
   padding-top: 2em;
 }
 
+.image-gallery {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.image-gallery .image-gallery-row {
+  margin-bottom: 30px;
+}
+@media screen and (max-width: 480px) {
+  .image-gallery .image-gallery-row .gallery-image {
+    padding-bottom: 20px;
+  }
+}
+.image-gallery .image-gallery-row .add-padding-bottom {
+  padding-bottom: 20px;
+}
+
+.google-map {
+  min-height: 50vh;
+}
+.google-map #map {
+  min-height: 50vh;
+}
+
 .text-editor .jumbotron {
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
 
-.events-calendar .event-listing {
+.events-calendar {
+  padding-top: 8vh;
+  padding-bottom: 12vh;
+}
+.events-calendar .event-header {
   margin-top: 5vh;
   margin-bottom: 5vh;
   padding-top: 10vh;
@@ -613,16 +645,19 @@ footer.jumbotron {
   background-position: center;
   background-repeat: no-repeat;
 }
-.events-calendar .event-listing .event-title {
+.events-calendar .event-header .event-title {
   position: relative;
   padding-top: 3em;
   padding-bottom: 0;
 }
-.events-calendar .event-listing .event-title h2 {
+.events-calendar .event-header .event-title h2 {
   padding-top: 0.5em;
   background-color: rgba(255, 255, 255, 0.6);
   margin-bottom: 0;
   padding-left: 15px;
+}
+.events-calendar .event-description {
+  display: none;
 }
 
 .call-to-action {

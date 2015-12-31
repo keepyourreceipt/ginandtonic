@@ -7192,10 +7192,43 @@ jQuery(document).ready(function($) {
     addWaypointsFormClasses();
     ajaxAddProductToCart();
     // initThreeColumnSlider();
+    eventsAccordion();
+    initGoogleMap();
     scrollToTop();
     fixedNavTop();
     fixedNavToggleSubNav();
     initWaypoints();
+  }
+
+  function eventsAccordion() {
+    if( $('.events-calendar').length ) {
+        $('.event-listing .event-header').on('click', function() {
+          $(this).siblings('.event-description').slideToggle();
+        });
+    }
+  }
+
+  function initGoogleMap() {
+    if( $('#map').length ) {
+      var mapLat = $('#map').data("lat");
+      var mapLng = $('#map').data("lng");
+      var mapLatLng = {lat: mapLat, lng: mapLng};
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: mapLat,
+          lng: mapLng
+        },
+        scrollwheel: false,
+        zoom: 10
+      });
+
+      var marker = new google.maps.Marker({
+        position: mapLatLng,
+        map: map,
+      });
+
+    }
   }
 
   function addWaypointsFormClasses() {
