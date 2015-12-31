@@ -1,6 +1,14 @@
 .call-to-action
-  background-position: center
-  background-size: cover
+  +background-cover
 
   .text-content
-    padding: 2.5em 2em
+    padding: 5em 2em
+
+.call-to-action-mobile
+
+  .text-content
+    +content-row-init    
+
+  .background-image
+    min-height: 50vh
+    +background-cover

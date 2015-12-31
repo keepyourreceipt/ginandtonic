@@ -19,7 +19,7 @@
   opacity: 0.6
 
 .text-center
-  text-align: center
+  text-align: center !important
 
 .opacity-lighten
   opacity: 0.8
@@ -29,6 +29,12 @@
   display: -webkit-flex
   display: -ms-flexbox
   display:         flex
+
+  @media screen and ( max-width: $laptop )
+    display: initial
+
+    .background-image
+      min-height: 33vh
 
 .row.uniform-col-height
   margin-right: 0

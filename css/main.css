@@ -23,7 +23,7 @@
 }
 
 .text-center {
-  text-align: center;
+  text-align: center !important;
 }
 
 .opacity-lighten {
@@ -35,6 +35,14 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+}
+@media screen and (max-width: 992px) {
+  .uniform-col-height {
+    display: initial;
+  }
+  .uniform-col-height .background-image {
+    min-height: 33vh;
+  }
 }
 
 .row.uniform-col-height {
@@ -249,6 +257,18 @@ img {
   transform: translateY(-5vh);
 }
 
+.contact-form {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.contact-form input,
+.contact-form textarea {
+  border: none;
+  border-bottom: solid 1px #efefef;
+  outline: none;
+  width: 100%;
+}
+
 .nav-fixed-top {
   display: block;
   position: fixed;
@@ -450,7 +470,7 @@ footer.jumbotron {
   text-align: left;
   font-size: 0.75em;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .footer-copyright {
     text-align: center;
   }
@@ -476,7 +496,7 @@ footer.jumbotron {
   text-align: right;
   font-size: 0.75em;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .footer-back-to-top {
     text-align: center;
   }
@@ -508,32 +528,12 @@ footer.jumbotron {
   padding-right: 5px;
 }
 
-.blog-posts {
-  padding: 5vh 0;
+.content-grid {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
-.blog-posts .featured-image {
-  background-size: cover;
-  background-position: 50%;
-  opacity: 0.8;
-}
-.blog-posts .post-excerpt {
-  margin-bottom: 5vh;
-  min-height: 226px;
-}
-.blog-posts .post-category {
-  background-color: #699EBF;
-}
-.blog-posts .post-read-more {
-  background-color: #699EBF;
-}
-.blog-posts img {
-  border-radius: 5px;
-}
-.blog-posts h2 {
-  margin-top: 0px;
-}
-.blog-posts h3 {
-  padding-bottom: 0;
+.content-grid img {
+  border-radius: 2px;
 }
 
 .image-banner {
@@ -564,8 +564,8 @@ footer.jumbotron {
 }
 
 .three-column-text {
-  padding-top: 6vh;
-  padding-bottom: 6vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
 
 .hero-image .jumbotron {
@@ -603,26 +603,23 @@ footer.jumbotron {
 }
 
 .call-to-action {
-  background-position: center;
   background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .call-to-action .text-content {
-  padding: 2.5em 2em;
+  padding: 5em 2em;
 }
 
-.latest-products {
-  padding: 10vh 0;
+.call-to-action-mobile .text-content {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
 }
-
-.contact-form {
-  padding: 5vh 0;
-}
-.contact-form input,
-.contact-form textarea {
-  border: none;
-  border-bottom: solid 1px #efefef;
-  outline: none;
-  width: 100%;
+.call-to-action-mobile .background-image {
+  min-height: 50vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .single-product .image-banner .table.banner-text-container {
