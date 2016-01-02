@@ -179,6 +179,7 @@ h1 {
 h2 {
   font-size: 1.6em;
   padding-bottom: 0.5em;
+  line-height: 1.3em;
 }
 
 h3 {
@@ -222,6 +223,7 @@ img {
 
 .jumbotron {
   margin-bottom: 0px !important;
+  background-color: #F0EEF1;
 }
 
 .added-to-cart-message {
@@ -231,19 +233,43 @@ img {
   display: block;
 }
 
-.linked_buttons {
-  margin-top: 1.5em;
-}
-.linked_buttons a {
-  padding: 0.6em 1.2em;
+.linked-button {
+  padding: 0.7em 1.3em;
   border-radius: 2px;
   text-align: center;
-  border: solid #D8DACC 1px;
-  background-color: transparent;
-  color: #efefef;
-  margin: 0 0.5em;
+  display: inline-block;
+  margin: 0.5em 0.5em 1em 0;
   text-transform: uppercase;
-  opacity: 0.7;
+  opacity: 0.95;
+  letter-spacing: 1px;
+  background-color: transparent;
+  font-weight: 400;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.linked-button.linked-button-light {
+  border: solid #efefef 1px;
+  color: #efefef;
+}
+.linked-button.linked-button-dark {
+  border: solid #333333 1px;
+  color: #333333;
+}
+.linked-button:hover {
+  background-color: #efefef;
+  color: #333333;
+  font-weight: 400;
+}
+.linked-button:hover.linked-button-light {
+  border: solid #efefef 1px;
+  color: #333333;
+  background-color: #efefef;
+}
+.linked-button:hover.linked-button-dark {
+  color: #efefef;
+  background-color: #333333;
 }
 
 .slick-arrow,
@@ -590,7 +616,7 @@ footer.jumbotron {
 .hero-image .table h1 {
   padding: 0.1em 0;
   margin: 0;
-  font-size: 3.5em;
+  font-size: 3em;
 }
 .hero-image .table h2 {
   font-size: 1.3em;
