@@ -15,7 +15,7 @@
           }
           ?>
     <?php wp_head(); ?>
-    <script 
+    <script
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbuyLNGCjqB0wn5NG-ZInssrccSlY28IY">
     </script>
     </head>

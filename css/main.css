@@ -594,9 +594,12 @@ footer.jumbotron {
   min-height: 40vh;
 }
 
-.three-column-text {
+.flexible-content-grid {
   padding-top: 10vh;
   padding-bottom: 10vh;
+}
+.flexible-content-grid .linked_buttons {
+  text-align: center;
 }
 
 .hero-image .jumbotron {
