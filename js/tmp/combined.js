@@ -7191,13 +7191,14 @@ jQuery(document).ready(function($) {
   function themeInit() {
     addWaypointsFormClasses();
     ajaxAddProductToCart();
-    // initThreeColumnSlider();
+    toggleOffCanvasMenu();
     eventsAccordion();
     initGoogleMap();
     scrollToTop();
     fixedNavTop();
     fixedNavToggleSubNav();
     initWaypoints();
+    FastClick.attach(document.body);
   }
 
   function eventsAccordion() {
@@ -7206,6 +7207,13 @@ jQuery(document).ready(function($) {
           $(this).siblings('.event-description').slideToggle();
         });
     }
+  }
+
+  function toggleOffCanvasMenu() {
+    $('.off-canvas-menu-opener').on('click', function() {
+      $('.off-canvas-menu').toggleClass('off-canvas-menu-active');
+    });
+
   }
 
   function initGoogleMap() {
@@ -7250,36 +7258,6 @@ jQuery(document).ready(function($) {
       });
     });
   }
-
-  function initThreeColumnSlider() {
-    $('.three-column-slider').slick({
-      infinite: true,
-      slidesToShow: 3,
-      slidesToScroll: 3,
-      dots: true,
-      responsive: [
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          infinite: true,
-          dots: true
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1
-        }
-      }
-    ]
-    });
-  }
-
-
-  FastClick.attach(document.body);
 
   function scrollToTop() {
     $('a[data-animate-scroll]').on('click', function() {

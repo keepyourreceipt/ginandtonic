@@ -1,4 +1,4 @@
-<div class="row content-grid">
+<div class="content-grid">
   <div class="container">
     <?php
       $posts = get_sub_field('content_grid');

@@ -36,7 +36,6 @@
         <?php
         }
       ?>
-      <?php if( get_field('menu_style', 'option') == "Fixed Top" ) { ?>
         <div class="nav-fixed-top">
           <?php
             $company_logo_obj = get_field('company_logo', 'option');
@@ -69,8 +68,15 @@
 
             wp_nav_menu( $defaults );
             ?>
+            <div class="menu-toggle-container">
+              <div class="menu-toggle">
+                <span class="menu-toggle-bar one"></span>
+                <span class="menu-toggle-bar two"></span>
+                <span class="menu-toggle-bar three"></span>
+              </div>
+            </div>
         </div>
-      <?php } else { ?>
+
         <div class="off-canvas-menu">
           <div class="off-canvas-menu-opener">
             <span class="off-canvas-nav-opener-bar-one"></span>
@@ -100,5 +106,5 @@
             wp_nav_menu( $defaults );
             ?>
         </div>
-      <?php } ?>
+
     <div class="page-content">

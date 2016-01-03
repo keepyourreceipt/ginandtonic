@@ -70,7 +70,7 @@ gulp.task('clean-build-js', ['minify-js'], function () {
           .pipe(gulp.dest('js/dist/'));
       });
 
-      gulp.task('combine-js', ['clean-js'], function() {
+      gulp.task('combine-js', function() {
         return gulp.src([
           'bower_components/bootstrap/dist/js/bootstrap.js',
           'bower_components/waypoints/lib/jquery.waypoints.js',
