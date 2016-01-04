@@ -1,26 +1,21 @@
 .events-calendar
-  padding-top: 8vh
-  padding-bottom: 12vh
+  +content-row-init()
 
-  .event-header
-    margin-top: 5vh
-    margin-bottom: 5vh
-    padding-top: 10vh
-    padding-left: 0
-    padding-right: 0
-    margin-bottom: 2vh
-    +background-cover()
+  h3
+    margin-top: 0
 
-    .event-title
-      position: relative
-      padding-top: 3em
-      padding-bottom: 0
+  .event-listing
+    margin-bottom: 8vh
 
-      h2
-        padding-top: 0.5em
-        background-color: rgba( 255,255,255,0.6 )
-        margin-bottom: 0
-        padding-left: 15px
+    .event-month
+      background-color: #B2413B
+      text-align: center
+      line-height: 2em
+      color: $white
+      font-weight: bold
 
-  .event-description
-    display: none
+    .event-day
+      background-color: $white
+      text-align: center
+      font-size: 1.6em
+      line-height: 3em

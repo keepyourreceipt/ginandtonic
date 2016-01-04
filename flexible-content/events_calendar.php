@@ -1,31 +1,35 @@
 <div class="row events-calendar">
   <?php
     $query = new WP_Query( array( 'post_type' => 'events' ) );
+    $event_index = 1;
     while( $query->have_posts() ) : $query->the_post();
       $background_image = get_field('header_image'); ?>
 
-      <div class="container event-listing">
-        <div class="col-sm-offset-1 col-sm-10 event-header" style="background-image: url(<?php echo $background_image['sizes']['full-hd']; ?>)">
-          <div class="image-overlay">
-            <?php // Image overlay ?>
+        <?php if( $event_index == 1 ) { ?>
+          <div class="container event-listing">
+        <?php } ?>
+        <div class="col-sm-2 event-date">
+          <div class="col-sm-12 event-month">
+            <?php $month = substr(get_field('date'), 0, 3 ); ?>
+              <span><?php echo $month; ?></span>
           </div>
-          <div class="event-title">
-            <h2><?php the_title(); ?></h2>
+          <div class="col-sm-12 event-day">
+            <?php $day = substr( get_field('date'), 4, 2 ); ?>
+            <span><?php echo $day; ?></span>
           </div>
         </div>
-        <div class="col-sm-offset-1 col-sm-10 event-info">
-          <h3><?php the_field('text_heading'); ?></h3>
+        <div class="col-sm-4 event-info">
+          <h3><?php the_title(); ?></h3>
           <p><?php the_field('text_sub_heading'); ?></p>
-          <i class="fa fa-calendar"></i> <?php the_field('date'); ?>&nbsp;
-          <i class="fa fa-clock-o"></i> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>&nbsp;
-          <i class="fa fa-map-marker"></i> <?php the_field('street_address', 'option'); ?>
         </div>
-        <div class="col-sm-offset-1 col-sm-10 event-description">
-          <?php the_field('description'); ?>
-        </div>
-      </div>
 
       <?php
+      if( $event_index == 2 ) {
+        $event_index = 1;
+        echo "</div>";
+      } else {
+        $event_index++;
+      }
     endwhile; wp_reset_query();
   ?>
 </div>

@@ -689,33 +689,27 @@ footer.jumbotron {
 }
 
 .events-calendar {
-  padding-top: 8vh;
-  padding-bottom: 12vh;
-}
-.events-calendar .event-header {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
   padding-top: 10vh;
-  padding-left: 0;
-  padding-right: 0;
-  margin-bottom: 2vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  padding-bottom: 10vh;
 }
-.events-calendar .event-header .event-title {
-  position: relative;
-  padding-top: 3em;
-  padding-bottom: 0;
+.events-calendar h3 {
+  margin-top: 0;
 }
-.events-calendar .event-header .event-title h2 {
-  padding-top: 0.5em;
-  background-color: rgba(255, 255, 255, 0.6);
-  margin-bottom: 0;
-  padding-left: 15px;
+.events-calendar .event-listing {
+  margin-bottom: 8vh;
 }
-.events-calendar .event-description {
-  display: none;
+.events-calendar .event-listing .event-month {
+  background-color: #B2413B;
+  text-align: center;
+  line-height: 2em;
+  color: #efefef;
+  font-weight: bold;
+}
+.events-calendar .event-listing .event-day {
+  background-color: #efefef;
+  text-align: center;
+  font-size: 1.6em;
+  line-height: 3em;
 }
 
 .call-to-action {
