@@ -32,7 +32,7 @@
         <?php if( $current_image == 1 && $alternating_rows > 1 ) { echo "<div class='col-sm-4'>"; } ?>
 
           <div class="gallery-image waypoint waypoint-bottom-to-top <?php echo $width_classes; echo $padding_classes; ?>">
-              <img src="<?php echo $image['sizes']['post-listing']; ?>" alt="<?php echo $current_image; ?>" />
+            <img src="<?php echo $image['sizes']['post-listing']; ?>" alt="<?php echo $current_image; ?>" data-featherlight="<?php echo $image['url']; ?>" />
           </div>
 
         <?php if( $current_image == 2 && $alternating_rows > 1 ) { echo "</div>"; } ?>

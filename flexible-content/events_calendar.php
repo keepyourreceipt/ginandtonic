@@ -10,7 +10,7 @@
           <div class="container event-listing">
         <?php } ?>
 
-        <div class="col-sm-2 event-date">
+        <div class="col-sm-2 event-date waypoint waypoint-bottom-to-top">
           <div class="col-sm-12 event-month">
             <span class="calendar-ring one"></span>
             <span class="calendar-ring two"></span>
@@ -22,7 +22,7 @@
             <span><?php echo $day; ?></span>
           </div>
         </div>
-        <div class="col-sm-4 event-info">
+        <div class="col-sm-4 event-info waypoint waypoint-bottom-to-top">
           <h3><?php the_title(); ?></h3>
           <p><?php the_field('text_sub_heading'); ?></p>
           <button type="button" name="button" class="btn btn-small" data-featherlight="#event-<?php echo $event_counter; ?>">More Info</button>

@@ -664,6 +664,9 @@ footer.jumbotron {
   padding-top: 10vh;
   padding-bottom: 10vh;
 }
+.image-gallery img {
+  cursor: pointer;
+}
 .image-gallery .image-gallery-row {
   margin-bottom: 30px;
 }
