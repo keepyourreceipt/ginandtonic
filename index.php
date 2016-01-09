@@ -43,7 +43,9 @@
     <div class="col-sm-8">
       <?php while( have_posts() ) : the_post(); ?>
           <div class="post-listing">
-            <h2><?php the_title(); ?></h2>
+            <a href="<?php the_permalink(); ?>">
+              <h2><?php the_title(); ?></h2>
+            </a>
             <?php the_excerpt(); ?>
           </div>
       <?php endwhile; ?>
@@ -56,7 +58,11 @@
       ?>
     </div>
     <div class="col-sm-4 widget-sidebar">
-      <?php get_sidebar( 'blog_sidebar' ); ?>
+      <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
+      	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+      		<?php dynamic_sidebar( 'blog_sidebar' ); ?>
+      	</div><!-- #primary-sidebar -->
+      <?php endif; ?>
     </div>
   </div>
 </div>
