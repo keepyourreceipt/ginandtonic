@@ -6,6 +6,7 @@ jQuery(document).ready(function($) {
     addWaypointsFormClasses();
     ajaxAddProductToCart();
     toggleOffCanvasMenu();
+    addBootstrapClassesWoocommerceFields();
     eventsAccordion();
     initGoogleMap();
     scrollToTop();
@@ -28,6 +29,12 @@ jQuery(document).ready(function($) {
       $('.off-canvas-menu').toggleClass('off-canvas-menu-active');
     });
 
+  }
+
+  function addBootstrapClassesWoocommerceFields() {
+    if( $('.woocommerce input, .woocommerce textarea').length ) {
+      $('.woocommerce input, .woocommerce textarea').addClass('form-control');      
+    }
   }
 
   function initGoogleMap() {

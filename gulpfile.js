@@ -39,6 +39,7 @@ gulp.task('clean-build-css', ['minify-css'], function () {
             'bower_components/bootstrap/dist/css/bootstrap.css',
             'bower_components/components-font-awesome/css/font-awesome.css',
             'bower_components/slick-carousel/slick/slick.css',
+            'bower_components/featherlight/src/featherlight.css',
             'css/main.css',
           ])
           .pipe(concatCss("combined.css", {
@@ -78,6 +79,7 @@ gulp.task('clean-build-js', ['minify-js'], function () {
           'bower_components/slick-carousel/slick/slick.js',
           'bower_components/fastclick/lib/fastclick.js',
           'bower_components/scrollme/jquery.scrollme.js',
+          'bower_components/featherlight/src/featherlight.js',
           'js/main.js'
         ])
           .pipe(concat('combined.js'))
