@@ -600,6 +600,11 @@ footer.jumbotron {
   margin-right: 8px;
 }
 
+.single-post-content {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+
 .content-grid {
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -639,6 +644,11 @@ footer.jumbotron {
 .flexible-content-grid {
   padding-top: 10vh;
   padding-bottom: 10vh;
+}
+.flexible-content-grid img {
+  border-radius: 2px;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 .flexible-content-grid .linked_buttons {
   text-align: center;
