@@ -25,7 +25,7 @@
         <div class="col-sm-4 event-info waypoint waypoint-bottom-to-top">
           <h3><?php the_title(); ?></h3>
           <p><?php the_field('text_sub_heading'); ?></p>
-          <button type="button" name="button" class="btn btn-small" data-featherlight="#event-<?php echo $event_counter; ?>">More Info</button>
+          <a href="<?php the_permalink(); ?>" class="btn btn-default btn-small">More Info</a>
         </div>
 
         <div class="row lightbox-content" id="event-<?php echo $event_counter; ?>">
@@ -43,8 +43,6 @@
       if( $event_index == 2 ) {
         $event_index = 1;
         echo "</div>";
-
-
 
       } else {
         $event_index++;

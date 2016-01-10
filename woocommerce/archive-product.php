@@ -1,6 +1,9 @@
 <?php get_header(); ?>
 <div class="image-banner">
-  <?php $background_image = get_field('shop_background_image', 'option'); ?>
+  <?php
+    $shop_page = get_page_by_title( 'Shop' );
+    $background_image = get_field('header_image', $shop_page->ID);
+  ?>
   <div class="jumbotron waypoint waypoint waypoint-fade anim-time-short" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
     <div class="image-overlay">
       <?php // Image overlay ?>
@@ -9,8 +12,8 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('shop_text_heading', 'option'); ?></h1>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('shop_text_sub_heading', 'option'); ?></h4>
+            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $shop_page->ID); ?></h1>
+            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $shop_page->ID); ?></h4>
             <?php
               if( have_rows('buttons') ) { ?>
                 <div class="linked_buttons">

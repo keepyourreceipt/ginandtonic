@@ -563,8 +563,11 @@ footer.jumbotron {
 }
 
 .list-blog-posts {
-  margin-top: 5vh;
-  margin-bottom: 5vh;
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.list-blog-posts .post-listing {
+  padding-bottom: 5vh;
 }
 
 .sidebar h2 {
@@ -588,6 +591,15 @@ footer.jumbotron {
   padding-right: 5px;
 }
 
+.single-events .single-event-content {
+  padding-top: 10vh;
+  padding-bottom: 10vh;
+}
+.single-events .event-details span {
+  display: inline-block;
+  margin-right: 8px;
+}
+
 .content-grid {
   padding-top: 10vh;
   padding-bottom: 10vh;
@@ -608,8 +620,9 @@ footer.jumbotron {
 }
 .image-banner .table.banner-text-container {
   height: auto;
-  min-height: 50vh;
   position: relative;
+  min-height: 30vh;
+  padding-top: 8vh;
   z-index: 2;
   color: #efefef;
 }
@@ -724,20 +737,20 @@ footer.jumbotron {
 }
 .events-calendar .event-listing .event-month .calendar-ring {
   position: absolute;
-  top: -3px;
+  top: -8px;
   width: 8px;
-  height: 10px;
+  height: 15px;
   background-color: #ccc;
   border: solid 2px #fff;
   border-radius: 40%;
 }
 .events-calendar .event-listing .event-month .calendar-ring.one {
-  left: -webkit-calc(50% - 8px);
-  left: calc(50% - 8px);
+  left: -webkit-calc(50% - 15px);
+  left: calc(50% - 15px);
 }
 .events-calendar .event-listing .event-month .calendar-ring.two {
-  left: -webkit-calc(50% + 8px);
-  left: calc(50% + 8px);
+  left: -webkit-calc(50% + 15px);
+  left: calc(50% + 15px);
 }
 .events-calendar .event-listing .event-day {
   background-color: #efefef;
