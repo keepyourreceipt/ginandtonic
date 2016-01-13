@@ -1,7 +1,12 @@
-<?php if( get_sub_field('spacing') == "non-padded" ) {
-  $padding = "style='padding-top: 5vh; padding-bottom: 5vh;'";
-} ?>
-<div class="flexible-content-grid" <?php if( isset( $padding ) ) { echo $padding; } ?>>
+<?php
+  $style = "style='";
+  if( get_sub_field('spacing') == "non-padded" ) {
+    $style = "padding-top: 5vh; padding-bottom: 5vh; ";
+  }
+  $style .= "text-align:" . get_sub_field( 'text_align') . ";";
+  $style .= "'";
+?>
+<div class="flexible-content-grid" <?php echo $style; ?>>
   <div class="row">
     <div class="container">
     <?php
