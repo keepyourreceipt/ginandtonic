@@ -11,7 +11,7 @@ jQuery(document).ready(function($) {
     initGoogleMap();
     scrollToTop();
     fixedNavTop();
-    fixedNavToggleSubNav();
+    toggleSubNav();
     initWaypoints();
     FastClick.attach(document.body);
   }
@@ -33,7 +33,7 @@ jQuery(document).ready(function($) {
 
   function addBootstrapClassesWoocommerceFields() {
     if( $('.woocommerce input, .woocommerce textarea').length ) {
-      $('.woocommerce input, .woocommerce textarea').addClass('form-control');      
+      $('.woocommerce input, .woocommerce textarea').addClass('form-control');
     }
   }
 
@@ -89,24 +89,26 @@ jQuery(document).ready(function($) {
   }
 
   function fixedNavTop() {
-    if( $('.nav-fixed-top').length ) {
+    if( $('.fixed-top-menu').length ) {
       $(window).on('scroll', function() {
         if( $(window).scrollTop() > 10 ) {
-          $('.nav-fixed-top').addClass('active');
+          $('.fixed-top-menu').addClass('active');
         } else {
-          $('.nav-fixed-top').removeClass('active');
+          $('.fixed-top-menu').removeClass('active');
         }
       });
     }
   }
 
-  function fixedNavToggleSubNav() {
-    $('.nav-fixed-top ul li').on('mouseenter', function() {
-      $(this).find('.sub-menu').addClass('sub-menu-active');
-    });
-
-    $('.nav-fixed-top ul li').on('mouseleave', function() {
-      $(this).find('.sub-menu').removeClass('sub-menu-active');
+  function toggleSubNav() {
+    $('.nav-menu ul li.menu-item-has-children > a').on('click', function( event ) {
+      event.preventDefault();
+      if( $(this).parents('li').find('.sub-menu').hasClass('sub-menu-active') ) {
+        $('.sub-menu').removeClass( 'sub-menu-active' );
+      } else {
+        $('.sub-menu').removeClass( 'sub-menu-active' );
+        $(this).parents('li').find('.sub-menu').addClass('sub-menu-active');
+      }
     });
   }
 

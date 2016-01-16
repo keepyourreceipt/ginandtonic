@@ -77,7 +77,7 @@ gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js']
           'js/main.js'
         ])
           .pipe(concat('theme.min.js'))
-          .pipe(uglify())
+          // .pipe(uglify())
           .pipe(gulp.dest('js/dist/'));
       });
 
@@ -92,7 +92,7 @@ gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js']
             'bower_components/featherlight/src/featherlight.js',
           ])
           .pipe( concat('vendor.min.js'))
-          .pipe(uglify())
+          // .pipe(uglify())
           .pipe(gulp.dest('js/dist/'));
       });
 

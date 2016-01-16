@@ -3,7 +3,6 @@ bower_components
 css/bootstrap*
 js/bootstrap*
 node_modules
-*.css
 js/dist
 css/fonts
-css/dist/
+css/**/*.css

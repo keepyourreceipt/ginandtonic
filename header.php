@@ -36,7 +36,7 @@
         <?php
         }
       ?>
-        <div class="nav-fixed-top">
+        <div class="nav-menu fixed-top-menu">
           <?php
             $company_logo_obj = get_field('company_logo', 'option');
             $company_logo = $company_logo_obj['sizes']['nav-logo'];
@@ -51,7 +51,7 @@
               'theme_location'  => '',
               'menu'            => '',
               'container'       => 'div',
-              'container_class' => 'nav-fixed-top-inner',
+              'container_class' => 'fixed-top-menu-inner',
               'container_id'    => '',
               'menu_class'      => 'menu',
               'menu_id'         => '',
@@ -77,7 +77,7 @@
             </div>
         </div>
 
-        <div class="off-canvas-menu">
+        <div class="nav-menu off-canvas-menu">
           <div class="off-canvas-menu-opener">
             <span class="off-canvas-nav-opener-bar-one"></span>
             <span class="off-canvas-nav-opener-bar-two"></span>
