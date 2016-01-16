@@ -6,14 +6,14 @@ var clean       = require('gulp-clean');
 var compass     = require('gulp-compass');
 var livereload  = require('gulp-livereload');
 var concatCss   = require('gulp-concat-css');
-var minifyCss   = require('gulp-minify-css');
+var cssnano     = require('gulp-cssnano');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 
 // Initi live reload server
 livereload({ start: true })
 
-gulp.task('copyBowerFonts', function() {
+gulp.task('copy-fonts', function() {
   return gulp.src([
     'bower_components/bootstrap/dist/fonts/**.*',
     'bower_components/components-font-awesome/fonts/**.*'
@@ -22,30 +22,33 @@ gulp.task('copyBowerFonts', function() {
 });
 
 // Build CSS
-gulp.task('clean-build-css', ['minify-css'], function () {
-	return gulp.src('css/tmp', {read: false})
-		.pipe(clean());
+gulp.task('build-css', ['clean-dist-css', 'compass', 'combine-vendor-css', 'combine-theme-css'], function () {
+  // Silence is golden
 });
 
-      gulp.task('minify-css', ['combine-css'], function() {
-        return gulp.src('css/tmp/combined.css')
-          .pipe(minifyCss({compatibility: 'ie8'}))
-          .pipe(gulp.dest('css/dist/'))
-          .pipe(livereload());
+      gulp.task('combine-theme-css', function () {
+        return gulp.src([
+            'css/main.css',
+          ])
+          .pipe(concatCss("theme.min.css", {
+            rebaseUrls: false
+          }))
+          .pipe(cssnano())
+          .pipe(gulp.dest('css/dist'));
       });
 
-      gulp.task('combine-css', ['compass'], function () {
+      gulp.task('combine-vendor-css', function () {
         return gulp.src([
             'bower_components/bootstrap/dist/css/bootstrap.css',
             'bower_components/components-font-awesome/css/font-awesome.css',
             'bower_components/slick-carousel/slick/slick.css',
             'bower_components/featherlight/src/featherlight.css',
-            'css/main.css',
           ])
-          .pipe(concatCss("combined.css", {
+          .pipe(concatCss("vendor.min.css", {
             rebaseUrls: false
           }))
-          .pipe(gulp.dest('css/tmp/'));
+          .pipe(cssnano())
+          .pipe(gulp.dest('css/dist/'));
       });
 
       gulp.task('compass', function() {
@@ -58,36 +61,43 @@ gulp.task('clean-build-css', ['minify-css'], function () {
           .pipe(gulp.dest('css'));
       });
 
+      gulp.task('clean-dist-css', function () {
+      	return gulp.src('css/dist/*', {read: false})
+      		.pipe(clean());
+      });
+
 
 // Build js
-gulp.task('clean-build-js', ['minify-js'], function () {
-	// return gulp.src('js/tmp', {read: false})
-	// 	.pipe(clean());
+gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js'], function () {
+  // Silence is golden
 });
 
-      gulp.task('minify-js', ['combine-js'], function() {
-        return gulp.src('js/tmp/combined.js')
+      gulp.task('combine-theme-js', function() {
+        return gulp.src([
+          'js/main.js'
+        ])
+          .pipe(concat('theme.min.js'))
           .pipe(uglify())
           .pipe(gulp.dest('js/dist/'));
       });
 
-      gulp.task('combine-js', function() {
-        return gulp.src([
-          'bower_components/bootstrap/dist/js/bootstrap.js',
-          'bower_components/waypoints/lib/jquery.waypoints.js',
-          'bower_components/jquery.stellar/jquery.stellar.js',
-          'bower_components/slick-carousel/slick/slick.js',
-          'bower_components/fastclick/lib/fastclick.js',
-          'bower_components/scrollme/jquery.scrollme.js',
-          'bower_components/featherlight/src/featherlight.js',
-          'js/main.js'
-        ])
-          .pipe(concat('combined.js'))
-          .pipe(gulp.dest('js/tmp'));
+      gulp.task('combine-vendor-js', function() {
+          return gulp.src([
+            'bower_components/bootstrap/dist/js/bootstrap.js',
+            'bower_components/waypoints/lib/jquery.waypoints.js',
+            'bower_components/jquery.stellar/jquery.stellar.js',
+            'bower_components/slick-carousel/slick/slick.js',
+            'bower_components/fastclick/lib/fastclick.js',
+            'bower_components/scrollme/jquery.scrollme.js',
+            'bower_components/featherlight/src/featherlight.js',
+          ])
+          .pipe( concat('vendor.min.js'))
+          .pipe(uglify())
+          .pipe(gulp.dest('js/dist/'));
       });
 
-      gulp.task('clean-js', function () {
-      	return gulp.src('js/dist', {read: false})
+      gulp.task('clean-dist-js', function () {
+      	return gulp.src('js/dist/*')
       		.pipe(clean());
       });
 
@@ -99,11 +109,11 @@ gulp.task('watch', function() {
 });
 
 // Build project
-gulp.task('build', ['clean-build-css', 'clean-build-js'], function() {
+gulp.task('build', ['build-js', 'build-css'], function() {
   // Silence is golden
 });
 
 // Designed for first build
-gulp.task('default', ['install-bower', 'build'], function() {
+gulp.task('default', ['copy-fonts', 'build'], function() {
   // Silence is golden
 });

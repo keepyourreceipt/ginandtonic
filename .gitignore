@@ -6,7 +6,4 @@ node_modules
 *.css
 js/dist
 css/fonts
-
-css/dist/combined.css
-
-css/main.css
+css/dist/
