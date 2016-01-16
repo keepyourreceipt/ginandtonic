@@ -1,4 +1,7 @@
-.sidebar
+.widget-area
+
+  .sidebar-widget
+    margin: 1em 0
 
   h2
     margin-bottom: 0
@@ -13,12 +16,11 @@
       list-style: none
       line-height: 1.6em
 
-      ul
-
-        li
-          &::before
-            content: "\f054"
-            font-family: FontAwesome
-            font-size: 0.75em
-            vertical-align: middle
-            padding-right: 5px
+      a
+        &::before
+          content: "\f054"
+          font-family: FontAwesome
+          font-size: 0.75em
+          vertical-align: middle
+          padding-right: 5px
+          color: $theme-primary

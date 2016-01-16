@@ -4,6 +4,7 @@
 function ginandtonic_setup() {
 	add_theme_support( 'menus' );
 	add_theme_support( 'widgets' );
+	add_theme_support( 'html5', array( 'search-form' ) );
 }
 add_action( 'after_setup_theme', 'ginandtonic_setup' );
 
@@ -86,7 +87,7 @@ function ginandtonic_widgets_init() {
 	register_sidebar( array(
 		'name'          => 'Blog Sidebar',
 		'id'            => 'blog_sidebar',
-		'before_widget' => '<div>',
+		'before_widget' => '<div class="sidebar-widget">',
 		'after_widget'  => '</div>',
 		'before_title'  => '<h2 class="rounded">',
 		'after_title'   => '</h2>',

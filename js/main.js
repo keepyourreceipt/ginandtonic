@@ -28,7 +28,6 @@ jQuery(document).ready(function($) {
     $('.off-canvas-menu-opener').on('click', function() {
       $('.off-canvas-menu').toggleClass('off-canvas-menu-active');
     });
-
   }
 
   function addBootstrapClassesWoocommerceFields() {
@@ -108,6 +107,12 @@ jQuery(document).ready(function($) {
       } else {
         $('.sub-menu').removeClass( 'sub-menu-active' );
         $(this).parents('li').find('.sub-menu').addClass('sub-menu-active');
+      }
+    });
+
+    $(document).bind('click', function(e) {
+      if(!$(e.target).is('.nav-menu ul li.menu-item-has-children > a')) {
+        $('.sub-menu').removeClass( 'sub-menu-active' );
       }
     });
   }

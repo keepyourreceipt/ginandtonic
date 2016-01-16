@@ -49,7 +49,7 @@
             <a href="<?php the_permalink(); ?>">
               <h2 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h2>
             </a>
-            <h3><?php echo get_the_date(); ?></h3>
+            <h3 class="waypoint waypoint-bottom-to-top"><?php echo get_the_date(); ?></h3>
             <?php the_excerpt(); ?>
           </div>
       <?php endwhile; ?>

@@ -115,12 +115,7 @@ img
   border-radius: 50%
   @include transform( translateY(-5vh) )
 
-.contact-form
-  @include content-row-init()
+form
 
-  input,
-  textarea
-    border: none
-    border-bottom: solid 1px #efefef
-    outline: none
-    width: 100%
+  input[type="text"]
+    background-color: $light-grey

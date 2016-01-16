@@ -55,7 +55,7 @@
     </div>
   </div>
 </div>
-<div class="row">
+<div class="row related-posts">
   <div class="container">
     <?php
       $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3 ) );

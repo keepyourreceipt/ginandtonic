@@ -105,7 +105,6 @@
         line-height: 60px
 
 
-
 .off-canvas-menu
   background-color: #efefef
   display: none
@@ -167,9 +166,15 @@
       font-size: 0.9em
 
       &.menu-item-has-children
-        &:after
-          content: ""
-          float: right
+        a:after
+          content: "\f078"
+          font-size: 0.6em
+          vertical-align: middle
+          padding-left: 5px
+          font-family: FontAwesome
+          width: auto
+          line-height: 3em
+          height: auto
           display: inline-block
 
       a

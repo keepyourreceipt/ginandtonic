@@ -33,7 +33,6 @@ gulp.task('build-css', ['clean-dist-css', 'compass', 'combine-vendor-css', 'comb
           .pipe(concatCss("theme.min.css", {
             rebaseUrls: false
           }))
-          .pipe(cssnano())
           .pipe(gulp.dest('css/dist'));
       });
 
@@ -47,7 +46,6 @@ gulp.task('build-css', ['clean-dist-css', 'compass', 'combine-vendor-css', 'comb
           .pipe(concatCss("vendor.min.css", {
             rebaseUrls: false
           }))
-          .pipe(cssnano())
           .pipe(gulp.dest('css/dist/'));
       });
 
