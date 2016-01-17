@@ -78,16 +78,14 @@ img
   opacity: 0.95
   letter-spacing: 1px
   background-color: transparent
-  font-weight: 400
+  border: none
+  font-weight: bold
+  background-color: $light-grey
   @include transition( all 0.3s ease )
 
   &.linked-button-light
-    border: solid $white 1px
-    color: $white
 
   &.linked-button-dark
-    border: solid $body-copy 1px
-    color: $body-copy
 
   &:hover
     background-color: $white
@@ -96,12 +94,12 @@ img
 
     &.linked-button-light
       border: solid $white 1px
-      color: $body-copy
+      color: $theme-primary
       background-color: $white
 
     &.linked-button-dark
       color: $white
-      background-color: $body-copy
+      background-color: $theme-primary
 
 
 .slick-arrow,
@@ -114,8 +112,3 @@ img
   padding: 10px 12px
   border-radius: 50%
   @include transform( translateY(-5vh) )
-
-form
-
-  input[type="text"]
-    background-color: $light-grey

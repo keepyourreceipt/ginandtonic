@@ -1,0 +1,60 @@
+.shortcode
+  form
+    input,
+    textarea
+      background-color: $light-grey
+      box-shadow: none
+      border-radius: 2px
+      border: none
+      height: 2.5em
+      padding: 0 10px
+      width: 100%
+
+    textarea
+      min-height: 145px
+      padding: 10px
+      resize: none
+
+    input[type="submit"]
+      width: 50%
+      display: block
+      margin: 0 auto
+      background-color: $theme-primary
+      text-transform: uppercase
+      color: $white
+      letter-spacing: 1px
+      margin-top: 1em
+
+      @media screen and ( max-width: $tablet )
+        width: 100%
+
+    select
+      width: 100%
+      background-color: $light-grey
+      height: 2.5em
+      border: none
+
+    p
+      padding-bottom: 0
+
+    .form-input
+      margin-bottom: 1em
+
+.widget-area
+  form
+    input
+      background-color: $light-grey
+      box-shadow: none
+      border-radius: 2px
+      border: none
+      height: 2.5em
+      padding: 0 10px
+
+    input[type="submit"]
+      background-color: $theme-primary
+      color: $white
+      text-transform: uppercase
+
+      @media screen and ( max-width: $tablet )
+        display: block
+        width: 100%
