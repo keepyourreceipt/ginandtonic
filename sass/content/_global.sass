@@ -70,25 +70,24 @@ img
 
 .linked-button
   padding: 0.7em 1.3em
-  border-radius: 3px
+  border-radius: 2px
   text-align: center
   display: inline-block
-  margin: 0.5em 0.5em 1em 0.25em
+  margin: 0.5em 0.5em 1em 0
   text-transform: uppercase
   opacity: 0.95
   letter-spacing: 1px
   background-color: transparent
-  font-weight: bold
+  font-weight: 400
   @include transition( all 0.3s ease )
 
   &.linked-button-light
-    border: solid 1px $light-grey
-    color: $light-grey
+    border: solid $white 1px
+    color: $white
 
   &.linked-button-dark
-    background-color: $dark-grey
-    border: solid 1px $dark-grey
-    color: $off-white
+    border: solid $body-copy 1px
+    color: $body-copy
 
   &:hover
     background-color: $white
@@ -102,7 +101,7 @@ img
 
     &.linked-button-dark
       color: $white
-      background-color: $theme-primary
+      background-color: $body-copy
 
 
 .slick-arrow,
