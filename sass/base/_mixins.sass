@@ -4,9 +4,13 @@
   background-position: center
   background-repeat: no-repeat
 
-=content-row-init()
+=content-row-padded()
   padding-top: 10vh
   padding-bottom: 10vh
+
+=content-row-non-padded()
+  padding-top: 2.5vh
+  padding-bottom: 2.5vh
 
 =calc($property, $expression)
   #{$property}: -webkit-calc(#{$expression})

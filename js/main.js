@@ -123,7 +123,7 @@ jQuery(document).ready(function($) {
       var waypoints = $element.waypoint(function( direction ) {
         $element.addClass('waypoint-active');
       }, {
-        offset: '80%'
+        offset: '85%'
       })
     });
   }

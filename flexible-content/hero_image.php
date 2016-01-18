@@ -9,9 +9,9 @@
         <div class="col-md-10 col-md-offset-1">
           <div class="table banner-text-container" style="<?php if( $adjust_padding == true ) { echo 'padding-top: 8vh;'; } ?>">
             <div class="table-cell banner-text">
-              <h2 class="waypoint waypoint-bottom-to-top anim-time-short"><?php the_sub_field('text_heading_top'); ?></h2>
-              <h1 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_heading_center'); ?></h1>
-              <h2 class="waypoint waypoint-bottom-to-top anim-time-long"><?php the_sub_field('text_heading_bottom'); ?></h2>
+              <h2 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading_top'); ?></h2>
+              <h1 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading_center'); ?></h1>
+              <h2 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading_bottom'); ?></h2>
               <?php
                 if( have_rows('buttons') ) { ?>
                   <div class="linked_buttons">

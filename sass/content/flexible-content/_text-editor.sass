@@ -1,9 +1,13 @@
 .text-editor
   .jumbotron
-    +content-row-init()
+    &.content-row-padded
+      +content-row-padded()
 
-  .light
-    background-color: $white
+    &.content-row-non-padded
+      +content-row-non-padded()
 
-  .dark
-    background-color: $off-white
+    &.light
+      background-color: $white
+
+    &.dark
+      background-color: $off-white
