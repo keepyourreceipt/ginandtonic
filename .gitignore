@@ -4,5 +4,5 @@ css/bootstrap*
 js/bootstrap*
 node_modules
 js/dist
-css/fonts
+fonts/
 css/**/*.css
