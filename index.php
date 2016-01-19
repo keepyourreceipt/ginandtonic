@@ -49,17 +49,22 @@
             <a href="<?php the_permalink(); ?>">
               <h2 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h2>
             </a>
-            <h3 class="waypoint waypoint-bottom-to-top"><?php echo get_the_date(); ?></h3>
+            <div class="post-meta">
+              <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
+              <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
+            </div>
             <?php the_excerpt(); ?>
           </div>
       <?php endwhile; ?>
-      <?php
-          $args = array(
-            'prev_text' => __('<'),
-            'next_text' => __('>')
-          );
-          echo ( paginate_links( $args ));
-      ?>
+      <div class="post-pagination waypoint waypoint-bottom-to-top">
+        <?php
+            $args = array(
+              'prev_text' => '<i class="fa fa-chevron-left"></i>',
+              'next_text' => '<i class="fa fa-chevron-right"></i>'
+            );
+            echo ( paginate_links( $args ));
+        ?>
+      </div>
     </div>
     <div class="col-sm-4 widget-sidebar">
       <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>

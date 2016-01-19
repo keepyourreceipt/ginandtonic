@@ -15,6 +15,7 @@ jQuery(document).ready(function($) {
     initWaypoints();
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
+    submitSearchForm();
     FastClick.attach(document.body);
   }
 
@@ -23,6 +24,14 @@ jQuery(document).ready(function($) {
       $('.image-gallery img').on('click', function() {
         var imageIndex = $(this).data('index');
         buildPhotoSwipeGallery( imageIndex );
+      });
+    }
+  }
+
+  function submitSearchForm() {
+    if( $('#submit-search-form').length ) {
+      $('#submit-search-form').on('click', function() {
+        $('#search-form').submit();
       });
     }
   }
