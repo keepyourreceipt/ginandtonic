@@ -100,6 +100,7 @@ gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js']
             'bower_components/fastclick/lib/fastclick.js',
             'bower_components/scrollme/jquery.scrollme.js',
             'bower_components/photoswipe/dist/photoswipe.js',
+            'bower_components/photoswipe/dist/photoswipe-ui-default.js',
           ])
           .pipe( concat('vendor.min.js'))
           // .pipe(uglify())

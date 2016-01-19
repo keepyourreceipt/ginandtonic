@@ -13,7 +13,61 @@ jQuery(document).ready(function($) {
     fixedNavTop();
     toggleSubNav();
     initWaypoints();
+    addIndexToGalleryImage();
+    launchPhotoSwipeGallery();
     FastClick.attach(document.body);
+  }
+
+  function launchPhotoSwipeGallery() {
+    if( $('.image-gallery img').length ) {
+      $('.image-gallery img').on('click', function() {
+        var imageIndex = $(this).data('index');
+        buildPhotoSwipeGallery( imageIndex );
+      });
+    }
+  }
+
+  function addIndexToGalleryImage() {
+    if( $('.image-gallery img').length ) {
+      var $counter = 0;
+      $('.image-gallery img').each(function() {
+        $(this).attr('data-index', $counter);
+        $counter++;
+      });
+    }
+  }
+
+  function buildPhotoSwipeGallery( $imageIndex ) {
+    var pswpElement = document.querySelectorAll('.pswp')[0];
+
+    var items = [];
+    $('.image-gallery img').each(function() {
+      var src = $(this).attr('src');
+      var width = 900;
+      var height = 600;
+
+      var item = {
+        src: src,
+        w: width,
+        h: height
+      }
+
+      items.push( item );
+    });
+
+      var options = {
+          index: $imageIndex,
+          showHideOpacity:true,
+          getThumbBoundsFn: function( $imageIndex ) {
+              var thumbnail = document.querySelectorAll('.image-gallery img')[$imageIndex];
+              var pageYScroll = window.pageYOffset || document.documentElement.scrollTop;
+              var rect = thumbnail.getBoundingClientRect();
+              return {x:rect.left, y:rect.top + pageYScroll, w:rect.width};
+          }
+      };
+
+      var gallery = new PhotoSwipe( pswpElement, PhotoSwipeUI_Default, items, options);
+      gallery.init();
   }
 
   function eventsAccordion() {
