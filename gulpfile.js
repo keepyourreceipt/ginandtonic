@@ -10,16 +10,16 @@ var cssnano     = require('gulp-cssnano');
 var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var replace     = require('gulp-replace');
+var exit        = require('gulp-exit');
 
 // Initi live reload server
 livereload({ start: true })
 
 gulp.task('copy-fonts', function() {
-  return gulp.src([
-    'bower_components/bootstrap/dist/fonts/**.*',
-    'bower_components/components-font-awesome/fonts/**.*'
-  ])
-    .pipe(gulp.dest('fonts'));
+  gulp.src(['bower_components/bootstrap/dist/fonts/**.*',
+            'bower_components/components-font-awesome/fonts/**.*'
+  ]).pipe(gulp.dest('fonts'))
+  .pipe(exit());
 });
 
 // Build CSS
@@ -39,7 +39,8 @@ gulp.task('build-css', ['compass', 'copy-vendor-images', 'combine-css'], functio
           .pipe(concatCss("vendor.min.css", {
             rebaseUrls: false
           }))
-          .pipe(gulp.dest('css/dist'));
+          .pipe(gulp.dest('css/dist'))
+          .pipe(exit());
       });
 
       gulp.task('combine-theme-css', function () {
@@ -49,7 +50,8 @@ gulp.task('build-css', ['compass', 'copy-vendor-images', 'combine-css'], functio
           .pipe(concatCss("theme.min.css", {
             rebaseUrls: false
           }))
-          .pipe(gulp.dest('css/dist'));
+          .pipe(gulp.dest('css/dist'))
+          .pipe(exit());
       });
 
       gulp.task('copy-vendor-images', function() {
@@ -69,12 +71,14 @@ gulp.task('build-css', ['compass', 'copy-vendor-images', 'combine-css'], functio
             css: 'css',
             sass: 'sass'
           }))
-          .pipe(gulp.dest('css'));
+          .pipe(gulp.dest('css'))
+          .pipe(exit());
       });
 
       gulp.task('clean-dist-css', function () {
       	return gulp.src('css/dist/*.css', {read: false})
-      		.pipe(clean());
+      		.pipe(clean())
+          .pipe(exit());
       });
 
 
@@ -89,7 +93,8 @@ gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js']
         ])
           .pipe(concat('theme.min.js'))
           // .pipe(uglify())
-          .pipe(gulp.dest('js/dist/'));
+          .pipe(gulp.dest('js/dist/'))
+          .pipe(exit());
       });
 
       gulp.task('combine-vendor-js', function() {
@@ -104,12 +109,14 @@ gulp.task('build-js', ['clean-dist-js', 'combine-vendor-js', 'combine-theme-js']
           ])
           .pipe( concat('vendor.min.js'))
           // .pipe(uglify())
-          .pipe(gulp.dest('js/dist/'));
+          .pipe(gulp.dest('js/dist/'))
+          .pipe(exit());
       });
 
       gulp.task('clean-dist-js', function () {
       	return gulp.src('js/dist/*')
-      		.pipe(clean());
+      		.pipe(clean())
+          .pipe(exit());
       });
 
 
@@ -131,42 +138,48 @@ gulp.task('copy-theme-root', function() {
       '**.php',
       'style.css',
     ])
-    .pipe(gulp.dest('dist/'));
+    .pipe(gulp.dest('dist/'))
+    .pipe(exit());
 });
 
 gulp.task('copy-flexible-content', function() {
   return gulp.src([
     'flexible-content/**/*.php'
   ], { base: 'flexible-content/' })
-  .pipe(gulp.dest('dist/flexible-content/'));
+  .pipe(gulp.dest('dist/flexible-content/'))
+  .pipe(exit());
 });
 
 gulp.task('copy-css', function() {
   return gulp.src([
     'css/dist/**.*'
   ])
-  .pipe(gulp.dest('dist/css/'));
+  .pipe(gulp.dest('dist/css/'))
+  .pipe(exit());
 });
 
 gulp.task('copy-js', function() {
   return gulp.src([
     'js/dist/**.*'
   ])
-  .pipe(gulp.dest('dist/js/'));
+  .pipe(gulp.dest('dist/js/'))
+  .pipe(exit());
 });
 
 gulp.task('copy-template-parts', function() {
   return gulp.src([
     'template-parts/**/*.php'
   ], { base: 'template-parts/' })
-  .pipe(gulp.dest('dist/template-parts/'));
+  .pipe(gulp.dest('dist/template-parts/'))
+  .pipe(exit());
 });
 
 gulp.task('copy-woocommerce', function() {
   return gulp.src([
     'woocommerce/**/*.php'
   ], { base: 'woocommerce/' })
-  .pipe(gulp.dest('dist/woocommerce/'));
+  .pipe(gulp.dest('dist/woocommerce/'))
+  .pipe(exit());
 });
 
 gulp.task( 'release', ['copy-theme-root', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
