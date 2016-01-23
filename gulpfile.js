@@ -182,6 +182,11 @@ gulp.task('copy-woocommerce', function() {
   .pipe(exit());
 });
 
+// Build project
+gulp.task('build', ['build-js', 'build-css'], function() {
+  // Silence is golden
+});
+
 gulp.task( 'release', ['copy-theme-root', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
   // Silence is golden
 });
