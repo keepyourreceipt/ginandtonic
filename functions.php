@@ -26,6 +26,16 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
+// Redirect if down for maintenance
+// function redirect_to_maintenance() {
+// 		$site_status = get_field( 'site_status', 'option' );
+//     if ( $site_status == "maintenance" && ! is_user_logged_in() && ! is_front_page() ) {
+//         wp_redirect( get_home_url() );
+//         exit;
+//     }
+// }
+// add_action( 'init', 'redirect_to_maintenance' );
+
 // Create ACF options page
 if( function_exists('acf_add_options_page') ) {
 
