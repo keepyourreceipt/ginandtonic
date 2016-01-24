@@ -11,8 +11,8 @@ add_action( 'after_setup_theme', 'ginandtonic_setup' );
 // Add theme scripts
 function ginandtonic_scripts() {
 	wp_enqueue_style( 'default-css', get_stylesheet_uri() );
-	wp_enqueue_style( 'vendor-css', get_template_directory_uri() . '/css/dist/vendor.min.css' );
-	wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/css/dist/theme.min.css' );
+	wp_enqueue_style( 'vendor-css', get_template_directory_uri() . '/css/vendor.css' );
+	wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/css/theme.css' );
 
 	wp_enqueue_script( 'vendor-js', get_template_directory_uri() . '/js/dist/vendor.min.js', array('jquery'), '', true );
 	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/dist/theme.min.js', array('jquery'), '', true );
