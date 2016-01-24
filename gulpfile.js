@@ -23,63 +23,54 @@ gulp.task('copy-fonts', function() {
 });
 
 // Build CSS
-gulp.task('build-css', ['compass', 'copy-vendor-images', 'combine-css'], function () {
-  // Silence is golden
+gulp.task('combine-theme-css', ['combine-vendor-css'], function () {
+  return gulp.src([
+      'css/src/main.css',
+    ])
+    .pipe(concatCss("theme.css", {
+      rebaseUrls: false
+    }))
+    .pipe(gulp.dest('css'))
+    .pipe(exit());
 });
 
-      gulp.task('combine-css', ['combine-theme-css'], function () {
-        return gulp.src([
-            'bower_components/bootstrap/dist/css/bootstrap.css',
-            'bower_components/components-font-awesome/css/font-awesome.css',
-            'bower_components/slick-carousel/slick/slick.css',
-            'bower_components/photoswipe/dist/photoswipe.css',
-            'bower_components/photoswipe/dist/default-skin/default-skin.css',
-          ])
-          .pipe(replace('../fonts', '../../fonts'))
-          .pipe(concatCss("vendor.min.css", {
-            rebaseUrls: false
-          }))
-          .pipe(gulp.dest('css/dist'))
-          .pipe(exit());
-      });
+gulp.task('combine-vendor-css', ['copy-vendor-images'], function () {
+  return gulp.src([
+      'bower_components/bootstrap/dist/css/bootstrap.css',
+      'bower_components/components-font-awesome/css/font-awesome.css',
+      'bower_components/slick-carousel/slick/slick.css',
+      'bower_components/photoswipe/dist/photoswipe.css',
+      'bower_components/photoswipe/dist/default-skin/default-skin.css',
+    ])
+    .pipe(concatCss("vendor.css", {
+      rebaseUrls: false
+    }))    
+    .pipe(gulp.dest('css'));
+});
 
-      gulp.task('combine-theme-css', function () {
-        return gulp.src([
-            'css/main.css',
-          ])
-          .pipe(concatCss("theme.min.css", {
-            rebaseUrls: false
-          }))
-          .pipe(gulp.dest('css/dist'))
-          .pipe(exit());
-      });
+gulp.task('copy-vendor-images', ['compass'], function() {
+  return gulp.src([
+    'bower_components/photoswipe/dist/default-skin/default-skin.png',
+    'bower_components/photoswipe/dist/default-skin/default-skin.svg',
+    'bower_components/photoswipe/dist/default-skin/preloader.gif',
+  ])
+  .pipe( gulp.dest('css') );
+});
 
-      gulp.task('copy-vendor-images', function() {
-        return gulp.src([
-          'bower_components/photoswipe/dist/default-skin/default-skin.png',
-          'bower_components/photoswipe/dist/default-skin/default-skin.svg',
-          'bower_components/photoswipe/dist/default-skin/preloader.gif',
-        ])
-        .pipe( gulp.dest('css/dist') )
+gulp.task('compass', ['clean-css'], function() {
+  return gulp.src('sass/*.sass')
+    .pipe(compass({
+      config_file: 'config.rb',
+      css: 'css/src/',
+      sass: 'sass'
+    }))
+    .pipe(gulp.dest('css/src/'));
+});
 
-      });
-
-      gulp.task('compass', ['clean-dist-css'], function() {
-        return gulp.src('sass/*.sass')
-          .pipe(compass({
-            config_file: 'config.rb',
-            css: 'css',
-            sass: 'sass'
-          }))
-          .pipe(gulp.dest('css'))
-          .pipe(exit());
-      });
-
-      gulp.task('clean-dist-css', function () {
-      	return gulp.src('css/dist/*.css', {read: false})
-      		.pipe(clean())
-          .pipe(exit());
-      });
+gulp.task('clean-css', function () {
+	return gulp.src('css/**/**.*', {read: false})
+		.pipe(clean());
+});
 
 
 // Build js

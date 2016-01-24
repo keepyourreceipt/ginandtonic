@@ -5,5 +5,5 @@ js/bootstrap*
 node_modules
 js/dist
 fonts/
-css/**/*.css
+css/
 dist/
