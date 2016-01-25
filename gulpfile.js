@@ -155,11 +155,9 @@ gulp.task('watch', function() {
 });
 
 // Build project
-gulp.task('build', ['copy-fonts', 'combine-theme-css', 'combine-theme-js'], function() {
-  gulp.src('/').pipe( exit() );
-});
+gulp.task('build', ['copy-fonts', 'combine-theme-css', 'combine-theme-js']);
 
-gulp.task( 'release', ['copy-theme-root', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
+gulp.task( 'release', ['build', 'copy-theme-root', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
   gulp.src('/').pipe( exit() );
 });
 
