@@ -8,7 +8,7 @@
         $classes = "col-sm-4";
       }
     ?>
-    <div class="<?php echo $classes; ?>">
+    <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
       <table>
         <thead>
           <tr>
@@ -33,7 +33,7 @@
       </table>
     </div>
 
-    <div class="<?php echo $classes; ?>">
+    <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
       <table>
         <thead>
           <tr>
@@ -59,7 +59,7 @@
     </div>
 
     <?php if( $number_of_tables == "three" ) { ?>
-    <div class="<?php echo $classes; ?>">
+    <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
       <table>
         <thead>
           <tr>
