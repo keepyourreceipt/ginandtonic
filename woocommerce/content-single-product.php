@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <div class="row product-content">
   <div class="container">
-    <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-12">
       <?php
         if ( ! defined( 'ABSPATH' ) ) { exit; }
     	   do_action( 'woocommerce_before_single_product' );
@@ -24,3 +24,5 @@
     </div>
   </div>
 </div>
+
+<?php get_template_part( 'template', 'parts/related-products' ); ?>

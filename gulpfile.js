@@ -131,6 +131,13 @@ gulp.task('copy-js', function() {
   .pipe(gulp.dest('dist/js/'));
 });
 
+gulp.task('copy-inc', function() {
+  return gulp.src([
+    'inc/**.*'
+  ])
+  .pipe(gulp.dest('dist/inc/'));
+});
+
 gulp.task('copy-template-parts', function() {
   return gulp.src([
     'template-parts/**/*.php'
@@ -155,7 +162,7 @@ gulp.task('watch', function() {
 // Build project
 gulp.task('build', ['copy-fonts', 'combine-theme-css', 'combine-theme-js']);
 
-gulp.task( 'release', ['build', 'copy-theme-root', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
+gulp.task( 'release', ['build', 'copy-theme-root', 'copy-inc', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
   gulp.src('/').pipe( exit() );
 });
 

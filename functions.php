@@ -26,6 +26,9 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
+// Include custom widgets
+require_once dirname( __FILE__ ) . '/inc/widgets.php';
+
 // Create ACF options page
 if( function_exists('acf_add_options_page') ) {
 
@@ -58,18 +61,6 @@ add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 120, 60, false );
-
-function ginandtonic_widgets_init() {
-	register_sidebar( array(
-		'name'          => 'Blog Sidebar',
-		'id'            => 'blog_sidebar',
-		'before_widget' => '<div class="sidebar-widget">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'ginandtonic_widgets_init' );
 
 // Remove tickets from default list products
 add_action( 'pre_get_posts', 'custom_pre_get_posts' );
