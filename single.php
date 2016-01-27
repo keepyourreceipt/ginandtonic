@@ -36,8 +36,17 @@
 <div class="row single-post-content">
   <div class="container">
     <div class="col-sm-8">
-      <h2><?php the_title(); ?></h2>
-      <?php the_content(); ?>
+      <div class="post-title waypoint waypoint-bottom-to-top">
+        <h2><?php the_title(); ?></h2>
+      </div>
+      <div class="post-meta waypoint waypoint-bottom-to-top">
+        <span><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
+        &nbsp;&nbsp;
+        <span><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
+      </div>
+      <div class="content waypoint waypoint-bottom-to-top">
+        <?php the_content(); ?>
+      </div>
     </div>
     <div class="col-sm-4 widget-sidebar">
       <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
@@ -50,7 +59,7 @@
 </div>
 <div class="row single-post-comments">
   <div class="container">
-    <div class="col-sm-8">
+    <div class="col-sm-8 waypoint waypoint-bottom-to-top">
       <?php comments_template(); ?>
     </div>
   </div>

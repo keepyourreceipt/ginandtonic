@@ -3,7 +3,7 @@
     <?php
       $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3 ) );
         while( $query->have_posts() ) : $query->the_post(); ?>
-        <div class="col-sm-4 related-post">
+        <div class="col-sm-4 related-post waypoint waypoint-bottom-to-top">
           <div class="post-thumbnail">
             <a href="<?php the_permalink(); ?>">
               <?php the_post_thumbnail('post-listing'); ?>

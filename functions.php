@@ -26,16 +26,6 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
-// Redirect if down for maintenance
-// function redirect_to_maintenance() {
-// 		$site_status = get_field( 'site_status', 'option' );
-//     if ( $site_status == "maintenance" && ! is_user_logged_in() && ! is_front_page() ) {
-//         wp_redirect( get_home_url() );
-//         exit;
-//     }
-// }
-// add_action( 'init', 'redirect_to_maintenance' );
-
 // Create ACF options page
 if( function_exists('acf_add_options_page') ) {
 
@@ -50,44 +40,20 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
-if( function_exists('acf_add_options_page') ) {
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Shop',
-		'menu_title'	=> 'Shop',
-		'menu_slug' 	=> 'shop-page',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' => 'dashicons-products',
-		'position' => 6
-	));
-}
-
-if( function_exists('acf_add_options_page') ) {
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'News',
-		'menu_title'	=> 'News',
-		'menu_slug' 	=> 'news-page',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' => 'dashicons-list-view',
-		'position' => 9
-	));
-}
-
+// Define custom excerpt length
 function custom_excerpt_length( $length ) {
 	return 30;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+// Add waypoints class to excerpt container
 function add_excerpt_class( $excerpt ) {
   $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
   return $excerpt;
 }
-
 add_filter( "the_excerpt", "add_excerpt_class" );
 
+// Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
@@ -122,7 +88,6 @@ function custom_pre_get_posts( $q ) {
     }
     remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 }
-
 
 function clean_up_admin_menu() {
     remove_menu_page( 'tools.php' );
