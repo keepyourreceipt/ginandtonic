@@ -48,13 +48,7 @@
         <?php the_content(); ?>
       </div>
     </div>
-    <div class="col-sm-4 widget-sidebar">
-      <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
-      	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-      		<?php dynamic_sidebar( 'blog_sidebar' ); ?>
-      	</div><!-- #primary-sidebar -->
-      <?php endif; ?>
-    </div>
+    <?php get_template_part( 'template', 'parts/blog-sidebar' ); ?>
   </div>
 </div>
 <div class="row single-post-comments">
