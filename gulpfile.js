@@ -146,8 +146,6 @@ gulp.task('copy-woocommerce', function() {
 });
 
 
-
-
 // Watch all js and sass files w/livereload
 gulp.task('watch', function() {
   livereload.listen();

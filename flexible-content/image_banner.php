@@ -7,22 +7,13 @@
     <div class="container">
       <div class="row">
         <div class="col-sm-12 col-md-offset-1 col-md-10">
-        <?php
-          $content_row_height = get_sub_field('content_row_height');
-          if( get_sub_field('adjust_position_for_nav') == "Adjust Padding to Compensate for Nav" ) {
-            $adjust_padding = true;
-          } else {
-            $adjust_padding = false;
-          }
-        ?>
-        <div class="table banner-text-container" style="min-height: <?php echo $content_row_height; ?>; <?php if( $adjust_padding == true ) { echo 'padding-top: 8vh;'; } ?>">
+        <div class="table banner-text-container">
           <div class="table-cell banner-text">
             <?php if( get_sub_field('heading_style') == "Use Primary Font" ) { ?>
               <h2 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_heading'); ?></h2>
             <?php } else { ?>
               <h1 class="waypoint waypoint-bottom-to-top"><?php the_sub_field('text_heading'); ?></h1>
             <?php } ?>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_sub_field('text_sub_heading'); ?></h4>
             <?php
               if( have_rows('buttons') ) { ?>
                 <div class="linked_buttons">
@@ -36,7 +27,7 @@
                       $link_target = "_blank";
                     }
                     ?>
-                      <a class="waypoint waypoint-bottom-to-top anim-time-long" href="<?php echo $button_link ?>" <?php if( $link_target != null ) { echo $link_target; } ?>><?php the_sub_field('button_text'); ?></a>
+                      <a class="linked-button linked-button-light waypoint waypoint-bottom-to-top anim-time-long" href="<?php echo $button_link ?>" <?php if( $link_target != null ) { echo $link_target; } ?>><?php the_sub_field('button_text'); ?></a>
                     <?php
                   endwhile;
                 ?>
