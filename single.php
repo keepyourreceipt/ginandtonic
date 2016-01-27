@@ -36,7 +36,7 @@
 <div class="row single-post-content">
   <div class="container">
     <div class="col-sm-8">
-      <?php the_title(); ?>
+      <h2><?php the_title(); ?></h2>
       <?php the_content(); ?>
     </div>
     <div class="col-sm-4 widget-sidebar">
@@ -48,28 +48,15 @@
     </div>
   </div>
 </div>
-<div class="row single-post-content">
+<div class="row single-post-comments">
   <div class="container">
     <div class="col-sm-8">
       <?php comments_template(); ?>
     </div>
   </div>
 </div>
-<div class="row related-posts">
-  <div class="container">
-    <?php
-      $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3 ) );
-        while( $query->have_posts() ) : $query->the_post(); ?>
-        <div class="col-sm-4">
-          <a href="<?php the_permalink(); ?>">
-            <h2><?php the_title(); ?></h2>
-          </a>
-          <p><?php the_excerpt(); ?></p>
-        </div>
-        <?php
-        endwhile;
-      ?>
-  </div>
-</div>
+
+<?php get_template_part( 'template', 'parts/related-posts' ); ?>
+
 <?php endwhile; ?>
 <?php get_footer(); ?>

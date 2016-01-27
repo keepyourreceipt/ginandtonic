@@ -68,48 +68,8 @@ img
   &.active
     display: block
 
-.linked-button
-  padding: 0.7em 1.3em
-  border-radius: 2px
-  text-align: center
-  display: inline-block
-  margin: 0.5em 0.5em 1em 0
-  text-transform: uppercase
-  letter-spacing: 1px
-  background-color: transparent
-  font-weight: 400
-  @include transition( all 0.3s ease )
+.linked-button-light
+  +linked-button-light
 
-  &.linked-button-light
-    border: solid $white 1px
-    color: $white
-
-  &.linked-button-dark
-    border: solid $body-copy 1px
-    color: $body-copy
-
-  &:hover
-    background-color: $white
-    color: $body-copy
-    font-weight: 400
-
-    &.linked-button-light
-      border: solid $white 1px
-      color: $body-copy
-      background-color: $white
-
-    &.linked-button-dark
-      color: $white
-      background-color: $body-copy
-
-
-.slick-arrow,
-.slick-dots
-  display: none !important
-
-.scroll-indicator
-  border: solid 1px $white
-  display: inline-block
-  padding: 10px 12px
-  border-radius: 50%
-  @include transform( translateY(-5vh) )
+.linked-button-dark
+  +linked-button-dark

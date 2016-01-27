@@ -1,2 +1,50 @@
 .single-post-content
-  +content-row-padded()
+  +content-row-padded
+
+.single-post-comments
+  padding-bottom: 10vh
+
+  h3#comments
+    padding-bottom: 10px
+
+  .commentlist
+    padding-left: 0
+    list-style: none
+
+    .comment
+      ul.children
+        list-style: none
+        border-left: solid 5px $theme-primary
+
+    .comment-author
+      &.vcard
+        img
+          display: none
+
+        cite.fn
+          font-style: normal
+          font-size: 1.2em
+          font-weight: bold
+
+        span.says
+          display: none
+
+    .comment-meta
+      margin-bottom: 10px
+
+    .reply > a
+      +linked-button-dark
+
+    .reply
+      margin-bottom: 6vh
+
+.related-posts
+  +content-row-padded
+  background-color: $off-white
+
+  h2
+    padding-bottom: 0
+    margin-bottom: 5px
+
+  img
+    border-radius: 3px

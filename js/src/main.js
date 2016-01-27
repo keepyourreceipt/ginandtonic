@@ -16,7 +16,6 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
-    addCommentsFormClasses();
     FastClick.attach(document.body);
   }
 
@@ -34,12 +33,6 @@ jQuery(document).ready(function($) {
       $('#submit-search-form').on('click', function() {
         $('#search-form').submit();
       });
-    }
-  }
-
-  function addCommentsFormClasses() {
-    if( $('#respond').length ) {
-      $('#respond input, #respond textarea').addClass('form-control');
     }
   }
 
