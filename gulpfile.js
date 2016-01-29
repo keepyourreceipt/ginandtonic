@@ -117,16 +117,16 @@ gulp.task('copy-flexible-content', function() {
   .pipe(gulp.dest('dist/flexible-content/'));
 });
 
-gulp.task('copy-css', function() {
+gulp.task('copy-css', ['copy-vendor-images'], function() {
   return gulp.src([
-    'css/dist/**.*'
+    'css/**/**.*'
   ])
   .pipe(gulp.dest('dist/css/'));
 });
 
 gulp.task('copy-js', function() {
   return gulp.src([
-    'js/dist/**.*'
+    'js/**.*'
   ])
   .pipe(gulp.dest('dist/js/'));
 });
@@ -162,7 +162,7 @@ gulp.task('watch', function() {
 // Build project
 gulp.task('build', ['copy-fonts', 'combine-theme-css', 'combine-theme-js']);
 
-gulp.task( 'release', ['build', 'copy-theme-root', 'copy-inc', 'copy-flexible-content', 'copy-css', 'copy-js', 'copy-template-parts', 'copy-woocommerce'], function() {
+gulp.task( 'release', ['build', 'copy-theme-root', 'copy-inc', 'copy-flexible-content', 'copy-js', 'copy-template-parts', 'copy-woocommerce', 'copy-css'], function() {
   gulp.src('/').pipe( exit() );
 });
 
