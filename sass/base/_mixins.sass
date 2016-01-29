@@ -5,8 +5,8 @@
   background-repeat: no-repeat
 
 =content-row-padded()
-  padding-top: 10vh
-  padding-bottom: 10vh
+  padding-top: 15vh
+  padding-bottom: 15vh
 
 =content-row-non-padded()
   padding-top: 2.5vh
@@ -15,3 +15,39 @@
 =calc($property, $expression)
   #{$property}: -webkit-calc(#{$expression})
   #{$property}: calc(#{$expression})
+
+=linked-button-light
+  padding: 0.5em 1.3em
+  border-radius: 2px
+  text-align: center
+  display: inline-block
+  margin: 0.5em 0.5em 1em 0
+  text-transform: uppercase
+  letter-spacing: 1px
+  background-color: transparent
+  font-weight: 400
+  @include transition( all 0.3s ease )
+  border: solid $white 1px
+  color: $white
+
+  &:hover
+    border: solid $white 1px
+    color: $body-copy
+    background-color: $white
+
+=linked-button-dark
+  padding: 0.5em 1.3em
+  border-radius: 2px
+  text-align: center
+  display: inline-block
+  margin: 0.5em 0.5em 1em 0
+  text-transform: uppercase
+  letter-spacing: 1px
+  background-color: transparent
+  font-weight: 400
+  border: solid 1px $body-copy
+  @include transition( all 0.3s ease )
+
+  &:hover
+    color: $white
+    background-color: $body-copy

@@ -36,40 +36,30 @@
 <div class="row single-post-content">
   <div class="container">
     <div class="col-sm-8">
-      <?php the_title(); ?>
-      <?php the_content(); ?>
+      <div class="post-title waypoint waypoint-bottom-to-top">
+        <h2><?php the_title(); ?></h2>
+      </div>
+      <div class="post-meta waypoint waypoint-bottom-to-top">
+        <span><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
+        &nbsp;&nbsp;
+        <span><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
+      </div>
+      <div class="content waypoint waypoint-bottom-to-top">
+        <?php the_content(); ?>
+      </div>
     </div>
-    <div class="col-sm-4 widget-sidebar">
-      <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
-      	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-      		<?php dynamic_sidebar( 'blog_sidebar' ); ?>
-      	</div><!-- #primary-sidebar -->
-      <?php endif; ?>
-    </div>
+    <?php get_template_part( 'template', 'parts/blog-sidebar' ); ?>
   </div>
 </div>
-<div class="row single-post-content">
+<div class="row single-post-comments">
   <div class="container">
-    <div class="col-sm-8">
+    <div class="col-sm-8 waypoint waypoint-bottom-to-top">
       <?php comments_template(); ?>
     </div>
   </div>
 </div>
-<div class="row related-posts">
-  <div class="container">
-    <?php
-      $query = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => 3 ) );
-        while( $query->have_posts() ) : $query->the_post(); ?>
-        <div class="col-sm-4">
-          <a href="<?php the_permalink(); ?>">
-            <h2><?php the_title(); ?></h2>
-          </a>
-          <p><?php the_excerpt(); ?></p>
-        </div>
-        <?php
-        endwhile;
-      ?>
-  </div>
-</div>
+
+<?php get_template_part( 'template', 'parts/related-posts' ); ?>
+
 <?php endwhile; ?>
 <?php get_footer(); ?>

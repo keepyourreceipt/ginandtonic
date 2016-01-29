@@ -14,8 +14,8 @@ function ginandtonic_scripts() {
 	wp_enqueue_style( 'vendor-css', get_template_directory_uri() . '/css/vendor.css' );
 	wp_enqueue_style( 'theme-css', get_template_directory_uri() . '/css/theme.css' );
 
-	wp_enqueue_script( 'vendor-js', get_template_directory_uri() . '/js/dist/vendor.min.js', array('jquery'), '', true );
-	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/dist/theme.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'vendor-js', get_template_directory_uri() . '/js/vendor.js', array('jquery'), '', true );
+	wp_enqueue_script( 'theme-js', get_template_directory_uri() . '/js/theme.js', array('jquery'), '', true );
 }
 
 add_action( 'wp_enqueue_scripts', 'ginandtonic_scripts' );
@@ -26,15 +26,8 @@ function woocommerce_support() {
     add_theme_support( 'woocommerce' );
 }
 
-// Redirect if down for maintenance
-// function redirect_to_maintenance() {
-// 		$site_status = get_field( 'site_status', 'option' );
-//     if ( $site_status == "maintenance" && ! is_user_logged_in() && ! is_front_page() ) {
-//         wp_redirect( get_home_url() );
-//         exit;
-//     }
-// }
-// add_action( 'init', 'redirect_to_maintenance' );
+// Include custom widgets
+require_once dirname( __FILE__ ) . '/inc/widgets.php';
 
 // Create ACF options page
 if( function_exists('acf_add_options_page') ) {
@@ -50,60 +43,24 @@ if( function_exists('acf_add_options_page') ) {
 	));
 }
 
-if( function_exists('acf_add_options_page') ) {
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'Shop',
-		'menu_title'	=> 'Shop',
-		'menu_slug' 	=> 'shop-page',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' => 'dashicons-products',
-		'position' => 6
-	));
-}
-
-if( function_exists('acf_add_options_page') ) {
-
-	acf_add_options_page(array(
-		'page_title' 	=> 'News',
-		'menu_title'	=> 'News',
-		'menu_slug' 	=> 'news-page',
-		'capability'	=> 'edit_posts',
-		'redirect'		=> false,
-		'icon_url' => 'dashicons-list-view',
-		'position' => 9
-	));
-}
-
+// Define custom excerpt length
 function custom_excerpt_length( $length ) {
 	return 30;
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
+// Add waypoints class to excerpt container
 function add_excerpt_class( $excerpt ) {
   $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
   return $excerpt;
 }
-
 add_filter( "the_excerpt", "add_excerpt_class" );
 
+// Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 120, 60, false );
-
-function ginandtonic_widgets_init() {
-	register_sidebar( array(
-		'name'          => 'Blog Sidebar',
-		'id'            => 'blog_sidebar',
-		'before_widget' => '<div class="sidebar-widget">',
-		'after_widget'  => '</div>',
-		'before_title'  => '<h2 class="rounded">',
-		'after_title'   => '</h2>',
-	) );
-}
-add_action( 'widgets_init', 'ginandtonic_widgets_init' );
 
 // Remove tickets from default list products
 add_action( 'pre_get_posts', 'custom_pre_get_posts' );
@@ -122,7 +79,6 @@ function custom_pre_get_posts( $q ) {
     }
     remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
 }
-
 
 function clean_up_admin_menu() {
     remove_menu_page( 'tools.php' );

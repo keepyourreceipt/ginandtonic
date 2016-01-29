@@ -1,44 +1,43 @@
-.shortcode
-  form
-    input,
-    textarea
-      background-color: $off-white
-      box-shadow: none
-      border-radius: 2px
-      border: none
-      height: 2.5em
-      padding: 0 10px
+form
+  input,
+  textarea
+    background-color: $off-white
+    box-shadow: none
+    border-radius: 2px
+    border: none
+    height: 2.5em
+    padding: 0 10px
+    width: 100%
+
+  textarea
+    min-height: 145px
+    padding: 10px
+    resize: none
+
+  input[type="submit"]
+    min-width: 25%
+    display: block
+    margin: 0 auto
+    background-color: $dark-grey
+    text-transform: uppercase
+    color: $white
+    letter-spacing: 1px
+    margin-top: 1em
+
+    @media screen and ( max-width: $tablet )
       width: 100%
 
-    textarea
-      min-height: 145px
-      padding: 10px
-      resize: none
+  select
+    width: 100%
+    background-color: $off-white
+    height: 2.5em
+    border: none
 
-    input[type="submit"]
-      width: 25%
-      display: block
-      margin: 0 auto
-      background-color: $dark-grey
-      text-transform: uppercase
-      color: $white
-      letter-spacing: 1px
-      margin-top: 1em
+  p
+    padding-bottom: 0
 
-      @media screen and ( max-width: $tablet )
-        width: 100%
-
-    select
-      width: 100%
-      background-color: $off-white
-      height: 2.5em
-      border: none
-
-    p
-      padding-bottom: 0
-
-    .form-input
-      margin-bottom: 1em
+  .form-input
+    margin-bottom: 1em
 
 .widget-area
   form
@@ -64,3 +63,16 @@
       background-color: $theme-primary
       color: $white
       cursor: pointer
+
+.single-post-comments
+  form
+    input[type="submit"]
+      background-color: $dark-grey
+      color: $white
+      text-transform: uppercase
+      width: 50%
+      display: inline-block
+      margin: 3vh 0
+
+      @media screen and ( max-width: $tablet )
+        width: 100%

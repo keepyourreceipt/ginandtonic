@@ -14,27 +14,6 @@
           <div class="table-cell banner-text">
             <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page->ID); ?></h1>
             <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page->ID); ?></h4>
-            <?php
-              if( have_rows('buttons') ) { ?>
-                <div class="linked_buttons">
-                  <?php
-                  while ( have_rows('buttons') ) : the_row();
-                    if( get_sub_field('link_type') == "Link to a Page on This Website" ) {
-                      $button_link = get_sub_field('page_to_link_to');
-                      $link_target = null;
-                    } else {
-                      $button_link = get_sub_field('external_website_link');
-                      $link_target = "_blank";
-                    }
-                    ?>
-                      <a class="waypoint waypoint-bottom-to-top anim-time-long" href="<?php echo $button_link ?>" <?php if( $link_target != null ) { echo $link_target; } ?>><?php the_sub_field('button_text'); ?></a>
-                    <?php
-                  endwhile;
-                ?>
-                </div>
-                <?php
-                }
-              ?>
           </div>
         </div>
       </div>
@@ -66,13 +45,7 @@
         ?>
       </div>
     </div>
-    <div class="col-sm-4 widget-sidebar">
-      <?php if ( is_active_sidebar( 'blog_sidebar' ) ) : ?>
-      	<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
-      		<?php dynamic_sidebar( 'blog_sidebar' ); ?>
-      	</div><!-- #primary-sidebar -->
-      <?php endif; ?>
-    </div>
+    <?php get_template_part( 'template', 'parts/blog-sidebar' ); ?>
   </div>
 </div>
 <?php get_footer(); ?>
