@@ -11,6 +11,7 @@ var concat      = require('gulp-concat');
 var uglify      = require('gulp-uglify');
 var replace     = require('gulp-replace');
 var exit        = require('gulp-exit');
+var runSequence = require('run-sequence');
 
 // Initi live reload server
 livereload({ start: true })
@@ -32,7 +33,7 @@ gulp.task('combine-theme-css', ['combine-vendor-css'], function () {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('combine-vendor-css', ['copy-vendor-images'], function () {
+gulp.task('combine-vendor-css', ['clean-css', 'compass', 'copy-vendor-images'], function () {
   return gulp.src([
       'bower_components/bootstrap/dist/css/bootstrap.css',
       'bower_components/components-font-awesome/css/font-awesome.css',
@@ -46,16 +47,7 @@ gulp.task('combine-vendor-css', ['copy-vendor-images'], function () {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('copy-vendor-images', ['compass'], function() {
-  return gulp.src([
-    'bower_components/photoswipe/dist/default-skin/default-skin.png',
-    'bower_components/photoswipe/dist/default-skin/default-skin.svg',
-    'bower_components/photoswipe/dist/default-skin/preloader.gif',
-  ])
-  .pipe( gulp.dest('css') );
-});
-
-gulp.task('compass', ['clean-css'], function() {
+gulp.task('compass', function() {
   return gulp.src('sass/*.sass')
     .pipe(compass({
       config_file: 'config.rb',
@@ -63,6 +55,15 @@ gulp.task('compass', ['clean-css'], function() {
       sass: 'sass'
     }))
     .pipe(gulp.dest('css/src/'));
+});
+
+gulp.task('copy-vendor-images', function() {
+  return gulp.src([
+    'bower_components/photoswipe/dist/default-skin/default-skin.png',
+    'bower_components/photoswipe/dist/default-skin/default-skin.svg',
+    'bower_components/photoswipe/dist/default-skin/preloader.gif',
+  ])
+  .pipe( gulp.dest('css') );
 });
 
 gulp.task('clean-css', function () {
@@ -117,9 +118,9 @@ gulp.task('copy-flexible-content', function() {
   .pipe(gulp.dest('dist/flexible-content/'));
 });
 
-gulp.task('copy-css', ['copy-vendor-images'], function() {
+gulp.task('copy-css', function() {
   return gulp.src([
-    'css/**/**.*'
+    'css/**.*'
   ])
   .pipe(gulp.dest('dist/css/'));
 });
@@ -138,6 +139,13 @@ gulp.task('copy-inc', function() {
   .pipe(gulp.dest('dist/inc/'));
 });
 
+gulp.task('copy-theme-fonts', function() {
+  return gulp.src([
+    'fonts/**.*'
+  ])
+  .pipe(gulp.dest('dist/fonts/'));
+});
+
 gulp.task('copy-template-parts', function() {
   return gulp.src([
     'template-parts/**/*.php'
@@ -152,7 +160,6 @@ gulp.task('copy-woocommerce', function() {
   .pipe(gulp.dest('dist/woocommerce/'));
 });
 
-
 // Watch all js and sass files w/livereload
 gulp.task('watch', function() {
   livereload.listen();
@@ -162,8 +169,12 @@ gulp.task('watch', function() {
 // Build project
 gulp.task('build', ['copy-fonts', 'combine-theme-css', 'combine-theme-js']);
 
-gulp.task( 'release', ['build', 'copy-theme-root', 'copy-inc', 'copy-flexible-content', 'copy-js', 'copy-template-parts', 'copy-woocommerce', 'copy-css'], function() {
+gulp.task('exit', function() {
   gulp.src('/').pipe( exit() );
+});
+
+gulp.task('release', function() {
+  runSequence('build',['copy-theme-root', 'copy-theme-fonts', 'copy-inc', 'copy-flexible-content', 'copy-js', 'copy-template-parts', 'copy-woocommerce', 'copy-css'], 'exit');
 });
 
 // Designed for first build
