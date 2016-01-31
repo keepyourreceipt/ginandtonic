@@ -4,8 +4,8 @@
   get_sub_field( 'content_width' ) == "full" ? $width_classes = "col-sm-12" : $width_classes = "col-sm-10 col-sm-offset-1";
 ?>
 <div class="text-editor">
-  <div class="jumbotron waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
-    <div class="container">
+  <div class="container waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+    <div class="row">
       <div class="<?php echo $width_classes; ?>">
         <?php the_sub_field('content_editor'); ?>
       </div>
