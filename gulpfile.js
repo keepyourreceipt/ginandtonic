@@ -89,6 +89,7 @@ gulp.task('combine-vendor-js', ['clean-js'], function() {
       'bower_components/fastclick/lib/fastclick.js',
       'bower_components/scrollme/jquery.scrollme.js',
       'bower_components/photoswipe/dist/photoswipe.js',
+      'bower_components/parallax.js/parallax.js',
       'bower_components/photoswipe/dist/photoswipe-ui-default.js',
     ])
     .pipe( concat('vendor.js'))
