@@ -1,26 +1,37 @@
 .hero-image
-  .jumbotron
-    +background-cover
+  .container-fluid
     text-align: center
-    padding-top: 16vh
-    padding-bottom: 5vh
+    padding-top: 0
+    padding-bottom: 0
     color: $white
     position: relative
 
+  h1
+    padding: 0.1em 0
+    margin: 0
+    font-size: 3em
+
+  h2
+    font-size: 1.3em
+    letter-spacing: 0.05em
+    padding: 0 2em
+    font-weight: 300
+
   .table
-    height: 80vh
-    position: relative
+    min-height: 50vh
+    padding-bottom: 60px
+    padding-top: 60px
 
-    h1
-      padding: 0.1em 0
-      margin: 0
-      font-size: 3em
+  .short
+    .table
+      min-height: 30vh
 
-    h2
-      font-size: 1.3em
-      letter-spacing: 0.05em
-      padding: 0 2em
-      font-weight: 300
+  .tall
+    .table
+      min-height: 90vh
 
-    .linked_buttons
-      padding-top: 2em
+  .adjust-for-menu
+    padding-top: 80px
+
+    @media screen and ( max-width: $laptop )
+      padding-top: 60px

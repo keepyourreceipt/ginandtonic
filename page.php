@@ -1,6 +1,6 @@
 <?php get_header();
 
-get_template_part( 'template', 'parts/image-banner' );
+get_template_part( 'template', 'parts/page-header' );
 // check if the flexible content field has rows of data
 if( have_rows('flexible_content') ) {
     while ( have_rows('flexible_content') ) : the_row();
