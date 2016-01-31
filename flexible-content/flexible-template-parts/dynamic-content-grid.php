@@ -2,8 +2,13 @@
   $background_image = get_sub_field( 'background_image' );
   get_sub_field( 'background_style' ) == "cover" ? $container_classes = "background-tiled" : $container_classes = "background-cover";
  ?>
-<div class="content-grid <?php echo $classes; ?>" style="<?php if( isset( $background_image ) ) { echo 'background-image: url(' . $background_image['sizes']['full-hd'] . ');'; } ?>">
+<div class="content-grid dynamic <?php echo $classes; ?>" style="<?php if( isset( $background_image ) ) { echo 'background-image: url(' . $background_image['sizes']['full-hd'] . ');'; } ?>">
   <div class="container">
+    <?php if( get_sub_field( 'background_style' ) == "cover" ) { ?>
+      <div class="image-overlay light">
+        <?php // Image overlay ?>
+      </div>
+    <?php } ?>
     <div class="row">
       <?php
         $posts = get_sub_field('content_select');

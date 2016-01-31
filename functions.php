@@ -87,15 +87,14 @@ function clean_up_admin_menu() {
 }
 add_action( 'admin_menu', 'clean_up_admin_menu' );
 
-
 // Remove Woo Commerce default stylesheet
 // add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
 
 // Remove woo commerce sidebar from single products page
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
 
-
-add_action( 'init', 'remove_wc_breadcrumbs' );
-function remove_wc_breadcrumbs() {
-    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-}
+// Remove woocommerce breadcrumbs
+// add_action( 'init', 'remove_wc_breadcrumbs' );
+// function remove_wc_breadcrumbs() {
+//     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+// }

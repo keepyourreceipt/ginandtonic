@@ -1,4 +1,4 @@
-<div class="image-banner">
+<div class="page-header">
   <?php $background_image = get_field('header_image'); ?>
   <div class="jumbotron waypoint waypoint waypoint-fade anim-time-short" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
     <div class="image-overlay">
