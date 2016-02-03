@@ -1,0 +1,63 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "52b8a37a180173069ee16ef9791cf66f",
+    "content-hash": "1190e892cfc753602417f9b70f615156",
+    "packages": [
+        {
+            "name": "diginedbv/twitter-api-php",
+            "version": "0.99",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/diginedbv/twitter-api-php.git",
+                "reference": "059473939d32ba9e6a2578274b749b8626d5cf0e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/diginedbv/twitter-api-php/zipball/059473939d32ba9e6a2578274b749b8626d5cf0e",
+                "reference": "059473939d32ba9e6a2578274b749b8626d5cf0e",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "TwitterAPIExchange.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GNU Public License"
+            ],
+            "authors": [
+                {
+                    "name": "James Mallison",
+                    "homepage": "https://github.com/j7mbo/twitter-api-php"
+                },
+                {
+                    "name": "Digined",
+                    "email": "tech@digined.com",
+                    "homepage": "http://digined.com"
+                }
+            ],
+            "description": "Simple PHP Wrapper for Twitter API v1.1 calls",
+            "homepage": "https://github.com/diginedbv/twitter-api-php",
+            "keywords": [
+                "api",
+                "php",
+                "twitter"
+            ],
+            "time": "2014-02-12 14:55:06"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

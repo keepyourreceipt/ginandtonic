@@ -7,3 +7,5 @@ js/*.js
 fonts/
 css/
 dist/
+
+inc/vendor/
