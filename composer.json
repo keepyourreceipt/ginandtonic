@@ -10,6 +10,7 @@
         }
     ],
     "require": {
-    "diginedbv/twitter-api-php": "^0.99.0"
+    "diginedbv/twitter-api-php": "^0.99.0",
+    "andreyco/instagram": "^3.3"
   }
 }

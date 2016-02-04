@@ -4,9 +4,52 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52b8a37a180173069ee16ef9791cf66f",
-    "content-hash": "1190e892cfc753602417f9b70f615156",
+    "hash": "98547b2c0558524ec55ec4402377ce64",
+    "content-hash": "d024cfaccede8f3b99d361ee5f2065f7",
     "packages": [
+        {
+            "name": "andreyco/instagram",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Andreyco/Instagram-for-PHP.git",
+                "reference": "ab8cb4858458e65566e8e7b965cfef8751e6e955"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Andreyco/Instagram-for-PHP/zipball/ab8cb4858458e65566e8e7b965cfef8751e6e955",
+                "reference": "ab8cb4858458e65566e8e7b965cfef8751e6e955",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Andreyco\\Instagram\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-4-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Andrej Badin",
+                    "email": "contact@andrejbadin.com",
+                    "homepage": "http://andrejbadin.com"
+                }
+            ],
+            "description": "An easy-to-use PHP Class for accessing Instagram's API.",
+            "homepage": "https://github.com/Andreyco/Instagram-for-PHP",
+            "keywords": [
+                "api",
+                "instagram"
+            ],
+            "time": "2015-12-10 08:45:44"
+        },
         {
             "name": "diginedbv/twitter-api-php",
             "version": "0.99",
