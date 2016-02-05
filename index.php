@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<div class="image-banner">
+<div class="page-header">
   <?php
     $news_page = get_page_by_title( 'News' );
     $background_image = get_field('header_image', $news_page->ID);
@@ -20,6 +20,14 @@
     </div>
   </div>
 </div>
+
+<div class="container news-feed">
+  <div class="row">
+    <?php require_once  dirname(__FILE__) . '/inc/build-news-feed.php'; ?>
+  </div>
+</div>
+
+
 <div class="row list-blog-posts">
   <div class="container">
     <div class="col-sm-8">

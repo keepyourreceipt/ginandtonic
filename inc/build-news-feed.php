@@ -19,12 +19,6 @@ try {
 $facebook_posts_array = json_decode( $response->getBody(), true );
 
 
-
-// $social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
-// // $cache_file = fopen($social_cache_uri, 'w');
-// // fwrite( $cache_file, print_r($facebook_posts_array, true) );
-// // fclose( $cache_file );
-
 $settings = array(
     'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
     'oauth_access_token_secret' => TWITTER_APP_SECRET,
@@ -42,6 +36,27 @@ $twitter_feed = $twitter->setGetfield($getfield)
     ->performRequest();
 
 $twitter_posts_array = json_decode( $twitter_feed, true );
+
+foreach( $twitter_posts_array as $tweet ) {
+  if( !empty($tweet['text']) && $tweet['text'] != NULL ) { ?>
+    <div class="col-sm-4">
+      <p><?php echo $tweet['text']; ?></p>
+    </div>
+  <?php }
+}
+
+foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
+  if( !empty( $facebook_post['message'] ) ) { ?>
+    <div class="col-sm-4">
+      <p><?php echo $facebook_post['message']; ?></p>
+    </div>
+  <?php }
+}
+
+// $social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
+// // $cache_file = fopen($social_cache_uri, 'w');
+// // fwrite( $cache_file, print_r($facebook_posts_array, true) );
+// // fclose( $cache_file );
 
 // $social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
 // $cache_file = fopen($social_cache_uri, 'w');
