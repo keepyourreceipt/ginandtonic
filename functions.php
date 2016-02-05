@@ -84,7 +84,6 @@ function custom_pre_get_posts( $q ) {
 require_once dirname( __FILE__ ) . '/inc/vendor/autoload.php';
 require_once dirname( __FILE__ ) . '/inc/get-facebook-posts.php';
 require_once dirname( __FILE__ ) . '/inc/get-twitter-posts.php';
-require_once dirname( __FILE__ ) . '/inc/get-instagram-posts.php';
 
 function clean_up_admin_menu() {
     remove_menu_page( 'tools.php' );

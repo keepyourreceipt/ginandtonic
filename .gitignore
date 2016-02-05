@@ -7,5 +7,6 @@ js/*.js
 fonts/
 css/
 dist/
+inc/social-api.cache
 
 inc/vendor/

@@ -18,4 +18,10 @@ try {
 
 $facebook_posts_array = json_decode( $response->getBody(), true );
 
+$social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
+$cache_file = fopen($social_cache_uri, 'w');
+fwrite( $cache_file, print_r($facebook_posts_array, true) );
+fclose( $cache_file );
+
+
 ?>
