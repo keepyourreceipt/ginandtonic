@@ -4,52 +4,9 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "98547b2c0558524ec55ec4402377ce64",
-    "content-hash": "d024cfaccede8f3b99d361ee5f2065f7",
+    "hash": "d66a625e30d41dd0fe614548710fe972",
+    "content-hash": "00d56b837b849ff765b0376c8e37b926",
     "packages": [
-        {
-            "name": "andreyco/instagram",
-            "version": "3.3.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Andreyco/Instagram-for-PHP.git",
-                "reference": "ab8cb4858458e65566e8e7b965cfef8751e6e955"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Andreyco/Instagram-for-PHP/zipball/ab8cb4858458e65566e8e7b965cfef8751e6e955",
-                "reference": "ab8cb4858458e65566e8e7b965cfef8751e6e955",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "php": ">=5.3.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Andreyco\\Instagram\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "BSD-4-Clause"
-            ],
-            "authors": [
-                {
-                    "name": "Andrej Badin",
-                    "email": "contact@andrejbadin.com",
-                    "homepage": "http://andrejbadin.com"
-                }
-            ],
-            "description": "An easy-to-use PHP Class for accessing Instagram's API.",
-            "homepage": "https://github.com/Andreyco/Instagram-for-PHP",
-            "keywords": [
-                "api",
-                "instagram"
-            ],
-            "time": "2015-12-10 08:45:44"
-        },
         {
             "name": "diginedbv/twitter-api-php",
             "version": "0.99",
@@ -93,6 +50,61 @@
                 "twitter"
             ],
             "time": "2014-02-12 14:55:06"
+        },
+        {
+            "name": "facebook/php-sdk-v4",
+            "version": "5.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/facebook/facebook-php-sdk-v4.git",
+                "reference": "2c42fb3002953355f12d3c6e8003a9fd5af563d9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/facebook/facebook-php-sdk-v4/zipball/2c42fb3002953355f12d3c6e8003a9fd5af563d9",
+                "reference": "2c42fb3002953355f12d3c6e8003a9fd5af563d9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "guzzlehttp/guzzle": "~5.0",
+                "mockery/mockery": "~0.8",
+                "phpunit/phpunit": "~4.0"
+            },
+            "suggest": {
+                "guzzlehttp/guzzle": "Allows for implementation of the Guzzle HTTP client"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "5.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Facebook\\": "src/Facebook/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "Facebook Platform"
+            ],
+            "authors": [
+                {
+                    "name": "Facebook",
+                    "homepage": "https://github.com/facebook/facebook-php-sdk-v4/contributors"
+                }
+            ],
+            "description": "Facebook SDK for PHP",
+            "homepage": "https://github.com/facebook/facebook-php-sdk-v4",
+            "keywords": [
+                "facebook",
+                "sdk"
+            ],
+            "time": "2015-11-19 21:07:36"
         }
     ],
     "packages-dev": [],

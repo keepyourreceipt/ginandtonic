@@ -11,6 +11,6 @@
     ],
     "require": {
     "diginedbv/twitter-api-php": "^0.99.0",
-    "andreyco/instagram": "^3.3"
+    "facebook/php-sdk-v4": "^5.1"
   }
 }

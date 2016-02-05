@@ -1,22 +1,21 @@
 <?php
-// Generate facebook access token
+$fb = new Facebook\Facebook([
+  'app_id' => FACEBOOK_APP_ID,
+  'app_secret' => FACEBOOK_APP_SECRET,
+  'default_graph_version' => 'v2.2',
+  ]);
+
 try {
-  $facebook_access_token = file_get_contents('https://graph.facebook.com/oauth/access_token?client_id=1509875139342540&client_secret='. FACEBOOK_SECRET .'&grant_type=client_credentials');
-} catch (Exception $e) {
-  echo $e->getMessage();
+  // Returns a `Facebook\FacebookResponse` object
+  $response = $fb->get('littlefishcreative?fields=id,posts', FACEBOOK_APP_ACCESS_TOKEN );
+} catch(Facebook\Exceptions\FacebookResponseException $e) {
+  echo 'Graph returned an error: ' . $e->getMessage();
+  exit;
+} catch(Facebook\Exceptions\FacebookSDKException $e) {
+  echo 'Facebook SDK returned an error: ' . $e->getMessage();
+  exit;
 }
 
-// Get information from facebook API endpoint
-try {
-  $facebook_feed = file_get_contents( 'https://graph.facebook.com/banyantreeyoganh/posts/?' . $facebook_access_token );
-} catch (Exception $e) {
-  echo $e->getMessage();
-}
+$facebook_posts_array = json_decode( $response->getBody(), true );
 
-// Save facebook feed to variable
-try {
-  $facebook_feed = json_decode( $facebook_feed );
-} catch (Exception $e) {
-  echo $e->getMessage();
-}
 ?>
