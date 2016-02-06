@@ -1,4 +1,5 @@
 <?php
+// Get facebook posts
 $fb = new Facebook\Facebook([
   'app_id' => FACEBOOK_APP_ID,
   'app_secret' => FACEBOOK_APP_SECRET,
@@ -7,7 +8,7 @@ $fb = new Facebook\Facebook([
 
 try {
   // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('littlefishcreative?fields=id,posts', FACEBOOK_APP_ACCESS_TOKEN );
+  $response = $fb->get('CocaColaUnitedStates?fields=id,posts', FACEBOOK_APP_ACCESS_TOKEN );
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -16,9 +17,7 @@ try {
   exit;
 }
 
-$facebook_posts_array = json_decode( $response->getBody(), true );
-
-
+// Get twitter posts
 $settings = array(
     'oauth_access_token' => TWITTER_OAUTH_ACCESS_TOKEN,
     'oauth_access_token_secret' => TWITTER_APP_SECRET,
@@ -38,30 +37,20 @@ $twitter_feed = $twitter->setGetfield($getfield)
 $twitter_posts_array = json_decode( $twitter_feed, true );
 
 foreach( $twitter_posts_array as $tweet ) {
-  if( !empty($tweet['text']) && $tweet['text'] != NULL ) { ?>
-    <div class="col-sm-4">
-      <p><?php echo $tweet['text']; ?></p>
-    </div>
-  <?php }
+  // $post_date = ['created_at'];
+  // $standard_date_format = ( $orig_date_format ));
+  // $tweet['created_at'] = $standard_date_format;
+  // echo $tweet['created_at'] . "<br>";
 }
 
-foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
-  if( !empty( $facebook_post['message'] ) ) { ?>
-    <div class="col-sm-4">
-      <p><?php echo $facebook_post['message']; ?></p>
-    </div>
-  <?php }
-}
+$facebook_posts_array = json_decode( $response->getBody(), true );
+$blog_posts_array = get_posts();
 
-// $social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
-// // $cache_file = fopen($social_cache_uri, 'w');
-// // fwrite( $cache_file, print_r($facebook_posts_array, true) );
-// // fclose( $cache_file );
+$news_feed_array = array_merge( $twitter_posts_array, $facebook_posts_array, $blog_posts_array );
+// foreach( $news_feed_array as $feed ) {
+// }
+// var_dump( $news_feed_array );
 
-// $social_cache_uri = 'wp-content/themes/ginandtonic/inc/social-api.cache';
-// $cache_file = fopen($social_cache_uri, 'w');
-// fwrite( $cache_file, print_r($twitter_posts_array, true) );
-// fclose( $cache_file );
 
 
 ?>
