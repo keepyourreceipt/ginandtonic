@@ -1,4 +1,7 @@
 <?php
+
+$news_feed = array();
+
 // Get facebook posts
 $fb = new Facebook\Facebook([
   'app_id' => FACEBOOK_APP_ID,
@@ -15,6 +18,28 @@ try {
 } catch(Facebook\Exceptions\FacebookSDKException $e) {
   echo 'Facebook SDK returned an error: ' . $e->getMessage();
   exit;
+}
+
+$facebook_posts_array = json_decode( $response->getBody(), true );
+
+foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
+  $published_at = new DateTime( $facebook_post['created_time'] );
+  $formatted_date = $published_at->format('U');
+  $content = $facebook_post['message'];
+  if( str_word_count( $content ) >= 20 ) {
+      $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content) . "...";
+  } else {
+    $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content);
+  }
+
+  $news_feed_item = array(
+    "content_type" => "facebook",
+    "published" => $formatted_date,
+    "content" => $excerpt
+  );
+
+  array_push( $news_feed, $news_feed_item );
+
 }
 
 // Get twitter posts
@@ -37,20 +62,47 @@ $twitter_feed = $twitter->setGetfield($getfield)
 $twitter_posts_array = json_decode( $twitter_feed, true );
 
 foreach( $twitter_posts_array as $tweet ) {
-  // $post_date = ['created_at'];
-  // $standard_date_format = ( $orig_date_format ));
-  // $tweet['created_at'] = $standard_date_format;
-  // echo $tweet['created_at'] . "<br>";
+  $published_at = new DateTime( $tweet['created_at'] );
+  $formatted_date = $published_at->format('U');
+
+  $news_feed_item = array(
+    "content_type" => "twitter",
+    "published" => $formatted_date,
+    "content" => $tweet['text']
+  );
+
+  array_push( $news_feed, $news_feed_item );
+
 }
 
-$facebook_posts_array = json_decode( $response->getBody(), true );
+// Get blog posts
 $blog_posts_array = get_posts();
 
-$news_feed_array = array_merge( $twitter_posts_array, $facebook_posts_array, $blog_posts_array );
-// foreach( $news_feed_array as $feed ) {
-// }
-// var_dump( $news_feed_array );
+// Add blog post content to news feed
+foreach ($blog_posts_array as $blog_post) {
+  $published_at = new DateTime( $blog_post->post_date );
+  $formatted_date = $published_at->format('U');
+  $content = $blog_post->post_content;
+  if( str_word_count( $content ) >= 20 ) {
+      $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content) . "...";
+  } else {
+    $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content);
+  }
 
+  $news_feed_item = array(
+    "content_type" => "post",
+    "published" => $formatted_date,
+    "title" => $blog_post->post_title,
+    "content" => $excerpt
+  );
+  array_push( $news_feed, $news_feed_item );
+}
 
+// Sort news feeb items by date
+function sort_by_date($a, $b) {
+    return $a['published'] - $b['published'];
+}
+
+usort($news_feed, 'sort_by_date');
 
 ?>
