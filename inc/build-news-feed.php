@@ -10,8 +10,7 @@ $fb = new Facebook\Facebook([
   ]);
 
 try {
-  // Returns a `Facebook\FacebookResponse` object
-  $response = $fb->get('CocaColaUnitedStates?fields=id,posts', FACEBOOK_APP_ACCESS_TOKEN );
+  $response = $fb->get('CocaColaUnitedStates?fields=id,posts,photos', FACEBOOK_APP_ACCESS_TOKEN );
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
@@ -22,6 +21,7 @@ try {
 
 $facebook_posts_array = json_decode( $response->getBody(), true );
 
+// Add facebook posts to news feed
 foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
   $published_at = new DateTime( $facebook_post['created_time'] );
   $formatted_date = $published_at->format('U');
@@ -61,6 +61,7 @@ $twitter_feed = $twitter->setGetfield($getfield)
 
 $twitter_posts_array = json_decode( $twitter_feed, true );
 
+// Add twitter posts to news feed
 foreach( $twitter_posts_array as $tweet ) {
   $published_at = new DateTime( $tweet['created_at'] );
   $formatted_date = $published_at->format('U');
@@ -102,7 +103,9 @@ foreach ($blog_posts_array as $blog_post) {
 function sort_by_date($a, $b) {
     return $a['published'] - $b['published'];
 }
-
 usort($news_feed, 'sort_by_date');
 
-?>
+
+// Write cache file
+$cache_location = 'wp-content/themes/ginandtonic/inc/news-feed.php';
+file_put_contents( $cache_location, json_encode($news_feed) );

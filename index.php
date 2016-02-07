@@ -23,10 +23,24 @@
 
 <div class="container news-feed">
   <div class="row">
-    <?php require_once  dirname(__FILE__) . '/inc/build-news-feed.php'; ?>
+    <?php
+      require_once  dirname(__FILE__) . '/inc/build-news-feed.php';
+      $news_feed_cache = get_template_directory_uri() . '/inc/news-feed.php';
+      $news_feed = json_decode(file_get_contents( $news_feed_cache ), true);
+
+      foreach ( $news_feed as $post ) { ?>
+        <div class="col-sm-4 news-feed-post <?php echo $post['content_type']; ?>">
+          <div class="news-feed-header">
+          </div>
+          <?php if( $post['content_type'] == "post" ) { ?>
+            <h2><?php echo $post['title']; ?></h2>
+          <?php } ?>
+          <p><?php echo $post['content'];  ?></p>
+        </div>
+      <?php }
+    ?>
   </div>
 </div>
-
 
 <div class="row list-blog-posts">
   <div class="container">

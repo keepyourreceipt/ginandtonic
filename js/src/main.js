@@ -16,6 +16,7 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
+    // initMasonryGrid();
     FastClick.attach(document.body);
   }
 
@@ -26,6 +27,13 @@ jQuery(document).ready(function($) {
         buildPhotoSwipeGallery( imageIndex );
       });
     }
+  }
+
+  function initMasonryGrid() {
+    $('.news-feed').masonry({
+      itemSelector: '.news-feed-post',
+
+    });
   }
 
   function submitSearchForm() {
