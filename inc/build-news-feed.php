@@ -33,12 +33,39 @@ foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
   }
   $id_array = explode( "_", $facebook_post["id"] );
 
-  $news_feed_item = array(
-    "content_type" => "facebook",
-    "published" => $formatted_date,
-    "content" => $excerpt,
-    "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1]
-  );
+  $post_id = $facebook_post['id'];
+  try {
+    $photos_response = $fb->get( $post_id . '?fields=attachments', FACEBOOK_APP_ACCESS_TOKEN );
+  } catch(Facebook\Exceptions\FacebookResponseException $e) {
+    echo 'Graph returned an error: ' . $e->getMessage();
+    exit;
+  } catch(Facebook\Exceptions\FacebookSDKException $e) {
+    echo 'Facebook SDK returned an error: ' . $e->getMessage();
+    exit;
+  }
+
+  $facebook_photo = json_decode( $photos_response->getBody(), true );
+  $photo_src = $facebook_photo['attachments']['data'][0]['media']['image']['src'];
+  $id = $facebook_post['id'];
+
+    if( $facebook_post['id'] == $id ) {
+      $news_feed_item = array(
+        "id" => $facebook_post['id'],
+        "content_type" => "facebook",
+        "published" => $formatted_date,
+        "content" => $excerpt,
+        "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1],
+        "image_src" => $photo_src
+      );
+    } else {
+      $news_feed_item = array(
+        "id" => $facebook_post['id'],
+        "content_type" => "facebook",
+        "published" => $formatted_date,
+        "content" => $excerpt,
+        "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1]
+      );
+  }
 
   array_push( $news_feed, $news_feed_item );
 
