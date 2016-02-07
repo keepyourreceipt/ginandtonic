@@ -32,7 +32,7 @@ jQuery(document).ready(function($) {
   function initMasonryGrid() {
     $('.news-feed').masonry({
       itemSelector: '.news-feed-post',
-
+      columnWidth: 80
     });
   }
 

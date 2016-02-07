@@ -31,11 +31,13 @@ foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
   } else {
     $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content);
   }
+  $id_array = explode( "_", $facebook_post["id"] );
 
   $news_feed_item = array(
     "content_type" => "facebook",
     "published" => $formatted_date,
-    "content" => $excerpt
+    "content" => $excerpt,
+    "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1]
   );
 
   array_push( $news_feed, $news_feed_item );
@@ -65,11 +67,13 @@ $twitter_posts_array = json_decode( $twitter_feed, true );
 foreach( $twitter_posts_array as $tweet ) {
   $published_at = new DateTime( $tweet['created_at'] );
   $formatted_date = $published_at->format('U');
+  $screen_name = $tweet['user']['screen_name'];
 
   $news_feed_item = array(
     "content_type" => "twitter",
     "published" => $formatted_date,
-    "content" => $tweet['text']
+    "content" => $tweet['text'],
+    "link" => "https://twitter.com/" . $screen_name . "/status/" . $tweet['id']
   );
 
   array_push( $news_feed, $news_feed_item );
@@ -94,9 +98,12 @@ foreach ($blog_posts_array as $blog_post) {
     "content_type" => "post",
     "published" => $formatted_date,
     "title" => $blog_post->post_title,
-    "content" => $excerpt
+    "content" => $excerpt,
+    "link" => $blog_post->guid
   );
+
   array_push( $news_feed, $news_feed_item );
+
 }
 
 // Sort news feeb items by date
