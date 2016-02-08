@@ -1,7 +1,7 @@
 <div class="page-header">
   <div class="container-fluid">
     <?php $background_image = get_field('header_image'); ?>
-    <div class="row waypoint waypoint waypoint-fade" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
+    <div class="row waypoint waypoint waypoint-fade parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
       <div class="image-overlay">
         <?php // Image overlay ?>
       </div>

@@ -199,9 +199,8 @@ jQuery(document).ready(function($) {
     });
   }
 
+  $(window).on('load', function() {
+    $('.masonry-container').masonry('layout');
+  });
 
-});
-
-jQuery(window).on('load', function() {
-  $('.masonry-container').masonry('layout');
 });
