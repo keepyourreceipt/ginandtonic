@@ -16,8 +16,15 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
-    // initMasonryGrid();
+    initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function initMasonryGrid() {
+    $('.masonry-container').masonry({
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-item',
+    });
   }
 
   function launchPhotoSwipeGallery() {
@@ -27,13 +34,6 @@ jQuery(document).ready(function($) {
         buildPhotoSwipeGallery( imageIndex );
       });
     }
-  }
-
-  function initMasonryGrid() {
-    $('.news-feed').masonry({
-      itemSelector: '.news-feed-post',
-      columnWidth: 80
-    });
   }
 
   function submitSearchForm() {
@@ -200,4 +200,8 @@ jQuery(document).ready(function($) {
   }
 
 
+});
+
+jQuery(window).on('load', function() {
+  $('.masonry-container').masonry('layout');
 });

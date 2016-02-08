@@ -23,16 +23,60 @@
 
 <div class="container news-feed">
   <div class="row">
-    <?php
-      require_once  dirname(__FILE__) . '/inc/build-news-feed.php';
+    <div class="masonry-container">
+      <?php
+      // require_once  dirname(__FILE__) . '/inc/build-news-feed.php';
       $news_feed_cache = get_template_directory_uri() . '/inc/news-feed.php';
       $news_feed = json_decode(file_get_contents( $news_feed_cache ), true); ?>
-        <?php foreach ( $news_feed as $post ) { ?>
+      <?php foreach ( $news_feed as $post ) { ?>
+        <div class="col-sm-6 col-md-4 masonry-item">
+
           <?php if( $post['content_type'] == "facebook" ) { ?>
-            <img src="<?php echo $post['image_src']; ?>">
-            <p><?php echo $post['content'];?></p>
+            <div class="<?php echo $post['content_type']; ?>">
+              <a href="<?php echo $post['link']; ?>">
+                <img src="<?php echo $post['image_src']; ?>">
+              </a>
+              <?php if( isset( $post['content'] ) && !empty( $post['content'] ) ) { ?>
+                <div class="content">
+                  <div class="icon">
+                    <i class="fa fa-facebook-official"></i>
+                  </div>
+                  <p><?php echo $post['content'];?></p>
+                </div>
+              <?php } ?>
+            </div>
           <?php } ?>
-        <?php } // foreach ?>
+
+          <?php if( $post['content_type'] == "twitter" ) { ?>
+            <div class="<?php echo $post['content_type']; ?>">
+              <a href="<?php echo $post['link']; ?>">
+                <div class="content">
+                  <div class="icon">
+                    <i class="fa fa-twitter"></i>
+                  </div>
+                  <p><?php echo $post['content'];?></p>
+                </div>
+              </a>
+            </div>
+          <?php } ?>
+
+          <?php if( $post['content_type'] == "post" ) { ?>
+            <div class="<?php echo $post['content_type']; ?>">
+              <a href="<?php echo $post['link']; ?>">
+                <img src="<?php echo $post['image_src']; ?>">
+              </a>
+              <div class="content">
+                <div class="icon">
+                  <i class="fa fa-pencil"></i>
+                </div>
+                <p><?php echo $post['content'];?></p>
+              </div>
+            </div>
+          <?php } ?>
+
+        </div>
+      <?php } // foreach ?>
+    </div>
   </div>
 </div>
 

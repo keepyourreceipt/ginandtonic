@@ -1,16 +1,41 @@
 .news-feed
   +content_row_padded()
 
-  .news-feed-post
-    margin-bottom: 5vh
+  img
+    border-top-left-radius: 3px
+    border-top-right-radius: 3px
 
-  .facebook
-    .news-feed-header
-      background-color: $facebook-blue
+  .masonry-item
+    margin-bottom: 15px
 
-  .twitter
-    .news-feed-header
-      background-color: $twitter-blue    
+    .facebook
+      border: solid $off-white 2px
+      border-radius: 5px
 
-  .news-feed-header
-    min-height: 20px
+      .content
+        margin-top: 10px
+        padding: 10px
+
+    .twitter
+      border: solid $off-white 2px
+      color: $white
+      background-color: $twitter-blue
+      border-radius: 5px
+
+      a
+        color: $white
+
+        &:hover
+          color: $white
+
+      .content
+        margin-top: 10px
+        padding: 10px
+
+    .post
+      border: solid $off-white 2px
+      border-radius: 5px
+
+      .content
+        margin-top: 10px
+        padding: 10px

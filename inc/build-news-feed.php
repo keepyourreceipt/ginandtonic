@@ -115,6 +115,7 @@ foreach ($blog_posts_array as $blog_post) {
   $published_at = new DateTime( $blog_post->post_date );
   $formatted_date = $published_at->format('U');
   $content = $blog_post->post_content;
+  $featured_image = wp_get_attachment_image_src( get_post_thumbnail_id( $blog_post->ID ), 'large' );
   if( str_word_count( $content ) >= 20 ) {
       $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content) . "...";
   } else {
@@ -126,7 +127,8 @@ foreach ($blog_posts_array as $blog_post) {
     "published" => $formatted_date,
     "title" => $blog_post->post_title,
     "content" => $excerpt,
-    "link" => $blog_post->guid
+    "link" => $blog_post->guid,
+    "image_src" => $featured_image[0]
   );
 
   array_push( $news_feed, $news_feed_item );
@@ -135,7 +137,7 @@ foreach ($blog_posts_array as $blog_post) {
 
 // Sort news feeb items by date
 function sort_by_date($a, $b) {
-    return $a['published'] - $b['published'];
+    return $b['published'] - $a['published'];
 }
 usort($news_feed, 'sort_by_date');
 
