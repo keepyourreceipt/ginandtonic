@@ -25,7 +25,7 @@
   <div class="row">
     <div class="masonry-container">
       <?php
-      // require_once  dirname(__FILE__) . '/inc/build-news-feed.php';
+      require_once  dirname(__FILE__) . '/inc/build-news-feed.php';
       $news_feed_cache = get_template_directory_uri() . '/inc/news-feed.php';
       $news_feed = json_decode(file_get_contents( $news_feed_cache ), true); ?>
       <?php foreach ( $news_feed as $post ) { ?>
