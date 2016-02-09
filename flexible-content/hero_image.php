@@ -17,7 +17,7 @@
       $classes .= "adjust-for-menu";
     }
   ?>
-  <div class="container-fluid <?php echo $container_classes; ?>" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
+  <div class="container-fluid parallax-window <?php echo $container_classes; ?>" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
     <div class="image-overlay">
       <?php // Image overlay ?>
     </div>

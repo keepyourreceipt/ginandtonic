@@ -1,0 +1,16 @@
+{
+  "config": {
+       "vendor-dir": "inc/vendor"
+   },
+    "name": "root/ginandtonic",
+    "authors": [
+        {
+            "name": "Michael",
+            "email": "michaelkpeterman@gmail.com"
+        }
+    ],
+    "require": {
+    "diginedbv/twitter-api-php": "^0.99.0",
+    "facebook/php-sdk-v4": "^5.1"
+  }
+}

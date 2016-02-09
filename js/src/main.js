@@ -16,7 +16,15 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
+    initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function initMasonryGrid() {
+    $('.masonry-container').masonry({
+      itemSelector: '.masonry-item',
+      columnWidth: '.masonry-item',
+    });
   }
 
   function launchPhotoSwipeGallery() {
@@ -191,5 +199,8 @@ jQuery(document).ready(function($) {
     });
   }
 
+  $(window).on('load', function() {
+    $('.masonry-container').masonry('layout');
+  });
 
 });
