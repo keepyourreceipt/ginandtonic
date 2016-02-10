@@ -14,24 +14,26 @@
   h2
     font-size: 1.3em
     letter-spacing: 0.05em
-    padding: 0 2em
+    padding: 0 0 0.1em
+    margin: 0
     font-weight: 300
 
   .table
-    min-height: 50vh
+    min-height: 75vh
     padding-bottom: 60px
     padding-top: 60px
 
   .short
     .table
-      min-height: 30vh
+      min-height: 50vh
 
   .tall
     .table
-      min-height: 90vh
+      min-height: 100vh
 
-  .adjust-for-menu
-    padding-top: 80px
+  .adjust-position
+    .table
+      padding-top: 150px
 
     @media screen and ( max-width: $laptop )
       padding-top: 60px
