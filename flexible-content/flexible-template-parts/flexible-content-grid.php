@@ -2,7 +2,6 @@
   $background_image = get_sub_field( 'background_image' );
   get_sub_field( 'background_style' ) == "cover" ? $container_classes = "background-tiled" : $container_classes = "background-cover";
   $inline_styles = "style='";
-  $inline_styles .= "text-align:" . get_sub_field( 'text_align') . ";";
   $inline_styles .= "background-image: url(" . $background_image['sizes']['full-hd'] . "); ";
   $inline_styles .= "'";
  ?>

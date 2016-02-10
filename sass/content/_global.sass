@@ -20,7 +20,7 @@ h1
 
 h2
   font-size: 1.6em
-  padding-bottom: 0.5em
+  padding-bottom: 0.1em
   line-height: 1.3em
 
 h3
@@ -68,8 +68,68 @@ img
   &.active
     display: block
 
+.linked_buttons
+  padding-top: 1em
+
 .linked-button-light
   +linked-button-light
 
 .linked-button-dark
   +linked-button-dark
+
+.center-text
+  text-align: center
+
+.table
+  display: table
+  margin-bottom: 0
+  position: relative
+
+  .table-cell
+    display: table-cell
+    vertical-align: middle
+
+.image-overlay
+  position: absolute
+  top: 0px
+  left: 0px
+  width: 100%
+  height: 100%
+  background-color: #333
+  opacity: 0.2
+
+  &.light
+    background-color: #fff
+    opacity: 0.2
+
+.text-center
+  text-align: center !important
+
+.opacity-lighten
+  opacity: 0.6
+
+.uniform-col-height
+  display: -webkit-box
+  display: -webkit-flex
+  display: -ms-flexbox
+  display:         flex
+
+  @media screen and ( max-width: $tablet )
+    display: initial
+
+    .background-image
+      min-height: 33vh
+
+.row.uniform-col-height
+  margin-right: 0
+
+  div
+    background-size: cover
+    background-position: center
+
+.remove-padding
+  padding-left: 0 !important
+  padding-right: 0 !important
+
+.background-cover
+  +background-cover
