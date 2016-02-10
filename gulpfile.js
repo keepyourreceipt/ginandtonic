@@ -136,7 +136,7 @@ gulp.task('copy-js', function() {
 
 gulp.task('copy-inc', function() {
   return gulp.src([
-    'inc/**.*'
+    'inc/**'
   ])
   .pipe(gulp.dest('dist/inc/'));
 });
