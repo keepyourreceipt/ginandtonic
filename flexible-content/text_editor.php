@@ -1,6 +1,6 @@
 <?php
   get_sub_field('background_color') == "light" ? $classes = "light " : $classes = "dark ";
-  get_sub_field('spacing_bottom') == "non-padding" ? $classes .= "content-row-non-padded" : $classes .= "content-row-padded";
+  get_sub_field('spacing_bottom') == "non-padded" ? $classes .= "content-row-padded-top" : $classes .= "content-row-padded";
   get_sub_field('content_width') == "full" ? $width_classes = "col-sm-10 col-sm-offset-1" : $width_classes = "col-sm-8 col-sm-offset-2";
 ?>
 <div class="text-editor">
