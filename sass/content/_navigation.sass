@@ -1,3 +1,8 @@
+#menu-main-nav
+  > .current-menu-parent,
+  > .current-menu-item
+    border-bottom: solid $light-grey 5px
+
 .fixed-top-menu
   display: block
   position: fixed
@@ -10,7 +15,7 @@
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0,0,0) )
   @include transition( all 0.3s ease )
-  border-bottom: solid 1px #eee
+  border-bottom: solid 1px $light-grey
 
   .company-logo
     display: inline-block
