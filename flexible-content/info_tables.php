@@ -10,11 +10,17 @@
         }
       ?>
       <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+        <?php
+          $header_background_color = get_sub_field( 'table_one_header_background_color' );
+          $header_text_color = get_sub_field( 'table_one_header_text_color' );
+          ?>
         <table>
-          <thead>
+          <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
             <tr>
               <th>
-                <?php the_sub_field('table_one_heading'); ?>
+                <span><?php the_sub_field('table_one_introduction'); ?></span>
+                <h3><?php the_sub_field('table_one_heading'); ?></h3>
+                <span><?php the_sub_field('table_one_sub_heading'); ?></span>
               </th>
             </tr>
           </thead>
@@ -35,8 +41,12 @@
       </div>
 
       <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+      <?php
+        $header_background_color = get_sub_field( 'table_two_header_background_color' );
+        $header_text_color = get_sub_field( 'table_two_header_text_color' );
+        ?>
         <table>
-          <thead>
+          <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
             <tr>
               <th>
                 <?php the_sub_field('table_two_heading'); ?>
@@ -61,8 +71,12 @@
 
       <?php if( $number_of_tables == "three" ) { ?>
       <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+      <?php
+        $header_background_color = get_sub_field( 'table_two_header_background_color' );
+        $header_text_color = get_sub_field( 'table_two_header_text_color' );
+        ?>
         <table>
-          <thead>
+          <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
             <tr>
               <th>
                 <?php the_sub_field('table_three_heading'); ?>
