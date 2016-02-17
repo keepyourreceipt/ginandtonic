@@ -6,7 +6,7 @@
   backface-visibility: hidden
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0 0 0) )
-  @include transition( margin-left 0.3s ease )
+  @include transition( margin-left 0.3s ease )  
 
   .row
     background-size: cover
@@ -20,7 +20,10 @@
     position: relative
     z-index: 2
     color: $white
-    min-height: 40vh
+    min-height: 45vh
+
+    @media screen and ( max-height: 768px )
+      min-height: 60vh
 
     h1
       padding-bottom: 10px

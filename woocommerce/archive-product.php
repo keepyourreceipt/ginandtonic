@@ -1,10 +1,10 @@
 <?php get_header(); ?>
-<div class="image-banner">
+<div class="page-header">
   <?php
-    $shop_page = get_page_by_title( 'Shop' );
-    $background_image = get_field('header_image', $shop_page->ID);
+    $news_page = get_page_by_title( 'Shop' );
+    $background_image = get_field('header_image', $news_page->ID);
   ?>
-  <div class="jumbotron waypoint waypoint waypoint-fade anim-time-short" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
+  <div class="container-fluid anim-time-short parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
     <div class="image-overlay">
       <?php // Image overlay ?>
     </div>
@@ -12,29 +12,8 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $shop_page->ID); ?></h1>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $shop_page->ID); ?></h4>
-            <?php
-              if( have_rows('buttons') ) { ?>
-                <div class="linked_buttons">
-                  <?php
-                  while ( have_rows('buttons') ) : the_row();
-                    if( get_sub_field('link_type') == "Link to a Page on This Website" ) {
-                      $button_link = get_sub_field('page_to_link_to');
-                      $link_target = null;
-                    } else {
-                      $button_link = get_sub_field('external_website_link');
-                      $link_target = "_blank";
-                    }
-                    ?>
-                      <a class="waypoint waypoint-bottom-to-top anim-time-long" href="<?php echo $button_link ?>" <?php if( $link_target != null ) { echo $link_target; } ?>><?php the_sub_field('button_text'); ?></a>
-                    <?php
-                  endwhile;
-                ?>
-                </div>
-                <?php
-                }
-              ?>
+            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page->ID); ?></h1>
+            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page->ID); ?></h4>
           </div>
         </div>
       </div>
