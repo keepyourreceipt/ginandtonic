@@ -7,6 +7,6 @@ js/*.js
 fonts/
 css/
 dist/
-inc/news-feed.php
+*.cache
 
 inc/vendor/

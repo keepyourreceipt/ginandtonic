@@ -147,5 +147,5 @@ usort($news_feed, 'sort_by_date');
 
 
 // Write cache file
-$cache_location = 'wp-content/themes/ginandtonic/inc/news-feed.php';
+$cache_location = 'wp-content/themes/ginandtonic/inc/news-feed/news-feed.cache';
 file_put_contents( $cache_location, json_encode($news_feed) );

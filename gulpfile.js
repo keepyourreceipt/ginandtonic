@@ -103,64 +103,22 @@ gulp.task('clean-js', function () {
 });
 
 
-
-// Release Tasks
-gulp.task('copy-theme-root', function() {
+// Build theme for release
+gulp.task('release-theme', function() {
     return gulp.src([
       '**.php',
       'style.css',
+      '*flexible-content/**',
+      '*css/**.*',
+      '*js/**.js',
+      '*inc/**',
+      '*fonts/**',
+      '*template-parts/**',
+      '*woocommerce/**'
     ])
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('copy-flexible-content', function() {
-  return gulp.src([
-    'flexible-content/**/*.php'
-  ], { base: 'flexible-content/' })
-  .pipe(gulp.dest('dist/flexible-content/'));
-});
-
-gulp.task('copy-css', function() {
-  return gulp.src([
-    'css/**.*'
-  ])
-  .pipe(gulp.dest('dist/css/'));
-});
-
-gulp.task('copy-js', function() {
-  return gulp.src([
-    'js/**.*'
-  ])
-  .pipe(gulp.dest('dist/js/'));
-});
-
-gulp.task('copy-inc', function() {
-  return gulp.src([
-    'inc/**'
-  ])
-  .pipe(gulp.dest('dist/inc/'));
-});
-
-gulp.task('copy-theme-fonts', function() {
-  return gulp.src([
-    'fonts/**.*'
-  ])
-  .pipe(gulp.dest('dist/fonts/'));
-});
-
-gulp.task('copy-template-parts', function() {
-  return gulp.src([
-    'template-parts/**/*.php'
-  ], { base: 'template-parts/' })
-  .pipe(gulp.dest('dist/template-parts/'));
-});
-
-gulp.task('copy-woocommerce', function() {
-  return gulp.src([
-    'woocommerce/**/*.php'
-  ], { base: 'woocommerce/' })
-  .pipe(gulp.dest('dist/woocommerce/'));
-});
 
 // Watch all js and sass files w/livereload
 gulp.task('watch', function() {
@@ -176,7 +134,7 @@ gulp.task('exit', function() {
 });
 
 gulp.task('release', function() {
-  runSequence('build',['copy-theme-root', 'copy-theme-fonts', 'copy-inc', 'copy-flexible-content', 'copy-js', 'copy-template-parts', 'copy-woocommerce', 'copy-css'], 'exit');
+  runSequence('build', 'release-theme', 'exit');
 });
 
 // Designed for first build

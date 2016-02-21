@@ -1,4 +1,4 @@
-<div class="col-sm-4">
+<div class="col-sm-6">
 <?php
 /**
  * The template for displaying product content within loops.
@@ -23,7 +23,7 @@ if ( empty( $woocommerce_loop['loop'] ) ) {
 
 // Store column count for displaying the grid
 if ( empty( $woocommerce_loop['columns'] ) ) {
-	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 4 );
+	$woocommerce_loop['columns'] = apply_filters( 'loop_shop_columns', 1 );
 }
 
 // Ensure visibility

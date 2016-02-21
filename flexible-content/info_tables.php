@@ -41,15 +41,17 @@
       </div>
 
       <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
-      <?php
-        $header_background_color = get_sub_field( 'table_two_header_background_color' );
-        $header_text_color = get_sub_field( 'table_two_header_text_color' );
-        ?>
+        <?php
+          $header_background_color = get_sub_field( 'table_two_header_background_color' );
+          $header_text_color = get_sub_field( 'table_two_header_text_color' );
+          ?>
         <table>
           <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
             <tr>
               <th>
-                <?php the_sub_field('table_two_heading'); ?>
+                <span><?php the_sub_field('table_two_introduction'); ?></span>
+                <h3><?php the_sub_field('table_two_heading'); ?></h3>
+                <span><?php the_sub_field('table_two_sub_heading'); ?></span>
               </th>
             </tr>
           </thead>
@@ -69,35 +71,39 @@
         </table>
       </div>
 
+
       <?php if( $number_of_tables == "three" ) { ?>
-      <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
-      <?php
-        $header_background_color = get_sub_field( 'table_two_header_background_color' );
-        $header_text_color = get_sub_field( 'table_two_header_text_color' );
-        ?>
-        <table>
-          <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
-            <tr>
-              <th>
-                <?php the_sub_field('table_three_heading'); ?>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <?php
-            if( have_rows('table_three_data') ) {
-              while( have_rows('table_three_data') ) : the_row(); ?>
-                <tr>
-                  <td class="<?php the_sub_field('row_status'); ?>">
-                    <?php the_sub_field('table_row'); ?>
-                  </td>
-                </tr>
+        <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+          <?php
+            $header_background_color = get_sub_field( 'table_three_header_background_color' );
+            $header_text_color = get_sub_field( 'table_three_header_text_color' );
+            ?>
+          <table>
+            <thead style="background-color: <?php echo $header_background_color; ?>; color: <?php echo $header_text_color; ?>;">
+              <tr>
+                <th>
+                  <span><?php the_sub_field('table_three_introduction'); ?></span>
+                  <h3><?php the_sub_field('table_three_heading'); ?></h3>
+                  <span><?php the_sub_field('table_three_sub_heading'); ?></span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
               <?php
-              endwhile;
-            } ?>
-          </tbody>
-        </table>
-      </div>
+              if( have_rows('table_three_data') ) {
+                while( have_rows('table_three_data') ) : the_row(); ?>
+                  <tr>
+                    <td class="<?php the_sub_field('row_status'); ?>">
+                      <?php the_sub_field('table_row'); ?>
+                    </td>
+                  </tr>
+                <?php
+                endwhile;
+              } ?>
+            </tbody>
+          </table>
+        </div>
+
       <?php
       }
     ?>
