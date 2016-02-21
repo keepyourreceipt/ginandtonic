@@ -109,7 +109,7 @@ gulp.task('release-theme', function() {
       '**.php',
       'style.css',
       '*flexible-content/**',
-      '*css/**',
+      '*css/**.*',
       '*js/**.js',
       '*inc/**',
       '*fonts/**',
@@ -134,7 +134,7 @@ gulp.task('exit', function() {
 });
 
 gulp.task('release', function() {
-  runSequence('build',['copy-theme-root', 'copy-theme-fonts', 'copy-inc', 'copy-flexible-content', 'copy-js', 'copy-template-parts', 'copy-woocommerce', 'copy-css'], 'exit');
+  runSequence('build', 'release-theme', 'exit');
 });
 
 // Designed for first build
