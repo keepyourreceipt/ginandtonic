@@ -62,27 +62,26 @@ add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 120, 60, false );
 
-// Remove tickets from default list products
-add_action( 'pre_get_posts', 'custom_pre_get_posts' );
-
-function custom_pre_get_posts( $q ) {
-    if ( ! $q->is_main_query() ) return;
-    if ( ! $q->is_post_type_archive() ) return;
-
-    if ( ! is_admin() && is_shop() ) {
-        $q->set( 'tax_query', array(array(
-            'taxonomy' => 'product_cat',
-            'field' => 'slug',
-            'terms' => array( 'tickets'), // Don't display products in the private-clients category on the shop page
-            'operator' => 'NOT IN'
-        )));
-    }
-    remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
-}
+// // Remove tickets from default list products
+// add_action( 'pre_get_posts', 'custom_pre_get_posts' );
+//
+// function custom_pre_get_posts( $q ) {
+//     if ( ! $q->is_main_query() ) return;
+//     if ( ! $q->is_post_type_archive() ) return;
+//
+//     if ( ! is_admin() && is_shop() ) {
+//         $q->set( 'tax_query', array(array(
+//             'taxonomy' => 'product_cat',
+//             'field' => 'slug',
+//             'terms' => array( 'tickets'), // Don't display products in the private-clients category on the shop page
+//             'operator' => 'NOT IN'
+//         )));
+//     }
+//     remove_action( 'pre_get_posts', 'custom_pre_get_posts_query' );
+// }
 
 // Include Composer PHP dependencies
 require_once dirname( __FILE__ ) . '/inc/vendor/autoload.php';
-
 
 function clean_up_admin_menu() {
     remove_menu_page( 'tools.php' );
@@ -90,15 +89,3 @@ function clean_up_admin_menu() {
 		// remove_menu_page( 'options-general.php' );
 }
 add_action( 'admin_menu', 'clean_up_admin_menu' );
-
-// Remove Woo Commerce default stylesheet
-// add_filter( 'woocommerce_enqueue_styles', '__return_empty_array' );
-
-// Remove woo commerce sidebar from single products page
-remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
-
-// Remove woocommerce breadcrumbs
-// add_action( 'init', 'remove_wc_breadcrumbs' );
-// function remove_wc_breadcrumbs() {
-//     remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
-// }
