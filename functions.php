@@ -89,3 +89,12 @@ function clean_up_admin_menu() {
 		// remove_menu_page( 'options-general.php' );
 }
 add_action( 'admin_menu', 'clean_up_admin_menu' );
+
+// Remove woo commerce sidebar from single products page
+remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
+
+// Remove woocommerce breadcrumbs
+add_action( 'init', 'remove_wc_breadcrumbs' );
+function remove_wc_breadcrumbs() {
+    remove_action( 'woocommerce_before_main_content', 'woocommerce_breadcrumb', 20, 0 );
+}
