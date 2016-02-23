@@ -19,15 +19,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <h2 class="waypoint waypoint-bottom-to-top">
-              <?php the_sub_field('text_heading_top'); ?>
-            </h2>
-            <h1 class="waypoint waypoint-bottom-to-top">
-              <?php the_sub_field('text_heading_center'); ?>
-            </h1>
-            <h2 class="waypoint waypoint-bottom-to-top">
-              <?php the_sub_field('text_heading_bottom'); ?>
-            </h2>
+            <?php the_sub_field( 'text_editor' ); ?>
             <?php get_template_part( 'template', 'parts/linked-buttons' ); ?>
           </div>
         </div>
