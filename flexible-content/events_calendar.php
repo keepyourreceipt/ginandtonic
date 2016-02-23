@@ -11,19 +11,40 @@
               <div class="row event-listing">
             <?php } ?>
 
-            <div class="col-sm-2 event-date waypoint waypoint-bottom-to-top">
+            <div class="col-sm-12 col-md-2 event-date waypoint waypoint-bottom-to-top">
               <div class="col-sm-12 event-month">
                 <span class="calendar-ring one"></span>
                 <span class="calendar-ring two"></span>
-                <?php $month = substr(get_field('date'), 0, 3 ); ?>
-                  <span><?php echo $month; ?></span>
+                <?php
+                  if( get_field('event_type') == "recurring" ) {
+                    $heading = get_field( 'event_frequency' );
+                    $event_type = "recurring";
+                  } else {
+                    $heading = substr(get_field('date'), 0, 3 );
+                    $event_type = "singe-event";
+                  }
+                  ?>
+                  <span><?php echo $heading; ?></span>
               </div>
               <div class="col-sm-12 event-day">
-                <?php $day = substr( get_field('date'), 4, 2 ); ?>
-                <span><?php echo $day; ?></span>
+                <?php
+                if( $event_type == "recurring" ) {
+                  $event_occurs = get_field( 'event_occurs' );
+                  $event_day = get_field( 'event_day' );
+                  $listing_classes = "recurring-event";
+                } else {
+                  $event_occurs = null;
+                  $event_day = substr( get_field('date'), 4, 2 );
+                  $listing_classes = "single-event";
+                }
+                ?>
+                <?php if( $event_type == "recurring" ) { ?>
+                  <span class="<?php echo $listing_classes; ?> small-heading"><?php echo $event_occurs; ?></span>
+                <?php } ?>
+                <span class="<?php echo $listing_classes; ?>"><?php echo $event_day; ?></span>
               </div>
             </div>
-            <div class="col-sm-4 event-info waypoint waypoint-bottom-to-top">
+            <div class="col-sm-12 col-md-4 event-info waypoint waypoint-bottom-to-top">
               <h3><?php the_title(); ?></h3>
               <p><?php the_field('text_sub_heading'); ?></p>
               <a href="<?php the_permalink(); ?>" class="btn btn-default btn-small">More Info</a>

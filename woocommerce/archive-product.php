@@ -43,17 +43,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <?php if ( have_posts() ) : ?>
 
+  <div class="container woocommerce-breadcrumbs">
+    <div class="row">
+      <div class="col-sm-12">
+        <?php woocommerce_breadcrumb(); ?>
+      </div>
+    </div>
+  </div>
+
   <div class="container shop-products">
+
     <div class="row">
 
       <?php do_action( 'woocommerce_before_main_content' ); ?>
-
-      <?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-        <div class="col-sm-12">
-          <h1><?php woocommerce_page_title(); ?></h1>
-        </div>
-      <?php endif; ?>
-
 
       <?php get_template_part( 'template', 'parts/sidebars/shop-sidebar' ); ?>
 
@@ -80,6 +82,8 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
     </div>
   </div>
+
+
 </div>
 
 <?php get_footer(); ?>

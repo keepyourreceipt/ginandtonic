@@ -29,7 +29,7 @@
             if( have_rows('table_one_data') ) {
               while( have_rows('table_one_data') ) : the_row(); ?>
                 <tr>
-                  <td class="<?php the_sub_field('row_status'); ?>">
+                  <td class="<?php the_sub_field('availability'); ?>">
                     <?php the_sub_field('table_row'); ?>
                   </td>
                 </tr>
@@ -60,7 +60,7 @@
             if( have_rows('table_two_data') ) {
               while( have_rows('table_two_data') ) : the_row(); ?>
                 <tr>
-                  <td class="<?php the_sub_field('row_status'); ?>">
+                  <td class="<?php the_sub_field('availability'); ?>">
                     <?php the_sub_field('table_row'); ?>
                   </td>
                 </tr>
@@ -93,7 +93,7 @@
               if( have_rows('table_three_data') ) {
                 while( have_rows('table_three_data') ) : the_row(); ?>
                   <tr>
-                    <td class="<?php the_sub_field('row_status'); ?>">
+                    <td class="<?php the_sub_field('availability'); ?>">
                       <?php the_sub_field('table_row'); ?>
                     </td>
                   </tr>

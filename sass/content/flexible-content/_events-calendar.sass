@@ -6,11 +6,11 @@
 
   .event-listing
     margin-bottom: 10vh
-    @media screen and ( max-width: $tablet )
+    @media screen and ( max-width: $laptop )
       text-align: center
 
     .event-date
-      @media screen and ( max-width: $tablet )
+      @media screen and ( max-width: $laptop )
         padding: 0 30vw
 
     .event-month
@@ -47,8 +47,22 @@
       border-bottom-left-radius: 5px
       border-bottom-right-radius: 5px
 
+      span
+        &.recurring-event
+          line-height: 2em
+
+          &.small-heading
+            font-size: 0.5em
+            padding: 0
+            margin: 0
+            display: block
+            line-height: 0
+            padding-top: 2em
+            margin-bottom: -10px
+
+
     .event-info
-      @media screen and ( max-width: $tablet)
+      @media screen and ( max-width: $laptop)
         margin-top: 5vh
         margin-bottom: 10vh
 
