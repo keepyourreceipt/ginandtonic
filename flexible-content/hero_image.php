@@ -13,12 +13,13 @@
       $background_style = 'style="background-image: url(' . $background_image['url'] . ');"';
     }
   ?>
+  
   <div class="container-fluid parallax-window <?php echo $container_classes; ?>" <?php echo $background_style; ?>>
     <div class="image-overlay"><?php // Image overlay ?></div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="table banner-text-container">
-          <div class="table-cell banner-text">
+          <div class="table-cell banner-text waypoint waypoint-bottom-to-top">
             <?php the_sub_field( 'text_editor' ); ?>
             <?php get_template_part( 'template', 'parts/linked-buttons' ); ?>
           </div>
