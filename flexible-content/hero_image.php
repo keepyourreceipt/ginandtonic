@@ -13,7 +13,7 @@
       $background_style = 'style="background-image: url(' . $background_image['url'] . ');"';
     }
   ?>
-  
+
   <div class="container-fluid parallax-window <?php echo $container_classes; ?>" <?php echo $background_style; ?>>
     <div class="image-overlay"><?php // Image overlay ?></div>
     <div class="row">
