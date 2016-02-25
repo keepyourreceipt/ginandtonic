@@ -11,6 +11,9 @@ body
   @include transform( translate3d(0 0 0) )
   @include transition( margin-left 0.3s ease )
 
+  @media screen and ( max-width: $laptop )
+    font-size: 15px
+
   &.menu-open
     margin-left: -200px
 
