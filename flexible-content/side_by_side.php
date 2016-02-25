@@ -9,10 +9,10 @@
       if( $image_position == "left" ) {
     ?>
     <div class="row uniform-col-height">
-      <div class="col-sm-5 col-sm-offset-1 image-column left waypoint waypoint-left-to-right anim-time-medium" <?php echo $inline_styles; ?>>
+      <div class="col-sm-6 image-column left waypoint waypoint-left-to-right anim-time-medium" <?php echo $inline_styles; ?>>
         <?php // Displaying background image ?>
       </div>
-      <div class="col-sm-5 text-column right waypoint waypoint-left-to-right">
+      <div class="col-sm-6 text-column right waypoint waypoint-left-to-right">
         <?php the_sub_field( 'text_content' ); ?>
       </div>
     </div>
@@ -21,10 +21,10 @@
         <div class="col-sm-12 image-column visible-xs waypoint waypoint-left-to-right" <?php echo $inline_styles; ?>>
           <?php // Displaying background image ?>
         </div>
-        <div class="col-sm-5 col-sm-offset-1 text-column left waypoint waypoint-left-to-right anim-time-medium">
+        <div class="col-sm-6 text-column left waypoint waypoint-left-to-right anim-time-medium">
           <?php the_sub_field( 'text_content' ); ?>
         </div>
-        <div class="col-sm-5 image-column hidden-xs right waypoint waypoint-left-to-right" <?php echo $inline_styles; ?>>
+        <div class="col-sm-6 image-column hidden-xs right waypoint waypoint-left-to-right" <?php echo $inline_styles; ?>>
           <?php // Displaying background image ?>
         </div>
       </div>
