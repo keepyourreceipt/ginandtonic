@@ -7,6 +7,19 @@
     background-size: contain !important
     min-height: 200px
 
+  .text-column
+    &.right
+      padding-left: 30px
+
+      @media screen and ( max-width: $tablet )
+        padding-left: inherit
+
+    &.left
+      padding-right: 30px
+
+      @media screen and ( max-width: $tablet )
+        padding-left: inherit
+
     img
       border-radius: 4px
 

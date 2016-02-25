@@ -40,7 +40,7 @@
         </table>
       </div>
 
-      <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+      <div class="waypoint waypoint-bottom-to-top anim-time-medium <?php echo $classes; ?>">
         <?php
           $header_background_color = get_sub_field( 'table_two_header_background_color' );
           $header_text_color = get_sub_field( 'table_two_header_text_color' );
@@ -73,7 +73,7 @@
 
 
       <?php if( $number_of_tables == "three" ) { ?>
-        <div class="waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
+        <div class="waypoint waypoint-bottom-to-top anim-time-long <?php echo $classes; ?>">
           <?php
             $header_background_color = get_sub_field( 'table_three_header_background_color' );
             $header_text_color = get_sub_field( 'table_three_header_text_color' );
