@@ -1,11 +1,17 @@
 .side-by-side
   +content-row-padded
 
+  @media screen and ( max-width: $tablet )
+    text-align: center
+
   .image-column
     background-position: center !important
     background-repeat: no-repeat !important
     background-size: contain !important
     min-height: 200px
+
+    @media screen and ( max-width: $tablet )
+      margin-bottom: 8vh
 
   .text-column
     &.right
