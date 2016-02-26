@@ -10,7 +10,7 @@ $fb = new Facebook\Facebook([
   ]);
 
 try {
-  $response = $fb->get('CocaColaUnitedStates?fields=id,posts,photos', FACEBOOK_APP_ACCESS_TOKEN );
+  $response = $fb->get('flyrbord?fields=id,posts,photos', FACEBOOK_APP_ACCESS_TOKEN );
 } catch(Facebook\Exceptions\FacebookResponseException $e) {
   echo 'Graph returned an error: ' . $e->getMessage();
   exit;
