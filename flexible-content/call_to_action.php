@@ -11,7 +11,7 @@
         <div class="col-sm-12 col-md-6 background-image waypoint waypoint-left-to-right" style="background-image: url(<?php echo $featured_image_obj['sizes']['full-hd']; ?>);">
           <?php // Background image container ?>
         </div>
-        <div class="col-md-6 waypoint waypoint-left-to-right anim-time-medium">
+        <div class="col-md-6 waypoint waypoint-right-to-left anim-time-medium">
           <div class="text-content">
             <?php the_sub_field('text_editor'); ?>
           </div>
@@ -24,7 +24,7 @@
             <?php the_sub_field('text_editor'); ?>
           </div>
         </div>
-        <div class="col-sm-6 hidden-xs background-image waypoint waypoint-left-to-right" style="background-image: url(<?php echo $featured_image_obj['sizes']['full-hd']; ?>);">
+        <div class="col-sm-6 hidden-xs background-image waypoint waypoint-right-to-left" style="background-image: url(<?php echo $featured_image_obj['sizes']['full-hd']; ?>);">
           <?php // Background image container ?>
         </div>
       </div>
@@ -38,7 +38,7 @@
   </div>
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12 waypoint waypoint-left-to-right anim-time-medium">
+      <div class="col-sm-12 waypoint waypoint-right-to-left anim-time-medium">
         <div class="text-content text-center">
           <?php the_sub_field('text_editor'); ?>
         </div>

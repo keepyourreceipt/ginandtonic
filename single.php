@@ -1,14 +1,10 @@
 <?php get_header(); ?>
-<div class="image-banner">
+<div class="page-header">
   <?php
-    if( get_field('header_image') ) {
-      $background_image = get_field( 'header_image' );
-    } else {
-      $news_page = get_page_by_title( 'News' );
-      $background_image = get_field('header_image', $news_page->ID);
-    }
-    ?>
-  <div class="jumbotron waypoint waypoint waypoint-fade anim-time-short" style="background-image: url(<?php echo $background_image['sizes']['full-hd'] ?>)">
+    $news_page = get_page_by_title( 'News' );
+    $background_image = get_field('header_image', $news_page->ID);
+  ?>
+  <div class="container-fluid anim-time-short parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
     <div class="image-overlay">
       <?php // Image overlay ?>
     </div>
@@ -16,16 +12,8 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <?php if( get_sub_field( 'text_heading' ) ) { ?>
-              <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading'); ?></h1>
-            <?php } else { ?>
-              <h1 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h1>
-              <?php } ?>
-            <?php if( get_sub_field( 'text_sub_heading' ) ) { ?>
-                <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading'); ?></h4>
-            <?php } else { ?>
-                <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php echo get_the_date(); ?></h4>
-            <?php } ?>
+            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page->ID); ?></h1>
+            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page->ID); ?></h4>
           </div>
         </div>
       </div>
@@ -48,7 +36,7 @@
         <?php the_content(); ?>
       </div>
     </div>
-    <?php get_template_part( 'template', 'parts/blog-sidebar' ); ?>
+    <?php get_template_part( 'template', 'parts/sidebars/blog-sidebar' ); ?>
   </div>
 </div>
 <div class="row single-post-comments">
