@@ -3,77 +3,77 @@
 $news_feed = array();
 
 // Get facebook posts
-$fb = new Facebook\Facebook([
-  'app_id' => FACEBOOK_APP_ID,
-  'app_secret' => FACEBOOK_APP_SECRET,
-  'default_graph_version' => 'v2.2',
-  ]);
+// $fb = new Facebook\Facebook([
+//   'app_id' => FACEBOOK_APP_ID,
+//   'app_secret' => FACEBOOK_APP_SECRET,
+//   'default_graph_version' => 'v2.2',
+//   ]);
 
-try {
-  $response = $fb->get('flyrbord?fields=id,posts,photos', FACEBOOK_APP_ACCESS_TOKEN );
-} catch(Facebook\Exceptions\FacebookResponseException $e) {
-  echo 'Graph returned an error: ' . $e->getMessage();
-  exit;
-} catch(Facebook\Exceptions\FacebookSDKException $e) {
-  echo 'Facebook SDK returned an error: ' . $e->getMessage();
-  exit;
-}
+// try {
+//   $response = $fb->get('flyrbord?fields=id,posts,photos', FACEBOOK_APP_ACCESS_TOKEN );
+// } catch(Facebook\Exceptions\FacebookResponseException $e) {
+//   echo 'Graph returned an error: ' . $e->getMessage();
+//   exit;
+// } catch(Facebook\Exceptions\FacebookSDKException $e) {
+//   echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//   exit;
+// }
 
-$facebook_posts_array = json_decode( $response->getBody(), true );
-
-// Add facebook posts to news feed
-foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
-  $published_at = new DateTime( $facebook_post['created_time'] );
-  $formatted_date = $published_at->format('U');
-  if( !empty( $facebook_post['message'] ) ) {
-    $content = $facebook_post['message'];
-  }
-  if( str_word_count( $content ) >= 20 ) {
-      $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content) . "...";
-  } else {
-    $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content);
-  }
-  $id_array = explode( "_", $facebook_post["id"] );
-
-  $post_id = $facebook_post['id'];
-  try {
-    $photos_response = $fb->get( $post_id . '?fields=attachments', FACEBOOK_APP_ACCESS_TOKEN );
-  } catch(Facebook\Exceptions\FacebookResponseException $e) {
-    echo 'Graph returned an error: ' . $e->getMessage();
-    exit;
-  } catch(Facebook\Exceptions\FacebookSDKException $e) {
-    echo 'Facebook SDK returned an error: ' . $e->getMessage();
-    exit;
-  }
-
-  $facebook_photo = json_decode( $photos_response->getBody(), true );
-  if( !empty( $facebook_photo['attachments']['data'][0]['media']['image']['src'] ) ) {
-    $photo_src = $facebook_photo['attachments']['data'][0]['media']['image']['src'];
-  }
-  $id = $facebook_post['id'];
-
-    if( $facebook_post['id'] == $id ) {
-      $news_feed_item = array(
-        "id" => $facebook_post['id'],
-        "content_type" => "facebook",
-        "published" => $formatted_date,
-        "content" => $excerpt,
-        "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1],
-        "image_src" => $photo_src
-      );
-    } else {
-      $news_feed_item = array(
-        "id" => $facebook_post['id'],
-        "content_type" => "facebook",
-        "published" => $formatted_date,
-        "content" => $excerpt,
-        "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1]
-      );
-  }
-
-  array_push( $news_feed, $news_feed_item );
-
-}
+// $facebook_posts_array = json_decode( $response->getBody(), true );
+//
+// // Add facebook posts to news feed
+// foreach( $facebook_posts_array['posts']['data'] as $facebook_post ) {
+//   $published_at = new DateTime( $facebook_post['created_time'] );
+//   $formatted_date = $published_at->format('U');
+//   if( !empty( $facebook_post['message'] ) ) {
+//     $content = $facebook_post['message'];
+//   }
+//   if( str_word_count( $content ) >= 20 ) {
+//       $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content) . "...";
+//   } else {
+//     $excerpt = preg_replace('/((\w+\W*){20}(\w+))(.*)/', '${1}', $content);
+//   }
+//   $id_array = explode( "_", $facebook_post["id"] );
+//
+//   $post_id = $facebook_post['id'];
+//   try {
+//     $photos_response = $fb->get( $post_id . '?fields=attachments', FACEBOOK_APP_ACCESS_TOKEN );
+//   } catch(Facebook\Exceptions\FacebookResponseException $e) {
+//     echo 'Graph returned an error: ' . $e->getMessage();
+//     exit;
+//   } catch(Facebook\Exceptions\FacebookSDKException $e) {
+//     echo 'Facebook SDK returned an error: ' . $e->getMessage();
+//     exit;
+//   }
+//
+//   $facebook_photo = json_decode( $photos_response->getBody(), true );
+//   if( !empty( $facebook_photo['attachments']['data'][0]['media']['image']['src'] ) ) {
+//     $photo_src = $facebook_photo['attachments']['data'][0]['media']['image']['src'];
+//   }
+//   $id = $facebook_post['id'];
+//
+//     if( $facebook_post['id'] == $id ) {
+//       $news_feed_item = array(
+//         "id" => $facebook_post['id'],
+//         "content_type" => "facebook",
+//         "published" => $formatted_date,
+//         "content" => $excerpt,
+//         "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1],
+//         "image_src" => $photo_src
+//       );
+//     } else {
+//       $news_feed_item = array(
+//         "id" => $facebook_post['id'],
+//         "content_type" => "facebook",
+//         "published" => $formatted_date,
+//         "content" => $excerpt,
+//         "link" => "http://www.facebook.com/" . $id_array[0] . "/posts/" . $id_array[1]
+//       );
+//   }
+//
+//   array_push( $news_feed, $news_feed_item );
+//
+// }
 
 // Get twitter posts
 $settings = array(
@@ -83,8 +83,10 @@ $settings = array(
     'consumer_secret' => TWITTER_CONSUMER_SECRET
 );
 
+$twitter_user_name = get_field( 'twitter_user_name', get_option( 'page_for_posts' ) );
+
 $url = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
-$getfield = '?screen_name=keepyourreceipt';
+$getfield = '?screen_name=' . $twitter_user_name;
 $requestMethod = 'GET';
 
 $twitter = new TwitterAPIExchange($settings);

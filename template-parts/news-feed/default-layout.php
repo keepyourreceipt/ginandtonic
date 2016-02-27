@@ -1,7 +1,8 @@
-<div class="row list-blog-posts">
-  <div class="container">
+<div class="container list-blog-posts">
+  <div class="row">
     <div class="col-sm-8">
-      <?php while( have_posts() ) : the_post(); ?>
+      <?php $query = new WP_Query( array( 'post_type' => 'post' ) ); ?>
+      <?php while( $query->have_posts() ) : $query->the_post(); ?>
           <div class="post-listing">
             <a href="<?php the_permalink(); ?>">
               <h2 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h2>
@@ -12,7 +13,7 @@
             </div>
             <?php the_excerpt(); ?>
           </div>
-      <?php endwhile; ?>
+      <?php endwhile; wp_reset_query(); ?>
       <div class="post-pagination waypoint waypoint-bottom-to-top">
         <?php
             $args = array(
@@ -23,6 +24,6 @@
         ?>
       </div>
     </div>
-    <?php get_template_part( 'template', 'parts/blog-sidebar' ); ?>
+    <?php get_template_part( 'template', 'parts/sidebars/blog-sidebar' ); ?>
   </div>
 </div>

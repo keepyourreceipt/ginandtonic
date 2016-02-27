@@ -1,8 +1,8 @@
 <?php get_header(); ?>
 <div class="page-header">
   <?php
-    $news_page = get_page_by_title( 'News' );
-    $background_image = get_field('header_image', $news_page->ID);
+    $news_page = get_option( 'page_for_posts' );
+    $background_image = get_field('header_image', $news_page );
   ?>
   <div class="container-fluid anim-time-short parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
     <div class="image-overlay">
@@ -12,8 +12,8 @@
       <div class="row">
         <div class="table banner-text-container">
           <div class="table-cell banner-text">
-            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page->ID); ?></h1>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page->ID); ?></h4>
+            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page ); ?></h1>
+            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page ); ?></h4>
           </div>
         </div>
       </div>
