@@ -11,7 +11,7 @@ if( have_rows('flexible_content') ) {
 } else {
   while( have_posts() ) : the_post(); ?>
     <div class="row">
-      <div class="container text-center">
+      <div class="container no-content-message">
         <h2>This page has no content. Click "Edit Page" to continue.</h2>
       </div>
     </div>

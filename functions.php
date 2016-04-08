@@ -87,3 +87,21 @@ function wc_remove_related_products( $args ) {
 	return array();
 }
 add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
+
+// Allow user to show of hide additional content types
+add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
+function remove_menu_items( $menu_order ){
+    global $menu;
+
+    foreach ( $menu as $mkey => $m ) {
+      // $team 			= array_search( 'edit.php?post_type=team', $m );
+			// $events 		= array_search( 'edit.php?post_type=events', $m );
+			// $portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+
+      if ( $team | $events | $portfolio )
+          unset( $menu[$mkey] );
+    }
+
+    return $menu_order;
+}
+add_filter( 'menu_order', 'remove_menu_items' );

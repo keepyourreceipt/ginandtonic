@@ -12,7 +12,7 @@ if( have_rows('flexible_content') ) {
     ?>
 
     <div class="row">
-      <div class="container">
+      <div class="container no-content-message">
         <h2>This page has no content. Click "Edit Page" to continue.</h2>
       </div>
     </div>
