@@ -2,7 +2,13 @@ jQuery(document).ready(function($) {
 
   themeInit();
 
+  $(window).on('resize', function() {
+    vertCenterHeroImageContent();
+  });
+
   function themeInit() {
+    alignHeroImageButtons();
+    vertCenterHeroImageContent();
     addWaypointsFormClasses();
     ajaxAddProductToCart();
     toggleOffCanvasMenu();
@@ -25,6 +31,26 @@ jQuery(document).ready(function($) {
       itemSelector: '.masonry-item',
       columnWidth: '.masonry-item',
     });
+  }
+
+  function alignHeroImageButtons() {
+    if( $('.hero-image').length ) {
+      $('.hero-image').each(function( index ) {
+        var heroImage = $(this);
+        if( heroImage.find('.text-content').children().eq(0).css('text-align') == "center" ) {
+          heroImage.css('text-align', 'center');
+        }
+      });
+    }
+  }
+
+  function vertCenterHeroImageContent() {
+    var firstSection = $('.page-content section').eq(0);
+    var navMenuHeight = $('.nav-menu').height();
+    if( firstSection.hasClass('hero-image') ) {
+      firstSection.addClass( 'adjusted-for-menu-height' );
+      firstSection.css('padding-top', navMenuHeight + "px");
+    }
   }
 
   function launchPhotoSwipeGallery() {

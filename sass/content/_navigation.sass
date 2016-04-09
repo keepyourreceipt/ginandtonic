@@ -8,14 +8,13 @@
   position: fixed
   top: 0
   z-index: 999
-  background-color: rgba( 255,255,255,0.75 )
+  background-color: rgba( 255,255,255,1 )
   width: 100%
   padding: 0 6em
   backface-visibility: hidden
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0,0,0) )
   @include transition( all 0.3s ease )
-  border-bottom: solid 1px $light-grey
 
   .company-logo
     display: inline-block
@@ -99,7 +98,6 @@
       width: auto
 
   &.active
-    background-color: rgba( 255,255,255,1 )
 
     .company-logo
       padding-top: 5px
@@ -135,7 +133,7 @@
 
   .off-canvas-menu-opener
     width: 53px
-    height: 61px
+    height: 60px
     background: $light-grey
     position: absolute
     left: -54px
