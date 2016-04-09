@@ -139,18 +139,24 @@ jQuery(document).ready(function($) {
       var mapLng = $('#map').data("lng");
       var mapLatLng = {lat: mapLat, lng: mapLng};
 
+      var mapPin = null;
+      if( $('#map').data('custom-map-pin').length ) {
+        mapPin = $('#map').data('custom-map-pin');
+      }
+
       var map = new google.maps.Map(document.getElementById('map'), {
         center: {
           lat: mapLat,
           lng: mapLng
         },
         scrollwheel: false,
-        zoom: 10
+        zoom: 12
       });
 
       var marker = new google.maps.Marker({
         position: mapLatLng,
         map: map,
+        icon: mapPin
       });
 
     }
