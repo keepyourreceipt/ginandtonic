@@ -5,7 +5,7 @@
 <div class="text-editor">
   <div class="container-fluid waypoint waypoint-bottom-to-top <?php echo $classes; ?>">
     <div class="row">
-      <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+      <div class="col-sm-10 col-sm-offset-1 col-lg-8 col-lg-offset-2">
         <?php the_sub_field('content_editor'); ?>
       </div>
     </div>

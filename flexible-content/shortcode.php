@@ -5,7 +5,7 @@
         if( get_sub_field('content_width') == 'full' ) {
           $content_width = 'col-sm-12';
         } else {
-          $content_width = 'col-md-offset-2 col-md-8';
+          $content_width = 'col-sm-offset-1 col-sm-10';
         }
       ?>
       <div class="<?php echo $content_width; ?>">

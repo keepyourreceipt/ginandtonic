@@ -1,7 +1,7 @@
 <div class="accordion">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-sm-10 col-sm-offset-1">
         <?php $panel_group_id = rand(1, 100); ?>
         <div class="panel-group" id="accordion-<?php echo $panel_group_id; ?>" role="tablist" aria-multiselectable="true">
             <?php
