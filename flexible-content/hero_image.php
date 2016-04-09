@@ -12,7 +12,7 @@
 
   <div class="container-fluid parallax-window <?php echo $container_classes; ?>" <?php echo $background_style; ?>>
     <div class="row overlay">
-      <div class="col-md-10 col-md-offset-1">
+      <div class="col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <div class="table text-content-container">
           <div class="table-cell text-content waypoint waypoint-bottom-to-top">
             <?php the_sub_field( 'text_editor' ); ?>
