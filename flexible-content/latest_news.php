@@ -9,7 +9,7 @@
             setup_postdata($post);
               if( $current_post == 1 ) { ?>
                 <div class="row first-row">
-                  <div class="featured-image col-md-5 col-md-offset-1">
+                  <div class="featured-image col-md-5 col-md-offset-1 waypoint waypoint-bottom-to-top">
                     <?php
                       $featured_image_id = get_post_thumbnail_id();
                       $featured_image_url_desktop = wp_get_attachment_image_src( $featured_image_id, 'full-hd', false );
@@ -22,14 +22,14 @@
                       </a>
                   </div>
                   <div class="post-content col-md-5">
-                    <div class="post-title">
+                    <div class="post-title waypoint waypoint-bottom-to-top">
                       <h2>
                         <a href="<?php the_permalink(); ?>">
                           <?php the_title(); ?>
                         </a>
                       </h2>
                     </div>
-                    <div class="post-meta">
+                    <div class="post-meta waypoint waypoint-bottom-to-top">
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo get_the_author(); ?>&nbsp;&nbsp;</span>
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?>&nbsp;&nbsp;</span>
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
@@ -38,7 +38,7 @@
                     <div class="post-excerpt">
                       <?php the_excerpt(); ?>
                     </div>
-                    <div class="share-post">
+                    <div class="share-post waypoint waypoint-bottom-to-top">
                       <span>Shre this</span>
                       <a href="https://twitter.com/home?status=<?php the_permalink(); ?>">
                         <i class="fa fa-twitter"></i>
@@ -55,12 +55,17 @@
                     </div>
                   </div>
                 </div>
+                <div class="row waypoint waypoint-bottom-to-top">
+                  <div class="col-sm-10 col-sm-offset-1">
+                    <hr>
+                  </div>
+                </div>
               <?php } else { ?>
                 <?php if( $current_post == 2 ) { ?>
                   <div class="row">
                     <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 remove-padding second-row">
                       <?php } ?>
-                      <div class="col-sm-4">
+                      <div class="col-sm-4 waypoint waypoint-bottom-to-top">
                         <div class="featured-image">
                           <?php
                             $featured_image_id = get_post_thumbnail_id();
@@ -70,6 +75,9 @@
                             </a>
                           </div>
                           <div class="post-title">
+                            <div class="post-meta">
+                              <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list(' | '); ?></span>
+                            </div>
                             <a href="<?php the_permalink(); ?>">
                               <?php the_title(); ?>
                             </a>

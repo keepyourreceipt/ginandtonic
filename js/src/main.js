@@ -3,12 +3,11 @@ jQuery(document).ready(function($) {
   themeInit();
 
   $(window).on('resize', function() {
-    vertCenterHeroImageContent();
+    autoLayoutAdjustment();
   });
 
   function themeInit() {
-    alignHeroImageButtons();
-    vertCenterHeroImageContent();
+    autoLayoutAdjustment();
     testimonialsSlider();
     addWaypointsFormClasses();
     ajaxAddProductToCart();
@@ -25,6 +24,37 @@ jQuery(document).ready(function($) {
     submitSearchForm();
     initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function autoLayoutAdjustment() {
+    if( $('.hero-image').length ) {
+      $('.hero-image').each(function( index ) {
+        var heroImage = $(this);
+        if( heroImage.find('.text-content').children().eq(0).css('text-align') == "center" ) {
+          heroImage.css('text-align', 'center');
+        }
+      });
+    }
+
+    var firstSection = $('.page-content section').eq(0);
+    var navMenuHeight = $('.nav-menu').height();
+    if( firstSection.hasClass('hero-image') ) {
+      firstSection.addClass( 'adjusted-for-menu-height' );
+      firstSection.css('padding-top', navMenuHeight + "px");
+    }
+
+    $('.side-by-side').each(function() {
+      if( $(this).next('div').hasClass('side-by-side') ) {
+        $(this).css('padding-bottom', '0');
+      }
+    });
+
+    $('.hero-image').each(function( index ) {
+      if( $(this).index() > 0 ) {
+        $(this).find('.table').css('min-height', '50vh');
+      }
+    });
+
   }
 
   function testimonialsSlider() {
@@ -69,26 +99,6 @@ jQuery(document).ready(function($) {
       itemSelector: '.masonry-item',
       columnWidth: '.masonry-item',
     });
-  }
-
-  function alignHeroImageButtons() {
-    if( $('.hero-image').length ) {
-      $('.hero-image').each(function( index ) {
-        var heroImage = $(this);
-        if( heroImage.find('.text-content').children().eq(0).css('text-align') == "center" ) {
-          heroImage.css('text-align', 'center');
-        }
-      });
-    }
-  }
-
-  function vertCenterHeroImageContent() {
-    var firstSection = $('.page-content section').eq(0);
-    var navMenuHeight = $('.nav-menu').height();
-    if( firstSection.hasClass('hero-image') ) {
-      firstSection.addClass( 'adjusted-for-menu-height' );
-      firstSection.css('padding-top', navMenuHeight + "px");
-    }
   }
 
   function launchPhotoSwipeGallery() {
