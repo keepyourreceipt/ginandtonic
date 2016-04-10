@@ -34,8 +34,8 @@ jQuery(document).ready(function($) {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        arrows, true,
-        dots: true,
+        autoplaySpeed: 5000,
+        arrows: false,
         responsive: [
           {
             breakpoint: 1024,
@@ -43,9 +43,9 @@ jQuery(document).ready(function($) {
               slidesToShow: 2,
               slidesToScroll: 1,
               infinite: true,
+              arrows: false,
               autoplay: true,
-              arrows, true,
-              dots: true,
+              autoplaySpeed: 5000
             }
           },
           {
@@ -54,9 +54,9 @@ jQuery(document).ready(function($) {
               slidesToShow: 1,
               slidesToScroll: 1,
               infinite: true,
+              arrows: false,
               autoplay: true,
-              arrows, true,
-              dots: true,
+              autoplaySpeed: 5000
             }
           }
         ]
