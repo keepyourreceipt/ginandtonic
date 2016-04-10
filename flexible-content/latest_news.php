@@ -34,10 +34,12 @@
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?>&nbsp;&nbsp;</span>
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
                     </div>
+                    <hr>
                     <div class="post-excerpt">
                       <?php the_excerpt(); ?>
                     </div>
                     <div class="share-post">
+                      <span>Shre this</span>
                       <a href="https://twitter.com/home?status=<?php the_permalink(); ?>">
                         <i class="fa fa-twitter"></i>
                       </a>

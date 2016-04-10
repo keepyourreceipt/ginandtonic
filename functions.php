@@ -94,9 +94,15 @@ function remove_menu_items( $menu_order ){
     global $menu;
 
     foreach ( $menu as $mkey => $m ) {
-      // $team 			= array_search( 'edit.php?post_type=team', $m );
-			// $events 		= array_search( 'edit.php?post_type=events', $m );
-			// $portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+			if( get_field('show_portfolio', 'option') == "Hide Portfolio" ) {
+				$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+			}
+			if( get_field('show_events', 'option') == "Hide Events" ) {				
+				$events = array_search( 'edit.php?post_type=events', $m );
+			}
+			if( get_field('show_team', 'option') == "Hide Team" ) {
+				$team = array_search( 'edit.php?post_type=team', $m );
+			}
 
       if ( $team | $events | $portfolio )
           unset( $menu[$mkey] );
