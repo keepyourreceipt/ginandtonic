@@ -33,11 +33,12 @@ gulp.task('combine-theme-css', ['combine-vendor-css'], function () {
     .pipe(gulp.dest('css'));
 });
 
-gulp.task('combine-vendor-css', ['clean-css', 'compass', 'copy-vendor-images'], function () {
+gulp.task('combine-vendor-css', ['clean-css', 'compass', 'copy-vendor-images', 'copy-slick-fonts'], function () {
   return gulp.src([
       'bower_components/bootstrap/dist/css/bootstrap.css',
       'bower_components/components-font-awesome/css/font-awesome.css',
       'bower_components/slick-carousel/slick/slick.css',
+      'bower_components/slick-carousel/slick/slick-theme.css',
       'bower_components/photoswipe/dist/photoswipe.css',
       'bower_components/photoswipe/dist/default-skin/default-skin.css',
     ])
@@ -64,6 +65,13 @@ gulp.task('copy-vendor-images', function() {
     'bower_components/photoswipe/dist/default-skin/preloader.gif',
   ])
   .pipe( gulp.dest('css') );
+});
+
+gulp.task('copy-slick-fonts', function() {
+  return gulp.src([
+    'bower_components/slick-carousel/slick/fonts/*',
+  ])
+  .pipe( gulp.dest('css/fonts') );
 });
 
 gulp.task('clean-css', function () {

@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
   function themeInit() {
     alignHeroImageButtons();
     vertCenterHeroImageContent();
+    testimonialsSlider();
     addWaypointsFormClasses();
     ajaxAddProductToCart();
     toggleOffCanvasMenu();
@@ -24,6 +25,43 @@ jQuery(document).ready(function($) {
     submitSearchForm();
     initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function testimonialsSlider() {
+    if( $('.testimonials').length ) {
+      $('.testimonials .slides').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        arrows, true,
+        dots: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              arrows, true,
+              dots: true,
+            }
+          },
+          {
+            breakpoint: 768,
+            settings: {
+              slidesToShow: 1,
+              slidesToScroll: 1,
+              infinite: true,
+              autoplay: true,
+              arrows, true,
+              dots: true,
+            }
+          }
+        ]
+      });
+    }
   }
 
   function initMasonryGrid() {
