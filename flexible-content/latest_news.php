@@ -12,7 +12,7 @@
                   <div class="featured-image col-md-5 col-md-offset-1 waypoint waypoint-bottom-to-top">
                     <?php
                       $featured_image_id = get_post_thumbnail_id();
-                      $featured_image_url_desktop = wp_get_attachment_image_src( $featured_image_id, 'full-hd', false );
+                      $featured_image_url_desktop = wp_get_attachment_image_src( $featured_image_id, 'featured-image-landscape', false );
                       $featured_image_url_tablet = wp_get_attachment_image_src( $featured_image_id, 'featured-image-portrait', false );
                       $featured_image_url_mobile = wp_get_attachment_image_src( $featured_image_id, 'post-listing', false ); ?>
                       <a href="<?php the_permalink(); ?>">
@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <div class="row waypoint waypoint-bottom-to-top">
-                  <div class="col-md-10 col-md-offset-1">
+                  <div class="col-md-10 col-md-offset-1 horiz-rule-wide">
                     <hr>
                   </div>
                 </div>

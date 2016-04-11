@@ -63,6 +63,7 @@ add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 120, 60, false );
 add_image_size( 'featured-image-portrait', 376, 345, true );
+add_image_size( 'featured-image-landscape', 458, 358, true );
 
 // Include Composer PHP dependencies
 require_once dirname( __FILE__ ) . '/inc/vendor/autoload.php';
@@ -112,3 +113,10 @@ function remove_menu_items( $menu_order ){
     return $menu_order;
 }
 add_filter( 'menu_order', 'remove_menu_items' );
+
+
+function new_excerpt_more($more) {
+       global $post;
+	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> [read full article]</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');

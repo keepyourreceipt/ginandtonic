@@ -15,8 +15,10 @@
       color: $theme-primary
 
   .first-row
-    .post-title
-      margin-top: 2vh
+
+    @media screen and ( max-width: $tablet )
+      .post-title
+        margin-top: 2vh
 
   .second-row
     .post-title
