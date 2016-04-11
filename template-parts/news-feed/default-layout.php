@@ -1,8 +1,8 @@
 <div class="container list-blog-posts">
   <div class="row">
-    <div class="col-sm-8">
-      <?php $query = new WP_Query( array( 'post_type' => 'post' ) ); ?>
-      <?php while( $query->have_posts() ) : $query->the_post(); ?>
+    <?php get_template_part( 'template', 'parts/sidebars/blog-mobile-sidebar' ); ?>
+    <div class="col-md-7 col-md-offset-1">
+      <?php while( have_posts() ) : the_post(); ?>
         <div class="post-listing">
           <div class="featured-image col-sm-12 remove-padding waypoint waypoint-bottom-to-top">
             <?php
@@ -24,7 +24,7 @@
             <?php the_excerpt(); ?>
           </div>
         </div>
-      <?php endwhile; wp_reset_query(); ?>
+      <?php endwhile; ?>
       <div class="post-pagination waypoint waypoint-bottom-to-top">
         <?php
             $args = array(
