@@ -1,10 +1,7 @@
-<div class="page-header">
-  <div class="container-fluid">
-    <?php $background_image = get_field('header_image'); ?>
-    <div class="row waypoint waypoint waypoint-fade parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
-      <div class="image-overlay">
-        <?php // Image overlay ?>
-      </div>
+<?php $background_image = get_field('header_image'); ?>
+<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
+  <div class="container">
+    <div class="row waypoint waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
           <div class="table banner-text-container">

@@ -233,8 +233,8 @@ jQuery(document).ready(function($) {
   function scrollToTop() {
     $('a[data-animate-scroll]').on('click', function() {
       $('html, body').animate({
-        scrollTop:0
-      }, 1400, 'ease');
+        scrollTop: 0
+      }, 3000, 'ease');
     });
   }
 

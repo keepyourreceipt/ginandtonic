@@ -34,7 +34,7 @@
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?>&nbsp;&nbsp;</span>
                       <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
                     </div>
-                    <hr>
+                    <hr class="waypoint waypoint-bottom-to-top">
                     <div class="post-excerpt">
                       <?php the_excerpt(); ?>
                     </div>
@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <div class="row waypoint waypoint-bottom-to-top">
-                  <div class="col-sm-10 col-sm-offset-1">
+                  <div class="col-md-10 col-md-offset-1">
                     <hr>
                   </div>
                 </div>
