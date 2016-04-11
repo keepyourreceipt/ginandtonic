@@ -58,6 +58,7 @@ add_filter( "the_excerpt", "add_excerpt_class" );
 
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
+add_image_size( 'news-lising', 768, 276, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 120, 60, false );
@@ -97,7 +98,7 @@ function remove_menu_items( $menu_order ){
 			if( get_field('show_portfolio', 'option') == "Hide Portfolio" ) {
 				$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
 			}
-			if( get_field('show_events', 'option') == "Hide Events" ) {				
+			if( get_field('show_events', 'option') == "Hide Events" ) {
 				$events = array_search( 'edit.php?post_type=events', $m );
 			}
 			if( get_field('show_team', 'option') == "Hide Team" ) {

@@ -4,7 +4,7 @@
     <div class="row waypoint waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
-          <div class="table banner-text-container">
+          <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
             <div class="table-cell banner-text">
               <?php if( get_field( 'text_heading' ) ) { ?>
                 <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading'); ?></h1>
