@@ -131,7 +131,7 @@ function custom_field_excerpt( $field_name ) {
 		$text = strip_shortcodes( $text );
 		$text = apply_filters('the_content', $text);
 		$text = str_replace(']]>', ']]>', $text);
-		$excerpt_length = 20; // 20 words
+		$excerpt_length = 40; // 20 words
 		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
 		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
 	}

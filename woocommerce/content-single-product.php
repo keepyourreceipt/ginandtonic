@@ -70,5 +70,5 @@ if ( ! defined( 'ABSPATH' ) ) {
   </div>
 
   <?php get_template_part( 'template', 'parts/woocommerce/related-products' ); ?>
-  
+
 </div>
