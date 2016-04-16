@@ -1,37 +1,36 @@
 <?php get_header(); ?>
-<div class="page-header">
-  <?php
-    $news_page = get_option( 'page_for_posts' );
-    $background_image = get_field('header_image', $news_page );
-  ?>
-  <div class="container-fluid anim-time-short parallax-window" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
-    <div class="image-overlay">
-      <?php // Image overlay ?>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="table banner-text-container">
-          <div class="table-cell banner-text">
-            <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading', $news_page ); ?></h1>
-            <h4 class="waypoint waypoint-bottom-to-top anim-time-medium"><?php the_field('text_sub_heading', $news_page ); ?></h4>
+<?php while( have_posts() ) : the_post(); ?>
+
+<?php
+  $post_id = get_the_ID();
+  $post_thumbnil_id = get_post_thumbnail_id( $post_id );
+  $featured_image = wp_get_attachment_image_src( $post_thumbnil_id, 'full-hd' );
+  $background_image = $featured_image[0];
+?>
+<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image; ?>">
+  <div class="container">
+    <div class="row waypoint waypoint-fade parallax-window">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9 col-md-offset-1 table banner-text-container">
+            <div class="table-cell banner-text">
+              <h1><?php the_title(); ?></h1>
+              <div class="post-meta">
+                <span><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
+                &nbsp;&nbsp;
+                <span><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-<?php while( have_posts() ) : the_post(); ?>
+
 <div class="row single-post-content">
   <div class="container">
-    <div class="col-sm-8">
-      <div class="post-title waypoint waypoint-bottom-to-top">
-        <h2><?php the_title(); ?></h2>
-      </div>
-      <div class="post-meta waypoint waypoint-bottom-to-top">
-        <span><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
-        &nbsp;&nbsp;
-        <span><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
-      </div>
+    <div class="col-md-7 col-md-offset-1">
       <div class="content waypoint waypoint-bottom-to-top">
         <?php the_content(); ?>
       </div>

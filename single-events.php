@@ -3,7 +3,7 @@
 <?php $background_image = get_field('header_image'); ?>
 <div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
   <div class="container">
-    <div class="row waypoint waypoint waypoint-fade parallax-window">
+    <div class="row waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
@@ -47,28 +47,29 @@
           }
           ?>
 
+          <?php if( $registration_fee != "FREE" ) ?>
           <div class="registration-fee">
             <span class="title">Registration fee:</span>
             <span class="fee"><?php the_field('registration_fee'); ?>
           </div>
           <?php if( isset( $registration_fee ) && $registration_fee != "FREE" ) { ?>
             <div class="registration-link">
-              <a rel="nofollow" href="<?php echo $registration_link; ?>/?add-to-cart=<?php echo $registration_product_id; ?>" data-quantity="1" data-product_id="<?php echo $registration_product_id; ?>" class="event-registration-link button product_type_simple add_to_cart_button ajax_add_to_cart <?php if( $ajax_add_to_cart == true ) { echo 'ajax-submit-button'; } ?>">Reserve Your Spot Now!</a>
+              <a rel="nofollow" href="<?php echo $registration_link; ?>/?add-to-cart=<?php echo $registration_product_id; ?>" data-quantity="1" data-product_id="<?php echo $registration_product_id; ?>" class="event-registration-link linked-button linked-button-dark add_to_cart_button ajax_add_to_cart <?php if( $ajax_add_to_cart == true ) { echo 'ajax-submit-button'; } ?>">Register Now</a>
             </div>
           <?php } ?>
       </div>
     </div>
   </div>
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-10 col-md-offset-1">
-      <hr>
+<?php if( get_field( 'event_location' ) ) { ?>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-10 col-md-offset-1">
+        <hr>
+      </div>
     </div>
   </div>
-</div>
 
-<?php if( get_field( '$location' ) ) { ?>
   <div class="inline-map location">
     <div class="container">
       <div class="row">
@@ -86,7 +87,7 @@
       </div>
     </div>
   </div>
-
+<?php } ?>
   <script>
     if( jQuery('#inline-map').length ) {
       var mapLat = jQuery('#inline-map').data("lat");
@@ -108,6 +109,6 @@
       });
     }
   </script>
-<?php } // if has map ?>
+
 
 <?php get_footer(); ?>

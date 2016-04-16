@@ -225,6 +225,8 @@ jQuery(document).ready(function($) {
         url: $url,
         success: function() {
           $this.siblings('.added-to-cart-message').addClass('active');
+          // Redirect to cart page
+          window.location.href = "http://localhost/ginandtonic.com/cart";
         }
       });
     });
