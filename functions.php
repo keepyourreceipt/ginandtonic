@@ -115,8 +115,25 @@ function remove_menu_items( $menu_order ){
 add_filter( 'menu_order', 'remove_menu_items' );
 
 
+// Custom excerpt more link
 function new_excerpt_more($more) {
        global $post;
-	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> [read full article]</a>';
+	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> [more]</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
+
+
+// Get excerpt from any text content
+function custom_field_excerpt( $field_name ) {
+	global $post;
+	$text = get_field( $field_name );
+	if ( '' != $text ) {
+		$text = strip_shortcodes( $text );
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]>', ']]>', $text);
+		$excerpt_length = 20; // 20 words
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	}
+	return apply_filters('the_excerpt', $text);
+}

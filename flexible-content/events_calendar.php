@@ -10,11 +10,8 @@
           foreach( $posts as $post) {
             setup_postdata($post); ?>
 
-                <?php if( $event_index == 1 ) { ?>
-                  <div class="row event-listing">
-                <?php } ?>
-
-                <div class="col-sm-12 col-md-2 event-date waypoint waypoint-bottom-to-top">
+              <div class="row event-listing">
+                <div class="col-sm-12 col-md-2 col-md-offset-1 event-date waypoint waypoint-bottom-to-top">
                   <div class="col-sm-12 event-month">
                     <span class="calendar-ring one"></span>
                     <span class="calendar-ring two"></span>
@@ -47,10 +44,14 @@
                     <span class="<?php echo $listing_classes; ?>"><?php echo $event_day; ?></span>
                   </div>
                 </div>
-                <div class="col-sm-12 col-md-4 event-info waypoint waypoint-bottom-to-top">
+
+                <div class="col-sm-12 col-md-7 event-info waypoint waypoint-bottom-to-top">
                   <h3><?php the_title(); ?></h3>
-                  <p><?php the_field('text_sub_heading'); ?></p>
-                  <a href="<?php the_permalink(); ?>" class="btn btn-default btn-small">More Info</a>
+                  <?php
+                    $description = get_field('description');
+                    $excerpt = apply_filters('the_excerpt', $description );
+                  ?>
+                  <p><?php echo custom_field_excerpt( 'description' ); ?></p>
                 </div>
 
                 <div class="row lightbox-content" id="event-<?php echo $event_counter; ?>">
@@ -63,16 +64,7 @@
                   </div>
                 </div>
 
-              <?php
-              $event_counter++;
-              if( $event_index == 2 ) {
-                $event_index = 1;
-                echo "</div>";
-
-              } else {
-                $event_index++;
-              }
-            ?>
+              </div> <!-- end row -->
 
           <?php } ?>
           <?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
