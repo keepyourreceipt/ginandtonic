@@ -13,17 +13,21 @@
     background-repeat: no-repeat
     position: relative
 
-  .table.banner-text-container
-    padding-top: 81px
-    height: auto
-    position: relative
-    z-index: 2
-    color: $white
-    min-height: 40vh
+  .table
+    &.banner-text-container
+      padding-top: 81px
+      height: auto
+      position: relative
+      z-index: 2
+      color: $white
+      min-height: 40vh
 
-    @media screen and ( max-height: 768px )
-      min-height: 65vh
+      @media screen and ( max-height: 768px )
+        min-height: 65vh
 
-    h1
-      padding-bottom: 0
-      font-size: 3.2em
+      .banner-text
+        padding: 3vh 0
+
+      h1
+        padding-bottom: 0
+        font-size: 3.2em

@@ -1,26 +1,6 @@
 <?php get_header(); ?>
 
-<?php $background_image = get_field('header_image'); ?>
-<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
-  <div class="container">
-    <div class="row waypoint waypoint-fade parallax-window">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
-            <div class="table-cell banner-text">
-              <h1><?php the_title(); ?></h1>
-              <div class="event-meta">
-                <span><i class="fa fa-calendar"></i> <?php the_field('date'); ?>&nbsp;&nbsp;</span>
-                <span><i class="fa fa-clock-o"></i> <?php the_field('start_time'); ?> - <?php the_field('end_time'); ?>&nbsp;&nbsp;</span>
-                <span><i class="fa fa-map-marker"></i> <?php the_field('street_address', 'option'); ?></span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<?php get_template_part( 'template', 'parts/page-headers/single-events' ); ?>
 
 <div class="single-event-content">
   <div class="container">
