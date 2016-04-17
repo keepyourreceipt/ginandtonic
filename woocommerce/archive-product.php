@@ -32,27 +32,36 @@ if ( have_posts() ) :
     <div class="row">
 
       <?php do_action( 'woocommerce_before_main_content' ); ?>
-      <?php get_template_part( 'template', 'parts/sidebars/shop-sidebar' ); ?>
+			<div class="desktop-sidebar hidden-xs hidden-sm">
+				<?php get_template_part( 'template', 'parts/sidebars/shop-sidebar' ); ?>
+			</div>
 
-      <div class="col-md-offset-1 col-sm-7">
-        <?php
-          woocommerce_product_loop_start();
-          woocommerce_product_subcategories();
-        ?>
+			<div class="row">
+	      <div class="col-md-7">
+	        <?php
+	          woocommerce_product_loop_start();
+	          woocommerce_product_subcategories();
+	        ?>
 
-        <?php
-          while ( have_posts() ) : the_post();
-      		     wc_get_template_part( 'content', 'product' );
-      	  endwhile; // end of the loop.
+	        <?php
+	          while ( have_posts() ) : the_post();
+	      		     wc_get_template_part( 'content', 'product' );
+	      	  endwhile; // end of the loop.
 
-          woocommerce_product_loop_end();
-      		do_action( 'woocommerce_after_shop_loop' );
-        ?>
+	          woocommerce_product_loop_end();
+	      		do_action( 'woocommerce_after_shop_loop' );
+	        ?>
 
-        <?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
-        	<?php wc_get_template( 'loop/no-products-found.php' ); ?>
-        <?php endif; ?>
-      </div>
+	        <?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+	        	<?php wc_get_template( 'loop/no-products-found.php' ); ?>
+	        <?php endif; ?>
+	      </div>
+			</div>
+
+			<div class="mobile-sidebar hidden-md hidden-lg">
+				<?php get_template_part( 'template', 'parts/sidebars/shop-sidebar' ); ?>
+			</div>
+
     </div>
   </div> <!-- end container -->
 </div>
