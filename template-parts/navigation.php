@@ -1,3 +1,42 @@
+<div class="top-nav-toolbar">
+  <div class="toolbar-contact-info">
+    <div class="email">
+      <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
+      <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
+        <?php the_field( 'public_email_address', 'option' ); ?>
+      </a>
+    </div>
+    <div class="phone">
+      <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+      <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
+        <?php the_field( 'phone_number', 'option' ); ?>
+      </a>
+    </div>
+  </div>
+  <div class="toolbar-social-links">
+    <?php if( get_field('facebook', 'option') ) { ?>
+      <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
+        <i class="fa fa-facebook-official"></i>
+      </a>
+    <?php } ?>
+    <?php if( get_field('twitter', 'option') ) { ?>
+      <a href="<?php the_field('twitter', 'option'); ?>" target="_blank">
+        <i class="fa fa-twitter-square"></i>
+      </a>
+    <?php } ?>
+    <?php if( get_field('pinterest', 'option') ) { ?>
+      <a href="<?php the_field('pinterest', 'option'); ?>" target="_blank">
+        <i class="fa fa-pinterest"></i>
+      </a>
+    <?php } ?>
+    <?php if( get_field('youtube', 'option') ) { ?>
+      <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
+        <i class="fa fa-youtube-play"></i>
+      </a>
+    <?php } ?>
+  </div>
+</div>
+
 <div class="nav-menu fixed-top-menu">
   <?php
     $company_logo_obj = get_field('company_logo', 'option');

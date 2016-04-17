@@ -4,7 +4,7 @@
 ?>
 <div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
   <div class="container">
-    <div class="row waypoint waypoint waypoint-fade parallax-window">
+    <div class="row waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
