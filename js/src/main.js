@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
   function themeInit() {
     autoLayoutAdjustment();
     toggleMobileModalMenu();
+    preventScrollJumpMobileMenuParentItem();
     toggleMobileModalSubMenu();
     testimonialsSlider();
     addWaypointsFormClasses();
@@ -26,6 +27,14 @@ jQuery(document).ready(function($) {
     submitSearchForm();
     initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function preventScrollJumpMobileMenuParentItem() {
+    if( $('.modal-menu li.menu-item-has-children').length ) {
+      $('.modal-menu li.menu-item-has-children > a').on('click', function(e) {
+        e.preventDefault();
+      });
+    }
   }
 
   function toggleMobileModalMenu() {
