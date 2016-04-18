@@ -64,17 +64,21 @@
     display: inline-block
     padding-top: 10px
     padding-bottom: 10px
+    margin-top: 10px
+    margin-bottom: 10px
     height: 60px
     width: auto
     @include transition( all 0.3s ease )
 
     a
-      line-height: 60px
+      display: inline-block
+      height: 40px
       @include transition( all 0.3s ease )
 
     img
       height: 100%
       width: auto
+      vertical-align: inherit
 
   .fixed-top-menu-inner
     float: right
@@ -140,15 +144,19 @@
             display: none
 
   @media screen and ( max-width: $laptop )
-    padding: 0 2em
+    padding: 0 0 0 15px
     background-color: rgba( 255,255,255,1 )
+    height: 60px
+    top: 0
 
     .company-logo
       padding-top: 5px
       padding-bottom: 5px
-      height: 50px
-      line-height: 50px
+      height: 40px
       width: auto
+
+      a
+        height: 30px
 
   &.active
 
@@ -169,6 +177,131 @@
       li
         line-height: 60px
 
+.modal-menu-toggle
+  width: 53px
+  height: 60px
+  background: transparent
+  position: fixed
+  z-index: 99999
+  right: 0
+  top: 0
+  cursor: pointer
+  @include transition( all 0.3s ease )
+
+  &.active
+    background-color: transparent
+
+  .menu-toggle-bar
+    position: absolute
+    top: 10px
+    left: 12.5px
+    width: 26px
+    height: 3px
+    opacity: 0.7
+    background-color: $dark-grey
+    @include transition( all 0.3s ease )
+
+    &.one
+      top: 21px
+
+      &.active
+        @include transform( rotate( 135deg ) )
+        top: 28px
+        background-color: rgba( 255,255,255,0.8 )
+
+    &.two
+      top: 28px
+
+      &.active
+        opacity: 0
+
+    &.three
+      top: 35px
+
+      &.active
+        @include transform( rotate( -135deg ) )
+        top: 28px
+        background-color: rgba( 255,255,255,0.8 )
+
+.modal-menu-overlay
+  height: 125vh
+  width: 100vw
+  position: fixed
+  z-index: 9998
+  left: 0
+  background-color: rgba( 0,0,0,0.4 )
+  @include transition( top 0.3s ease )
+
+  &.one
+    top: -125vh
+
+    &.active
+      top: 0
+
+  &.two
+    top: 100vh
+    background-color: rgba( 0,0,0,0.7 )
+
+    &.active
+      top: 0
+
+.modal-menu-container
+  display: none
+  position: fixed
+  height: 100vh
+  z-index: 9999
+  width: 100%
+  margin: 0 auto
+  text-align: center
+
+  .modal-menu
+    width: 80%
+    margin: 0 auto
+    display: table-cell
+    vertical-align: middle
+
+    ul
+      list-style: none
+
+      li
+        list-style: none
+
+        a
+          font-size: 2em
+          color: #fff
+
+    .menu
+      margin-left: 0
+      padding-left: 0
+
+      li
+        opacity: 0
+        @include transform( translateX(30px) )
+        @include transition( all 0.4s ease )
+        padding-bottom: 5px
+
+        &.active
+          opacity: 1
+          @include transform( translateX(0px) )
+
+      .sub-menu
+        max-height: 0
+        overflow: hidden
+        padding-left: 0
+        @include transition( max-height 0.4s ease)
+
+        li
+          font-size: 0.75em
+
+        &.active
+          max-height: 500px
+
+          li
+            opacity: 1
+            @include transform( translateX(0px) )
+
+  &.active
+    display: table
 
 .off-canvas-menu
   background-color: #efefef
@@ -188,6 +321,7 @@
   &.off-canvas-menu-active
     right: 0px
 
+
   .off-canvas-menu-opener
     width: 53px
     height: 60px
@@ -203,13 +337,12 @@
       left: 12.5px
       width: 26px
       height: 3px
-      border-radius: 30%
       opacity: 0.7
       background-color: $dark-grey
 
     .off-canvas-nav-opener-bar-one
       @extend .off-canvas-nav-opener-bar
-      top: 20px
+      top: 21px
 
     .off-canvas-nav-opener-bar-two
       @extend .off-canvas-nav-opener-bar
@@ -217,7 +350,7 @@
 
     .off-canvas-nav-opener-bar-three
       @extend .off-canvas-nav-opener-bar
-      top: 36px
+      top: 35px
 
 .off-canvas-nav
   ul

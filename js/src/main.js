@@ -8,6 +8,8 @@ jQuery(document).ready(function($) {
 
   function themeInit() {
     autoLayoutAdjustment();
+    toggleMobileModalMenu();
+    toggleMobileModalSubMenu();
     testimonialsSlider();
     addWaypointsFormClasses();
     ajaxAddProductToCart();
@@ -26,6 +28,35 @@ jQuery(document).ready(function($) {
     FastClick.attach(document.body);
   }
 
+  function toggleMobileModalMenu() {
+    if( $('.modal-menu-toggle').length ) {
+      $('.modal-menu-toggle').on('click', function() {
+        $(this).toggleClass('active');
+        $('html, body').toggleClass('no-scroll');
+        $('.modal-menu-container').toggleClass('active');
+        $('.modal-menu-overlay').toggleClass('active');
+        $('.menu-toggle-bar').toggleClass('active');
+
+        $('.menu > li').each(function( index ) {
+          var menuItem = $(this);
+          var delay = 50 * index;
+          console.log( delay );
+          setTimeout( function() {
+            menuItem.toggleClass( 'active' );
+          }, delay);
+        });
+      });
+    }
+  }
+
+  function toggleMobileModalSubMenu() {
+    if( $('.modal-menu-toggle').length ) {
+      $('.modal-menu .menu > li.menu-item-has-children').on('click', function() {
+        $(this).find('.sub-menu').toggleClass('active');
+      });
+    }
+  }
+
   function autoLayoutAdjustment() {
     if( $('.hero-image').length ) {
       $('.hero-image').each(function( index ) {
@@ -38,9 +69,10 @@ jQuery(document).ready(function($) {
 
     var firstSection = $('.page-content section').eq(0);
     var navMenuHeight = $('.nav-menu').height();
+    var navToolbarHeight = $('.top-nav-toolbar').height();
     if( firstSection.hasClass('hero-image') ) {
       firstSection.addClass( 'adjusted-for-menu-height' );
-      firstSection.css('padding-top', navMenuHeight + "px");
+      firstSection.css('padding-top', (navMenuHeight + navToolbarHeight) + "px");
     }
 
     $('.side-by-side').each(function() {
