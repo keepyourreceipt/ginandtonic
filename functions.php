@@ -59,6 +59,7 @@ add_filter( "the_excerpt", "add_excerpt_class" );
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'news-lising', 768, 276, true );
+add_image_size( 'news-grid-lising', 768, 768, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
 add_image_size( 'nav-logo', 999, 50, false );

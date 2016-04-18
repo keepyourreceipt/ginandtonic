@@ -95,10 +95,12 @@ jQuery(document).ready(function($) {
   }
 
   function initMasonryGrid() {
-    $('.masonry-container').masonry({
-      itemSelector: '.masonry-item',
-      columnWidth: '.masonry-item',
-    });
+    if( $('.blog-posts-grid-layout').length ) {
+      $('.blog-posts-grid-layout').masonry({
+        itemSelector: '.grid-item',
+        columnWidth: '.grid-item',
+      });
+    }
   }
 
   function launchPhotoSwipeGallery() {
