@@ -9,6 +9,9 @@
   ?>
 <section class="hero-image overlay parallax-window <?php echo $container_classes; ?>" <?php echo $background_style; ?>>
   <div class="container waypoint waypoint-fade">
+    <div class="mobile-overlay visible-xs">
+      <?php // Shhhh, I'm hiding ?>
+    </div>
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="table text-content-container">

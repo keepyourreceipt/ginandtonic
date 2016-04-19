@@ -95,7 +95,11 @@ jQuery(document).ready(function($) {
     var navToolbarHeight = $('.top-nav-toolbar').height();
     if( firstSection.hasClass('hero-image') ) {
       firstSection.addClass( 'adjusted-for-menu-height' );
-      firstSection.css('padding-top', (navMenuHeight + navToolbarHeight) + "px");
+      if( $(window).width() < 768 ) {
+        firstSection.css('padding-top', navMenuHeight + "px");
+      } else {
+        firstSection.css('padding-top', (navMenuHeight + navToolbarHeight) + "px");
+      }
     }
 
     $('.side-by-side').each(function() {

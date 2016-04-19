@@ -4,6 +4,9 @@
 ?>
 <div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
   <div class="container">
+    <div class="mobile-overlay hidden-md hidden-lg">
+      <?php // Shhhh, I'm hiding ?>
+    </div>
     <div class="row waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
