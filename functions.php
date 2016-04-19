@@ -70,11 +70,18 @@ add_image_size( 'featured-image-landscape', 458, 358, true );
 require_once dirname( __FILE__ ) . '/inc/vendor/autoload.php';
 
 function clean_up_admin_menu() {
-    remove_menu_page( 'tools.php' );
-		// remove_menu_page( 'plugins.php' );
-		// remove_menu_page( 'options-general.php' );
+	remove_menu_page( 'themes.php' );                 				//Appearance
+	remove_menu_page( 'plugins.php' );                				//Plugins
+	remove_menu_page( 'users.php' );                  				//Users
+	remove_menu_page( 'tools.php' );                  				//Tools
+	remove_menu_page( 'options-general.php' );        				//Settings
+	remove_menu_page( 'pods' );																// PODs
+	remove_menu_page( 'edit.php?post_type=acf-field-group' ); // ACF
 }
-add_action( 'admin_menu', 'clean_up_admin_menu' );
+
+if( get_field('admin_toolbar', 'option') == "Display Limited Admin Bar" ) {
+	add_action( 'admin_menu', 'clean_up_admin_menu', 999 );
+}
 
 // Remove woo commerce sidebar from single products page
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
@@ -97,17 +104,13 @@ function remove_menu_items( $menu_order ){
     global $menu;
 
     foreach ( $menu as $mkey => $m ) {
-			if( get_field('show_portfolio', 'option') == "Hide Portfolio" ) {
-				$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
-			}
+			$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+
 			if( get_field('show_events', 'option') == "Hide Events" ) {
 				$events = array_search( 'edit.php?post_type=events', $m );
 			}
-			if( get_field('show_team', 'option') == "Hide Team" ) {
-				$team = array_search( 'edit.php?post_type=team', $m );
-			}
 
-      if ( $team | $events | $portfolio )
+      if ( $events | $portfolio )
           unset( $menu[$mkey] );
     }
 

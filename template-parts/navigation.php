@@ -78,19 +78,22 @@
     </div>
 </div>
 
-<?php if( get_field( 'mobile_menu_style', 'option' ) == "Off Canvas" ) { ?>
-<div class="nav-menu off-canvas-menu">
-  <div class="off-canvas-menu-opener">
-    <span class="off-canvas-nav-opener-bar-one"></span>
-    <span class="off-canvas-nav-opener-bar-two"></span>
-    <span class="off-canvas-nav-opener-bar-three"></span>
-  </div>
+<div class="modal-menu-toggle hidden-md hidden-lg">
+  <span class="menu-toggle-bar one"></span>
+  <span class="menu-toggle-bar two"></span>
+  <span class="menu-toggle-bar three"></span>
+</div>
+
+<div class="modal-menu-overlay one hidden-md hidden-lg"></div>
+<div class="modal-menu-overlay two hidden-md hidden-lg"></div>
+
+<div class="modal-menu-container hidden-md hidden-lg">
   <?php
     $defaults = array(
       'theme_location'  => '',
       'menu'            => '',
       'container'       => 'div',
-      'container_class' => 'off-canvas-nav',
+      'container_class' => 'modal-menu',
       'container_id'    => '',
       'menu_class'      => 'menu',
       'menu_id'         => '',
@@ -104,10 +107,10 @@
       'depth'           => 0,
       'walker'          => ''
     );
-
     wp_nav_menu( $defaults );
     ?>
-    <div class="mobile-nav-toolbar hidden-md hidden-lg">
+
+    <!-- <div class="mobile-nav-toolbar hidden-md hidden-lg">
       <hr>
       <div class="toolbar-contact-info">
         <div class="email">
@@ -145,43 +148,6 @@
           </a>
         <?php } ?>
       </div>
-    </div>
+    </div> -->
+
 </div>
-<?php } ?>
-
-<?php if( get_field( 'mobile_menu_style', 'option' ) == "Modal" ) { ?>
-
-  <div class="modal-menu-toggle hidden-md hidden-lg">
-    <span class="menu-toggle-bar one"></span>
-    <span class="menu-toggle-bar two"></span>
-    <span class="menu-toggle-bar three"></span>
-  </div>
-
-  <div class="modal-menu-overlay one hidden-md hidden-lg"></div>
-  <div class="modal-menu-overlay two hidden-md hidden-lg"></div>
-
-  <div class="modal-menu-container hidden-md hidden-lg">
-    <?php
-      $defaults = array(
-        'theme_location'  => '',
-        'menu'            => '',
-        'container'       => 'div',
-        'container_class' => 'modal-menu',
-        'container_id'    => '',
-        'menu_class'      => 'menu',
-        'menu_id'         => '',
-        'echo'            => true,
-        'fallback_cb'     => 'wp_page_menu',
-        'before'          => '',
-        'after'           => '',
-        'link_before'     => '',
-        'link_after'      => '',
-        'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-        'depth'           => 0,
-        'walker'          => ''
-      );
-      wp_nav_menu( $defaults );
-      ?>
-    </div>
-
-<?php } ?>
