@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
   function themeInit() {
     autoLayoutAdjustment();
     toggleMobileModalMenu();
+    appendMobileToolbar();
     preventScrollJumpMobileMenuParentItem();
     toggleMobileModalSubMenu();
     testimonialsSlider();
@@ -27,6 +28,14 @@ jQuery(document).ready(function($) {
     submitSearchForm();
     initMasonryGrid();
     FastClick.attach(document.body);
+  }
+
+  function appendMobileToolbar() {
+    if( ! $('.fixed-top-menu').hasClass('hide-top-toolbar') ) {
+      var mobileToolbar = $('.mobile-nav-toolbar-container').html();
+      $('.modal-menu').append( mobileToolbar );
+    }
+
   }
 
   function preventScrollJumpMobileMenuParentItem() {
@@ -49,11 +58,16 @@ jQuery(document).ready(function($) {
         $('.menu > li').each(function( index ) {
           var menuItem = $(this);
           var delay = 50 * index;
-          console.log( delay );
           setTimeout( function() {
             menuItem.toggleClass( 'active' );
           }, delay);
         });
+
+        var toolbarTimingOffset = $('.menu > li').length * 50;
+        setTimeout(function() {
+          $('.mobile-nav-toolbar').toggleClass('active');
+        }, toolbarTimingOffset );
+
       });
     }
   }

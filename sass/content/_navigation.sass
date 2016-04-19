@@ -60,6 +60,9 @@
   @include transform( translate3d(0,0,0) )
   @include transition( all 0.3s ease )
 
+  &.hide-top-toolbar
+    top: 0
+
   .company-logo
     display: inline-block
     padding-top: 10px
@@ -291,6 +294,7 @@
 
         li
           font-size: 0.75em
+          padding-top: 1em
 
         &.active
           max-height: 500px
@@ -301,6 +305,36 @@
 
   &.active
     display: table
+
+
+.mobile-nav-toolbar
+  opacity: 0
+  @include transform( translateX(30px) )
+  @include transition( all 0.4s ease )
+
+  i, a
+    color: $off-white
+
+  .toolbar-contact-info
+    padding-top: 10px
+    border-top: solid 1px rgba( 255,255,255,0.3 )
+    display: inline-block
+
+  .email
+    padding-bottom: 10px
+
+  .phone
+    padding-bottom: 10px
+
+  .toolbar-social-links
+    a
+      font-size: 1.5em
+      padding: 5px
+
+  &.active
+    opacity: 1
+    @include transform( translateX(0px) )    
+
 
 .off-canvas-menu
   background-color: #efefef

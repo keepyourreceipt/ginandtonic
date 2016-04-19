@@ -1,43 +1,49 @@
-<div class="top-nav-toolbar hidden-xs hidden-sm">
-  <div class="toolbar-contact-info">
-    <div class="email">
-      <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
-      <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
-        <?php the_field( 'public_email_address', 'option' ); ?>
-      </a>
+<?php
+  $has_toolbar = false;
+  if( get_field('show_top_toolbar', 'option') == "Show Top Toolbar" ) {
+    $has_toolbar = true;
+  ?>
+  <div class="top-nav-toolbar hidden-xs hidden-sm">
+    <div class="toolbar-contact-info">
+      <div class="email">
+        <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
+        <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
+          <?php the_field( 'public_email_address', 'option' ); ?>
+        </a>
+      </div>
+      <div class="phone">
+        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+        <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
+          <?php the_field( 'phone_number', 'option' ); ?>
+        </a>
+      </div>
     </div>
-    <div class="phone">
-      <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
-      <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
-        <?php the_field( 'phone_number', 'option' ); ?>
-      </a>
+    <div class="toolbar-social-links">
+      <?php if( get_field('facebook', 'option') ) { ?>
+        <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
+          <i class="fa fa-facebook-official"></i>
+        </a>
+      <?php } ?>
+      <?php if( get_field('twitter', 'option') ) { ?>
+        <a href="<?php the_field('twitter', 'option'); ?>" target="_blank">
+          <i class="fa fa-twitter-square"></i>
+        </a>
+      <?php } ?>
+      <?php if( get_field('pinterest', 'option') ) { ?>
+        <a href="<?php the_field('pinterest', 'option'); ?>" target="_blank">
+          <i class="fa fa-pinterest"></i>
+        </a>
+      <?php } ?>
+      <?php if( get_field('youtube', 'option') ) { ?>
+        <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
+          <i class="fa fa-youtube-play"></i>
+        </a>
+      <?php } ?>
     </div>
   </div>
-  <div class="toolbar-social-links">
-    <?php if( get_field('facebook', 'option') ) { ?>
-      <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
-        <i class="fa fa-facebook-official"></i>
-      </a>
-    <?php } ?>
-    <?php if( get_field('twitter', 'option') ) { ?>
-      <a href="<?php the_field('twitter', 'option'); ?>" target="_blank">
-        <i class="fa fa-twitter-square"></i>
-      </a>
-    <?php } ?>
-    <?php if( get_field('pinterest', 'option') ) { ?>
-      <a href="<?php the_field('pinterest', 'option'); ?>" target="_blank">
-        <i class="fa fa-pinterest"></i>
-      </a>
-    <?php } ?>
-    <?php if( get_field('youtube', 'option') ) { ?>
-      <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
-        <i class="fa fa-youtube-play"></i>
-      </a>
-    <?php } ?>
-  </div>
-</div>
+<?php } ?>
 
-<div class="nav-menu fixed-top-menu">
+<div class="nav-menu fixed-top-menu <?php if( $has_toolbar != true ) { echo 'hide-top-toolbar'; } ?>">
   <?php
     $company_logo_obj = get_field('company_logo', 'option');
     $company_logo = $company_logo_obj['sizes']['nav-logo'];
@@ -110,44 +116,47 @@
     wp_nav_menu( $defaults );
     ?>
 
-    <!-- <div class="mobile-nav-toolbar hidden-md hidden-lg">
-      <hr>
-      <div class="toolbar-contact-info">
-        <div class="email">
-          <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
-          <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
-            <?php the_field( 'public_email_address', 'option' ); ?>
-          </a>
-        </div>
-        <div class="phone">
-          <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
-          <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
-            <?php the_field( 'phone_number', 'option' ); ?>
-          </a>
+    <?php if( $has_toolbar == true ) { ?>
+      <div class="mobile-nav-toolbar-container hidden">
+        <div class="mobile-nav-toolbar hidden-md hidden-lg">          
+          <div class="toolbar-contact-info">
+            <div class="email">
+              <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
+              <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
+                <?php the_field( 'public_email_address', 'option' ); ?>
+              </a>
+            </div>
+            <div class="phone">
+              <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+              <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
+                <?php the_field( 'phone_number', 'option' ); ?>
+              </a>
+            </div>
+          </div>
+          <div class="toolbar-social-links">
+            <?php if( get_field('facebook', 'option') ) { ?>
+              <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
+                <i class="fa fa-facebook-official"></i>
+              </a>
+            <?php } ?>
+            <?php if( get_field('twitter', 'option') ) { ?>
+              <a href="<?php the_field('twitter', 'option'); ?>" target="_blank">
+                <i class="fa fa-twitter-square"></i>
+              </a>
+            <?php } ?>
+            <?php if( get_field('pinterest', 'option') ) { ?>
+              <a href="<?php the_field('pinterest', 'option'); ?>" target="_blank">
+                <i class="fa fa-pinterest"></i>
+              </a>
+            <?php } ?>
+            <?php if( get_field('youtube', 'option') ) { ?>
+              <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
+                <i class="fa fa-youtube-play"></i>
+              </a>
+            <?php } ?>
+          </div>
         </div>
       </div>
-      <div class="toolbar-social-links">
-        <?php if( get_field('facebook', 'option') ) { ?>
-          <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
-            <i class="fa fa-facebook-official"></i>
-          </a>
-        <?php } ?>
-        <?php if( get_field('twitter', 'option') ) { ?>
-          <a href="<?php the_field('twitter', 'option'); ?>" target="_blank">
-            <i class="fa fa-twitter-square"></i>
-          </a>
-        <?php } ?>
-        <?php if( get_field('pinterest', 'option') ) { ?>
-          <a href="<?php the_field('pinterest', 'option'); ?>" target="_blank">
-            <i class="fa fa-pinterest"></i>
-          </a>
-        <?php } ?>
-        <?php if( get_field('youtube', 'option') ) { ?>
-          <a href="<?php the_field('youtube', 'option'); ?>" target="_blank">
-            <i class="fa fa-youtube-play"></i>
-          </a>
-        <?php } ?>
-      </div>
-    </div> -->
+    <?php } ?>
 
 </div>
