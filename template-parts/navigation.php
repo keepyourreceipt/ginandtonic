@@ -5,18 +5,22 @@
   ?>
   <div class="top-nav-toolbar hidden-xs hidden-sm">
     <div class="toolbar-contact-info">
-      <div class="email">
-        <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
-        <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
-          <?php the_field( 'public_email_address', 'option' ); ?>
-        </a>
-      </div>
-      <div class="phone">
-        <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
-        <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
-          <?php the_field( 'phone_number', 'option' ); ?>
-        </a>
-      </div>
+      <?php if( get_field( 'public_email_address', 'option' ) ) { ?>
+        <div class="email">
+          <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
+          <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
+            <?php the_field( 'public_email_address', 'option' ); ?>
+          </a>
+        </div>
+      <?php } ?>
+      <?php if( get_field( 'phone_number', 'option' ) ) { ?>
+        <div class="phone">
+          <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+          <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
+            <?php the_field( 'phone_number', 'option' ); ?>
+          </a>
+        </div>
+      <?php } ?>
     </div>
     <div class="toolbar-social-links">
       <?php if( get_field('facebook', 'option') ) { ?>
@@ -118,20 +122,25 @@
 
     <?php if( $has_toolbar == true ) { ?>
       <div class="mobile-nav-toolbar-container hidden">
-        <div class="mobile-nav-toolbar hidden-md hidden-lg">          
+        <div class="mobile-nav-toolbar hidden-md hidden-lg">
           <div class="toolbar-contact-info">
-            <div class="email">
-              <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
-              <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
-                <?php the_field( 'public_email_address', 'option' ); ?>
-              </a>
-            </div>
-            <div class="phone">
-              <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
-              <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
-                <?php the_field( 'phone_number', 'option' ); ?>
-              </a>
-            </div>
+            <?php if( get_field( 'public_email_address', 'option' ) ) { ?>
+              <div class="email">
+                <i class="fa fa-envelope" aria-hidden="true"></i>&nbsp;&nbsp;
+                <a href="mailto:<?php the_field( 'public_email_address', 'option' ); ?>">
+                  <?php the_field( 'public_email_address', 'option' ); ?>
+                </a>
+              </div>
+            <?php } ?>
+
+            <?php if( get_field( 'phone_number', 'option' ) ) { ?>
+              <div class="phone">
+                <i class="fa fa-phone" aria-hidden="true"></i>&nbsp;&nbsp;
+                <a href="tel:<?php the_field( 'phone_number', 'option' ); ?>">
+                  <?php the_field( 'phone_number', 'option' ); ?>
+                </a>
+              </div>
+            <?php } ?>
           </div>
           <div class="toolbar-social-links">
             <?php if( get_field('facebook', 'option') ) { ?>
