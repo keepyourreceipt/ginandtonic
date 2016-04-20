@@ -1,4 +1,4 @@
-<div class="info-tables">
+<section class="info-tables">
   <div class="container">
     <div class="row">
       <?php
@@ -109,4 +109,4 @@
     ?>
     </div>
   </div>
-</div>
+</section>

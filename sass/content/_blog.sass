@@ -9,6 +9,12 @@
       margin-bottom: 10px
       display: inline-block
 
+    .featured-image
+      margin-bottom: 4vh
+
+      img
+        border-radius: 2px
+
     .post-meta
       margin-bottom: 1vh
 
@@ -18,7 +24,6 @@
 
         i
           color: $theme-primary
-
 
   .post-pagination
     padding: 1vh 0 3vh
@@ -34,3 +39,12 @@
     i
       font-size: 0.8em
       color: $theme-primary
+
+  @media screen and ( max-width: $laptop )    
+
+  &.blog-posts-grid-layout
+    h2
+      font-size: 1.25em
+
+    .post-excerpt
+      font-size: 0.9em

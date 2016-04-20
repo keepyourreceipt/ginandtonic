@@ -1,4 +1,4 @@
-<div class="col-sm-6">
+<div class="col-xs-6">
 <?php
 /**
  * The template for displaying product content within loops.

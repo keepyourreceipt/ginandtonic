@@ -1,12 +1,20 @@
+.single
+  footer
+    margin-top: 0
+
+  .post-meta
+    padding-bottom: 2vh
+    padding-top: 2vh
+
+    a
+      color: #fff
+
 .single-post-content
   +content-row-padded
 
   .post-title > h2
     padding-bottom: 0px
     margin-bottom: 5px
-
-  .post-meta
-    padding-bottom: 4vh
 
 .single-post-comments
   padding-bottom: 10vh
@@ -46,12 +54,24 @@
       margin-bottom: 6vh
 
 .related-posts
-  +content-row-padded
+  padding-top: 10vh
+  padding-bottom: 10vh
   background-color: $off-white
 
-  h2
+  .row-heading
+    margin-bottom: 2vh
+
+  .post-title
     padding-bottom: 0
     margin-bottom: 5px
+    margin-top: 0
+
+  .post-meta
+    padding-top: 1vh
+    padding-bottom: 0
+
+    a
+      color: $dark-grey
 
   img
-    border-radius: 3px
+    border-radius: 2px

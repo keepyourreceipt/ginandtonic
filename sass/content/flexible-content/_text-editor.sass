@@ -1,13 +1,9 @@
 .text-editor
-  .container-fluid
-    &.content-row-padded
-      +content-row-padded()
+  .container
+    +content-row-padded()
 
-    &.content-row-padded-top
-      +content-row-padded-top()
+  &.light
+    background-color: $white
 
-    &.light
-      background-color: $white
-
-    &.dark
-      background-color: $off-white
+  &.dark
+    background-color: $off-white

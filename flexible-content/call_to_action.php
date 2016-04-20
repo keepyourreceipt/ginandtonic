@@ -3,7 +3,7 @@
 } else {
   $image_orientation = "right";
 } ?>
-<div class="container-fluid">
+<section class="container-fluid">
   <div class="row hidden-xs hidden-sm call-to-action">
     <?php $featured_image_obj = get_sub_field('featured_image'); ?>
     <?php if( $image_orientation == "left" ) { ?>
@@ -30,9 +30,9 @@
       </div>
     <?php } ?>
   </div>
-</div>
+</section>
 
-<div class="hidden-md hidden-lg hidden-xl call-to-action-mobile">
+<section class="hidden-md hidden-lg hidden-xl call-to-action-mobile">
   <div class="container-fluid background-image waypoint waypoint-left-to-right" style="background-image: url(<?php echo $featured_image_obj['sizes']['full-hd']; ?>);">
     <?php // Background image container ?>
   </div>
@@ -45,4 +45,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

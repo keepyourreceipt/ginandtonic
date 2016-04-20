@@ -1,27 +1,31 @@
 
 h1
-  font-size: 2em
-  padding-bottom: 0.6em
   letter-spacing: 0.05em
   text-transform: uppercase
+  padding: 0.1em 0 0.3em
+  margin: 0
+  font-size: 2.8em
 
   @media screen and ( max-width: $tablet )
     font-size: 1.6em
 
 h2
-  font-size: 1.6em
-  padding-bottom: 0.1em
   line-height: 1.3em
-  letter-spacing: 0.05em
+  font-size: 2em
+  letter-spacing: 0.04em
+  padding: 0 0 0.5em
+  margin: 0
+  font-weight: 300
 
   @media screen and ( max-width: $tablet )
     font-size: 1.4em
 
 h3
-  font-size: 1.4em
-  padding-bottom: 0.3em
-  margin-bottom: 0
-  letter-spacing: 0.05em
+  font-size: 1.3em
+  letter-spacing: 0.03em
+  padding: 0 0 0.1em
+  margin: 0
+  font-weight: 300
 
   @media screen and ( max-width: $tablet )
     font-size: 1.2em
@@ -40,11 +44,16 @@ p,
   font-size: 1.15em
   line-height: 1.75em
   padding-bottom: 0.5em
+  letter-spacing: 0.025em
 
 a
   text-decoration: none !important
   color: $body-copy
-  @include transition( color 0.3s ease )
+  @include transition( color 0.2s ease )
 
   &:hover
-    color: $light-blue
+    color: darken( $theme-primary, 10% )
+
+p
+  a
+    color: $theme-primary

@@ -1,5 +1,4 @@
 .page-header
-  text-align: center
   margin: 0
   padding-bottom: 0
   position: relative
@@ -14,17 +13,23 @@
     background-repeat: no-repeat
     position: relative
 
-  .table.banner-text-container
-    padding-top: 60px
-    height: auto
-    position: relative
-    z-index: 2
-    color: $white
-    min-height: 55vh
+  .table
+    &.banner-text-container      
+      height: auto
+      position: relative
+      z-index: 2
+      color: $white
+      min-height: 40vh
 
-    @media screen and ( max-height: 768px )
-      min-height: 65vh
+      @media screen and ( max-height: 768px )
+        min-height: 65vh
 
-    h1
-      padding-bottom: 10px
-      font-size: 3.2em
+      .banner-text
+        padding: 3vh 0
+
+      h1
+        padding-bottom: 0
+        font-size: 3.2em
+
+        @media screen and ( max-width: $laptop )
+          font-size: 2.8em

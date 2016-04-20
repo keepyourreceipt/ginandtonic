@@ -1,6 +1,6 @@
 <?php get_header();
 
-get_template_part( 'template', 'parts/page-header' );
+get_template_part( 'template', 'parts/page-headers/page' );
 // check if the flexible content field has rows of data
 if( have_rows('flexible_content') ) {
     while ( have_rows('flexible_content') ) : the_row();
@@ -11,7 +11,7 @@ if( have_rows('flexible_content') ) {
 } else {
   while( have_posts() ) : the_post(); ?>
     <div class="row">
-      <div class="container text-center">
+      <div class="container no-content-message">
         <h2>This page has no content. Click "Edit Page" to continue.</h2>
       </div>
     </div>

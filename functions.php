@@ -58,20 +58,30 @@ add_filter( "the_excerpt", "add_excerpt_class" );
 
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
+add_image_size( 'news-lising', 768, 276, true );
+add_image_size( 'news-grid-lising', 768, 768, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
-add_image_size( 'nav-logo', 120, 60, false );
-
+add_image_size( 'nav-logo', 999, 50, false );
+add_image_size( 'featured-image-portrait', 376, 345, true );
+add_image_size( 'featured-image-landscape', 458, 358, true );
 
 // Include Composer PHP dependencies
 require_once dirname( __FILE__ ) . '/inc/vendor/autoload.php';
 
 function clean_up_admin_menu() {
-    remove_menu_page( 'tools.php' );
-		// remove_menu_page( 'plugins.php' );
-		// remove_menu_page( 'options-general.php' );
+	remove_menu_page( 'themes.php' );                 				//Appearance
+	remove_menu_page( 'plugins.php' );                				//Plugins
+	remove_menu_page( 'users.php' );                  				//Users
+	remove_menu_page( 'tools.php' );                  				//Tools
+	remove_menu_page( 'options-general.php' );        				//Settings
+	remove_menu_page( 'pods' );																// PODs
+	remove_menu_page( 'edit.php?post_type=acf-field-group' ); // ACF
 }
-add_action( 'admin_menu', 'clean_up_admin_menu' );
+
+if( get_field('admin_toolbar', 'option') == "Display Limited Admin Bar" ) {
+	add_action( 'admin_menu', 'clean_up_admin_menu', 999 );
+}
 
 // Remove woo commerce sidebar from single products page
 remove_action('woocommerce_sidebar', 'woocommerce_get_sidebar',10);
@@ -87,3 +97,47 @@ function wc_remove_related_products( $args ) {
 	return array();
 }
 add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
+
+// Allow user to show of hide additional content types
+add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
+function remove_menu_items( $menu_order ){
+    global $menu;
+
+    foreach ( $menu as $mkey => $m ) {
+			$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+
+			if( get_field('show_events', 'option') == "Hide Events" ) {
+				$events = array_search( 'edit.php?post_type=events', $m );
+			}
+
+      if ( $events | $portfolio )
+          unset( $menu[$mkey] );
+    }
+
+    return $menu_order;
+}
+add_filter( 'menu_order', 'remove_menu_items' );
+
+
+// Custom excerpt more link
+function new_excerpt_more($more) {
+       global $post;
+	return '... <a class="moretag" href="'. get_permalink($post->ID) . '"> [more]</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
+// Get excerpt from any text content
+function custom_field_excerpt( $field_name ) {
+	global $post;
+	$text = get_field( $field_name );
+	if ( '' != $text ) {
+		$text = strip_shortcodes( $text );
+		$text = apply_filters('the_content', $text);
+		$text = str_replace(']]>', ']]>', $text);
+		$excerpt_length = 40; // 20 words
+		$excerpt_more = apply_filters('excerpt_more', ' ' . '[...]');
+		$text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+	}
+	return apply_filters('the_excerpt', $text);
+}

@@ -1,19 +1,30 @@
-<div class="container list-blog-posts">
+<section class="container list-blog-posts blog-posts-default-layout">
   <div class="row">
-    <div class="col-sm-8">
-      <?php $query = new WP_Query( array( 'post_type' => 'post' ) ); ?>
-      <?php while( $query->have_posts() ) : $query->the_post(); ?>
-          <div class="post-listing">
-            <a href="<?php the_permalink(); ?>">
-              <h2 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h2>
-            </a>
-            <div class="post-meta">
-              <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?></span>
-              <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list('|'); ?></span>
-            </div>
+    <?php get_template_part( 'template', 'parts/sidebars/blog-mobile-sidebar' ); ?>
+    <div class="col-md-7 col-md-offset-1">
+      <?php while( have_posts() ) : the_post(); ?>
+        <div class="post-listing">
+          <div class="featured-image col-sm-12 remove-padding waypoint waypoint-bottom-to-top">
+            <?php
+              $featured_image_id = get_post_thumbnail_id();
+              $featured_image_url_desktop = wp_get_attachment_image_src( $featured_image_id, 'news-lising', false ); ?>
+                <img class="" src="<?php echo $featured_image_url_desktop[0]; ?>">
+              </a>
+          </div>
+          <a href="<?php the_permalink(); ?>">
+            <h2 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h2>
+          </a>
+          <div class="post-meta">
+            <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-user"></i>&nbsp;&nbsp;<?php echo get_the_author(); ?>&nbsp;&nbsp;</span>
+            <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-calendar"></i>&nbsp;&nbsp;<?php echo get_the_date(); ?>&nbsp;&nbsp;</span>
+            <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list(' | '); ?></span>
+          </div>
+          <hr class="waypoint waypoint-bottom-to-top">
+          <div class="post-excerpt">
             <?php the_excerpt(); ?>
           </div>
-      <?php endwhile; wp_reset_query(); ?>
+        </div>
+      <?php endwhile; ?>
       <div class="post-pagination waypoint waypoint-bottom-to-top">
         <?php
             $args = array(
@@ -26,4 +37,4 @@
     </div>
     <?php get_template_part( 'template', 'parts/sidebars/blog-sidebar' ); ?>
   </div>
-</div>
+</section>

@@ -1,33 +1,87 @@
 #menu-main-nav
   > .current-menu-parent,
   > .current-menu-item
-    border-bottom: solid $light-grey 5px
+    position: relative
+
+    &::before
+      content: ""
+      width: 100%
+      height: 5px
+      background-color: $theme-primary
+      position: absolute
+      left: 0
+      bottom: 0px
+      border-right: 0.75em solid #fff
+      border-left: 0.75em solid #fff
+
+.top-nav-toolbar
+  height: 40px
+  background-color: #efefef
+  position: fixed
+  z-index: 999
+  width: 100%
+  padding: 0 7em 0 6em
+
+  .toolbar-contact-info
+    float: left
+    line-height: 40px
+
+    div
+      display: inline-block
+      margin-right: 1em
+
+    a, i
+      color: $theme-primary
+      font-size: 0.8em
+
+  .toolbar-social-links
+    float: right
+    border-right: solid 1px $light-grey
+
+    a
+      line-height: 40px
+      padding: 0 1em
+      display: inline-block
+      border-left: solid 1px $light-grey
+      color: $theme-primary
 
 .fixed-top-menu
   display: block
   position: fixed
-  top: 0
+  top: 40px
   z-index: 999
-  background-color: rgba( 255,255,255,0.75 )
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2)
+  border-top: solid 1px $light-grey
+  background-color: rgba( 255,255,255,1 )
   width: 100%
   padding: 0 6em
   backface-visibility: hidden
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0,0,0) )
   @include transition( all 0.3s ease )
-  border-bottom: solid 1px $light-grey
+
+  &.hide-top-toolbar
+    top: 0
 
   .company-logo
     display: inline-block
     padding-top: 10px
     padding-bottom: 10px
-    height: 80px
+    margin-top: 10px
+    margin-bottom: 10px
+    height: 60px
     width: auto
     @include transition( all 0.3s ease )
+
+    a
+      display: inline-block
+      height: 40px
+      @include transition( all 0.3s ease )
 
     img
       height: 100%
       width: auto
+      vertical-align: inherit
 
   .fixed-top-menu-inner
     float: right
@@ -48,15 +102,19 @@
       @include transition( line-height 0.3s ease )
 
       &.menu-item-has-children
-        &:after
-          content: "\f078"
-          font-size: 0.6em
-          vertical-align: middle
-          padding-left: 5px
-          font-family: FontAwesome
-          width: auto
-          height: auto
-          display: inline-block
+        padding: 0 1.75em 0 1em
+
+        > a
+          &:after
+            content: "\f078"
+            font-size: 0.6em
+            vertical-align: middle
+            padding-left: 8px
+            font-family: FontAwesome
+            width: auto
+            height: 10px
+            position: absolute
+            display: inline-block
 
       a
         color: $body-copy
@@ -67,7 +125,7 @@
         position: absolute
         padding: 1em 1em 1em 0
         margin-left: 0
-        top: 87px
+        top: 80px
         min-width: 170px
         background-color: #eeeeee
         opacity: 0
@@ -89,126 +147,190 @@
             display: none
 
   @media screen and ( max-width: $laptop )
-    padding: 0 2em
+    padding: 0 0 0 15px
     background-color: rgba( 255,255,255,1 )
+    height: 60px
+    top: 0
 
     .company-logo
       padding-top: 5px
       padding-bottom: 5px
-      height: 60px
+      height: 40px
       width: auto
+
+      a
+        height: 30px
 
   &.active
-    background-color: rgba( 255,255,255,1 )
 
     .company-logo
       padding-top: 5px
       padding-bottom: 5px
-      height: 60px
+      height: 30px
       width: auto
+
+      a
+        height: 30px
 
     ul
       &.sub-menu
-        top: 67px
+        top: 60px
 
       li
         line-height: 60px
 
-
-.off-canvas-menu
-  background-color: #efefef
-  display: none
-  height: 100%
+.modal-menu-toggle
+  width: 53px
+  height: 60px
+  background: transparent
   position: fixed
-  top: 0px
-  right: -240px
-  max-width: 240px
-  z-index: 999
-  border-left: solid 1px $light-grey
-  @include transition( right 0.3s ease )
+  z-index: 99999
+  right: 0
+  top: 0
+  cursor: pointer
+  @include transition( all 0.3s ease )
 
-  @media screen and ( max-width: $laptop )
-    display: inline-block
+  &.active
+    background-color: transparent
 
-  &.off-canvas-menu-active
-    right: 0px
-
-  .off-canvas-menu-opener
-    width: 53px
-    height: 61px
-    background: $light-grey
+  .menu-toggle-bar
     position: absolute
-    left: -54px
-    top: 0px
-    cursor: pointer
+    top: 10px
+    left: 12.5px
+    width: 26px
+    height: 3px
+    opacity: 0.7
+    background-color: $dark-grey
+    @include transition( all 0.3s ease )
 
-    .off-canvas-nav-opener-bar
-      position: absolute
-      top: 10px
-      left: 12.5px
-      width: 26px
-      height: 3px
-      border-radius: 30%
-      opacity: 0.7
-      background-color: $dark-grey
+    &.one
+      top: 21px
 
-    .off-canvas-nav-opener-bar-one
-      @extend .off-canvas-nav-opener-bar
-      top: 20px
+      &.active
+        @include transform( rotate( 135deg ) )
+        top: 28px
+        background-color: rgba( 255,255,255,0.8 )
 
-    .off-canvas-nav-opener-bar-two
-      @extend .off-canvas-nav-opener-bar
+    &.two
       top: 28px
 
-    .off-canvas-nav-opener-bar-three
-      @extend .off-canvas-nav-opener-bar
-      top: 36px
+      &.active
+        opacity: 0
 
-.off-canvas-nav
-  ul
-    margin: 0px
-    padding: 40px 0
+    &.three
+      top: 35px
 
-    li
+      &.active
+        @include transform( rotate( -135deg ) )
+        top: 28px
+        background-color: rgba( 255,255,255,0.8 )
+
+.modal-menu-overlay
+  height: 125vh
+  width: 100vw
+  position: fixed
+  z-index: 9998
+  left: 0
+  background-color: rgba( 0,0,0,0.4 )
+  @include transition( top 0.3s ease )
+
+  &.one
+    top: -125vh
+
+    &.active
+      top: 0
+
+  &.two
+    top: 100vh
+    background-color: rgba( 0,0,0,0.7 )
+
+    &.active
+      top: 0
+
+.modal-menu-container
+  display: none
+  position: fixed
+  height: 100vh
+  z-index: 9999
+  width: 100%
+  margin: 0 auto
+  text-align: center
+
+  .modal-menu
+    width: 80%
+    margin: 0 auto
+    display: table-cell
+    vertical-align: middle
+
+    ul
       list-style: none
-      display: block
-      line-height: 1.95em
-      font-size: 0.9em
 
-      &.menu-item-has-children
-        a:after
-          content: "\f078"
-          font-size: 0.6em
-          vertical-align: middle
-          padding-left: 5px
-          font-family: FontAwesome
-          width: auto
-          line-height: 3em
-          height: auto
-          display: inline-block
+      li
+        list-style: none
 
-      a
-        text-decoration: none
-        color: #555
-        font-weight: 500
-        line-height: 24px
-        text-transform: uppercase
-        font-weight: 600
-        width: 100%
-        min-width: 240px
-        display: inline-block
-        padding: 0 40px
+        a
+          font-size: 2em
+          color: #fff
 
-  ul.sub-menu
-    padding: 0
-    height: 0px
-    overflow: hidden
+    .menu
+      margin-left: 0
+      padding-left: 0
 
-    &.sub-menu-active
-      height: auto
+      li
+        opacity: 0
+        @include transform( translateX(30px) )
+        @include transition( all 0.4s ease )
+        padding-bottom: 5px
 
-    li
-      a
-        padding: 0 35px 0 45px
-        &::after
-          display: none
+        &.active
+          opacity: 1
+          @include transform( translateX(0px) )
+
+      .sub-menu
+        max-height: 0
+        overflow: hidden
+        padding-left: 0
+        @include transition( max-height 0.4s ease)
+
+        li
+          font-size: 0.75em
+          padding-top: 1em
+
+        &.active
+          max-height: 500px
+
+          li
+            opacity: 1
+            @include transform( translateX(0px) )
+
+  &.active
+    display: table
+
+
+.mobile-nav-toolbar
+  opacity: 0
+  @include transform( translateX(30px) )
+  @include transition( all 0.4s ease )
+
+  i, a
+    color: $off-white
+
+  .toolbar-contact-info
+    padding-top: 10px
+    border-top: solid 1px rgba( 255,255,255,0.3 )
+    display: inline-block
+
+  .email
+    padding-bottom: 10px
+
+  .phone
+    padding-bottom: 10px
+
+  .toolbar-social-links
+    a
+      font-size: 1.5em
+      padding: 5px
+
+  &.active
+    opacity: 1
+    @include transform( translateX(0px) )

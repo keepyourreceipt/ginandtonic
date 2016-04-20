@@ -15,9 +15,12 @@
 
     li
       list-style: none
-      line-height: 1.6em
+      line-height: 1.9em
+      position: relative
+      padding-left: 15px
 
       a
+
         &::before
           content: "\f054"
           font-family: FontAwesome
@@ -25,15 +28,24 @@
           vertical-align: middle
           padding-right: 5px
           color: $theme-primary
+          position: absolute
+          left: 0
 
 .woocommerce
   .shop-widget
     margin-bottom: 5vh
 
-  ul
+    h2
+      font-size: 1.25em
 
-    li
+    ul
+      li
+        padding-left: 0
 
-      a
-        &::before
-          display: none
+        a
+          &::before
+            display: none
+
+    p
+      &.buttons
+        font-size: 1em

@@ -3,7 +3,7 @@ html, body
   overflow-x: hidden
 
 body
-  font-size: 16px
+  font-size: 15.5px
   font-style: normal
   color: $dark-grey
   margin-left: 0px
@@ -15,20 +15,42 @@ body
   @include transition( margin-left 0.3s ease )
 
   @media screen and ( max-width: $laptop )
-    font-size: 15px
+    font-size: 14px
 
   &.menu-open
     margin-left: -200px
-
-.container
-  overflow: hidden
 
 img
   max-width: 100%
   height: auto
 
+.four-oh-four
+  +content-row-padded
+
+.container
+  overflow: hidden
+
+.no-content-message
+  margin-top: 100px
+
+.overlay
+  background-color: rgba(0,0,0,0.4)
+
+.mobile-overlay
+  background-color: rgba(0,0,0,0.45)
+  position: absolute
+  top: 0
+  left: 0
+  height: 100%
+  width: 100%
+
 .page-content
   min-height: 82vh
+
+.horiz-rule-wide
+  hr
+    margin-top: 30px
+    margin-bottom: 30px
 
 .jumbotron
   margin-bottom: 0px !important
@@ -103,5 +125,27 @@ img
   padding-left: 0 !important
   padding-right: 0 !important
 
+.remove-padding-top
+  padding-top: 0 !important
+
+.remove-padding-bottom
+  padding-bottom: 0 !important
+
 .background-cover
   +background-cover
+
+.share-post
+
+  span
+    padding-right: 1em
+
+  a
+    padding: 0 1em
+
+#inline-map
+  min-height: 400px
+
+.single
+  .page-content
+    ul
+      margin-bottom: 5vh

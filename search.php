@@ -10,8 +10,8 @@
         <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
             <div class="table-cell banner-text">
-              <h1 class="waypoint waypoint-bottom-to-top">The Archives</h1>
-              <h4 class="waypoint waypoint-bottom-to-top">Archive <?php the_archive_title(); ?></h4>
+              <h1 class="waypoint waypoint-bottom-to-top">Search Results</h1>
+              <h4 class="waypoint waypoint-bottom-to-top">Displaying search results for: <?php the_search_query(); ?></h4>
             </div>
           </div>
         </div>
