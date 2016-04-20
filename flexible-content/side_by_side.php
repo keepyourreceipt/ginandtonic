@@ -1,4 +1,4 @@
-<div class="side-by-side">
+<section class="side-by-side">
   <div class="container">
     <?php
       $featured_image = get_sub_field( 'side_by_side_featured_image' );
@@ -30,4 +30,4 @@
       </div>
     <?php } ?>
   </div>
-</div>
+</section>

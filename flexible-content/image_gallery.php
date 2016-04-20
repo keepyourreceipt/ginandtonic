@@ -1,4 +1,4 @@
-<div class="image-gallery">
+<section class="image-gallery">
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
@@ -56,9 +56,9 @@
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+<section class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="pswp__bg"></div>
 
     <div class="pswp__scroll-wrap">
@@ -100,4 +100,4 @@
             </div>
         </div>
     </div>
-</div>
+</section>

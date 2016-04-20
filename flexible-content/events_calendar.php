@@ -1,4 +1,4 @@
-<div class="events-calendar">
+<section class="events-calendar">
   <div class="container">
     <?php
     $posts = get_sub_field('choose_events');
@@ -101,4 +101,4 @@
       }
     ?>
   </div>
-</div>
+</section>

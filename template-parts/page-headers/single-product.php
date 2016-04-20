@@ -1,4 +1,4 @@
-<div class="page-header">
+<section class="page-header">
   <?php
     $shop_page = get_page_by_title( 'Shop' );
     $background_image = get_field('header_image', $shop_page->ID);
@@ -20,4 +20,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -5,7 +5,7 @@
   $featured_image = wp_get_attachment_image_src( $post_thumbnil_id, 'full-hd' );
   $background_image = $featured_image[0];
 ?>
-<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image; ?>">
+<section class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image; ?>">
   <div class="container">
     <div class="mobile-overlay hidden-md hidden-lg">
       <?php // Shhhh, I'm hiding ?>
@@ -29,4 +29,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

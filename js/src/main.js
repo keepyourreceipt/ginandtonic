@@ -81,6 +81,7 @@ jQuery(document).ready(function($) {
   }
 
   function autoLayoutAdjustment() {
+
     if( $('.hero-image').length ) {
       $('.hero-image').each(function( index ) {
         var heroImage = $(this);
@@ -93,13 +94,11 @@ jQuery(document).ready(function($) {
     var firstSection = $('.page-content section').eq(0);
     var navMenuHeight = $('.nav-menu').height();
     var navToolbarHeight = $('.top-nav-toolbar').height();
+
     if( firstSection.hasClass('hero-image') ) {
-      firstSection.addClass( 'adjusted-for-menu-height' );
-      if( $(window).width() < 768 ) {
-        firstSection.css('padding-top', navMenuHeight + "px");
-      } else {
-        firstSection.css('padding-top', (navMenuHeight + navToolbarHeight) + "px");
-      }
+      firstSection.css('padding-top', (navMenuHeight + navToolbarHeight) + "px");
+      console.log( navMenuHeight );
+      console.log( navToolbarHeight );
     }
 
     $('.side-by-side').each(function() {

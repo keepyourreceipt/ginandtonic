@@ -1,5 +1,5 @@
 <?php $background_image = get_field('header_image'); ?>
-<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
+<section class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
   <div class="container">
     <div class="mobile-overlay hidden-md hidden-lg">
       <?php // Shhhh, I'm hiding ?>
@@ -23,4 +23,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

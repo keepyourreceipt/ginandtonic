@@ -1,4 +1,4 @@
-<div class="container list-blog-posts blog-posts-default-layout">
+<section class="container list-blog-posts blog-posts-default-layout">
   <div class="row">
     <?php get_template_part( 'template', 'parts/sidebars/blog-mobile-sidebar' ); ?>
     <div class="col-md-7 col-md-offset-1">
@@ -37,4 +37,4 @@
     </div>
     <?php get_template_part( 'template', 'parts/sidebars/blog-sidebar' ); ?>
   </div>
-</div>
+</section>
