@@ -65,7 +65,7 @@
                   <div class="row">
                     <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 remove-padding second-row">
                       <?php } ?>
-                      <div class="col-sm-4 waypoint waypoint-bottom-to-top">
+                      <div class="col-sm-4 waypoint waypoint-bottom-to-top latest-news-item">
                         <div class="featured-image">
                           <?php
                             $featured_image_id = get_post_thumbnail_id();
