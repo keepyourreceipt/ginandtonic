@@ -37,5 +37,8 @@
     </div>
   </footer>
   <?php wp_footer(); ?>
+  <?php if( get_field( 'google_analytics', 'option' ) ) {
+    the_field( 'google_analytics', 'option' );
+  } ?>
   </body>
 </html>
