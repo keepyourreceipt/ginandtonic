@@ -39,7 +39,7 @@
           $width_classes = "col-sm-" . $number_of_columns;
 
           if( have_rows('col_one_flexible_content') ) { ?>
-            <div class="<?php echo $width_classes; ?>">
+            <div class="content-grid-item <?php echo $width_classes; ?>">
               <?php
                 while ( have_rows('col_one_flexible_content') ) : the_row();
                		$content_block = get_row_layout();
@@ -51,7 +51,7 @@
 
           <?php
           if( have_rows('col_two_flexible_content') && $number_of_columns < 12 ) { ?>
-            <div class="<?php echo $width_classes; ?>">
+            <div class="content-grid-item <?php echo $width_classes; ?>">
               <?php
                 while ( have_rows('col_two_flexible_content') ) : the_row();
                   $content_block = get_row_layout();
@@ -63,7 +63,7 @@
 
           <?php
           if( have_rows('col_three_flexible_content') && $number_of_columns < 6 ) { ?>
-            <div class="<?php echo $width_classes; ?>">
+            <div class="content-grid-item <?php echo $width_classes; ?>">
               <?php
                 while ( have_rows('col_three_flexible_content') ) : the_row();
                   $content_block = get_row_layout();
@@ -75,7 +75,7 @@
 
           <?php
           if( have_rows('col_two_flexible_content') && $number_of_columns < 4 ) { ?>
-            <div class="<?php echo $width_classes; ?>">
+            <div class="content-grid-item <?php echo $width_classes; ?>">
               <?php
                 while ( have_rows('col_two_flexible_content') ) : the_row();
                   $content_block = get_row_layout();
