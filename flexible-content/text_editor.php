@@ -17,7 +17,7 @@
   }
 ?>
 <section class="text-editor" style="background-color: <?php echo $background_color; ?>; color: <?php echo $text_color; ?>;">
-  <div class="container waypoint waypoint-bottom-to-top <?php echo $padding_classes; ?>">
+  <div class="container waypoint waypoint-bottom-to-top <?php echo implode(' ', $padding_classes); ?>">
     <div class="row">
       <div class="<?php echo $width_classes; ?>">
         <?php the_sub_field('content_editor'); ?>
