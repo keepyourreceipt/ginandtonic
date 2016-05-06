@@ -16,7 +16,7 @@
       <div class="col-md-10 col-md-offset-1">
         <div class="table text-content-container">
           <div class="table-cell text-content waypoint waypoint-bottom-to-top">
-            <?php the_sub_field( 'text_editor' ); ?>
+            <?php the_sub_field( 'text_editor' ); ?>            
             <?php get_template_part( 'template', 'parts/linked-buttons' ); ?>
           </div>
         </div>

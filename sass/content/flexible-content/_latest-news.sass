@@ -1,14 +1,11 @@
 .latest-news
   +content-row-padded
+  background: #efefef
 
   p
     font-size: 1em
 
-  img
-    border-radius: 2px
-
   .post-meta
-    margin-bottom: 1vh
     font-size: 0.85em
 
     i
@@ -21,8 +18,47 @@
         margin-top: 2vh
 
   .second-row
-    .post-title
-      margin-top: 1vh
+
+    .featured-image
+      position: relative
+
+      img
+        border-radius: 2px
+        border-bottom-left-radius: 0
+        border-bottom-right-radius: 0
+
+      .post-category
+        position: absolute
+        top: 20px
+        padding: 7px 12px
+        background: rgba(255,255,255,0.8)
+        border-top-right-radius: 2px
+        border-bottom-right-radius: 2px
+        font-size: 0.8em
+
+    .post-content
+      padding: 8px 15px 15px
+      border-bottom-left-radius: 2px
+      border-bottom-right-radius: 2px
+      background: $white
+
+      .post-date
+        color: $theme-primary
+
+        .post-month
+          font-size: 1.4em
+          text-transform: uppercase
+
+        .post-day
+          font-size: 2.2em
+          line-height: 0.7em
+
+      .post-title
+        margin-top: 2px
+
+        h3
+          font-size: 1.54em
+          line-height: 1.2em
 
     .latest-news-item
-      padding-bottom: 5vh
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2)

@@ -9,7 +9,7 @@
       <?php // Google varification ?>
       <meta name="google-site-verification" content="uTilvixm63uU6mVTpR7BMbwYvflF86eftiwR7z_83As" />
       <?php get_template_part( 'template', 'parts/custom-font-scripts' ); ?>
-  <?php wp_head(); ?>
+      <?php wp_head(); ?>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAbuyLNGCjqB0wn5NG-ZInssrccSlY28IY">
   </script>
@@ -17,4 +17,5 @@
   <body <?php body_class(); ?>>
     <?php get_template_part( 'template', 'parts/custom-font-styles' ); ?>
     <?php get_template_part( 'template', 'parts/navigation' ); ?>
+    <?php update_page_views(); ?>
   <div class="page-content">
