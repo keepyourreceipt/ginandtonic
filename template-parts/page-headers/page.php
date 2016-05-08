@@ -10,7 +10,7 @@
           <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
             <div class="table-cell banner-text">
               <?php if( get_field( 'text_heading' ) ) { ?>
-                <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading'); ?></h1>
+                <h1 class="waypoint waypoint-bottom-to-top"><?php the_field('text_heading'); ?></h1>                
                 <?php } else { ?>
                 <h1 class="waypoint waypoint-bottom-to-top"><?php the_title(); ?></h1>
               <?php } ?>

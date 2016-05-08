@@ -50,11 +50,11 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // Add waypoints class to excerpt container
-function add_excerpt_class( $excerpt ) {
-  $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
-  return $excerpt;
-}
-add_filter( "the_excerpt", "add_excerpt_class" );
+// function add_excerpt_class( $excerpt ) {
+//   $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
+//   return $excerpt;
+// }
+// add_filter( "the_excerpt", "add_excerpt_class" );
 
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
@@ -98,6 +98,16 @@ function wc_remove_related_products( $args ) {
 }
 add_filter('woocommerce_related_products_args','wc_remove_related_products', 10);
 
+// Count page views
+function update_page_views() {
+	$number_of_views = (int)get_post_meta( get_the_ID(), '_number_of_views', true );
+	if( $number_of_views ) {
+		update_post_meta( get_the_ID(), '_number_of_views', $number_of_views + 1 );
+	} else {
+		add_post_meta( get_the_ID(), '_number_of_views', 1, true );
+	}
+}
+
 // Allow user to show of hide additional content types
 add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
 function remove_menu_items( $menu_order ){
@@ -110,7 +120,7 @@ function remove_menu_items( $menu_order ){
 				$events = array_search( 'edit.php?post_type=events', $m );
 			}
 
-      if ( $events | $portfolio )
+      if ( $events /*| $portfolio */ )
           unset( $menu[$mkey] );
     }
 
