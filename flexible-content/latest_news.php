@@ -10,6 +10,12 @@
           </div>
         </div>
       </div>
+      <div class="row">
+        <div class="col-xs-6 col-xs-offset-3 col-sm-2 col-sm-offset-5 waypoint waypoint-bottom-to-top">
+          <div class="horiz-rule"></div>
+          <div class="padding-sm"></div>
+        </div>
+      </div>
     <?php } ?>
     <?php if( get_sub_field( 'text_sub_heading' ) ) { ?>
       <div class="row">
