@@ -108,16 +108,6 @@ function update_page_views() {
 	}
 }
 
-// Count page hearts
-function update_page_hearts() {
-	$number_of_hearts = int()get_post_meta( get_the_ID(), '_number_of_hearts', true );
-	if( $number_of_hearts ) {
-		update_post_meta( get_the_ID(), '_number_of_hearts', $number_of_hearts + 1 );
-	} else {
-		add_post_meta( get_the_ID(), '_number_of_hearts', 1, true );
-	}
-}
-
 // Allow user to show of hide additional content types
 add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
 function remove_menu_items( $menu_order ){
