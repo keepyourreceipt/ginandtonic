@@ -3,7 +3,7 @@
     <?php if( get_sub_field( 'text_heading' ) ) { ?>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <div class="section-heading">
+          <div class="section-heading waypoint waypoint-bottom-to-top">
             <div class="text-heading text-center">
               <h2><?php the_sub_field('text_heading'); ?></h2>
             </div>
@@ -14,7 +14,7 @@
     <?php if( get_sub_field( 'text_sub_heading' ) ) { ?>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
-          <div class="section-sub-heading text-center">
+          <div class="section-sub-heading text-center waypoint waypoint-bottom-to-top">
             <?php the_sub_field( 'text_sub_heading' ); ?>
           </div>
         </div>
@@ -36,7 +36,7 @@
             }
             setup_postdata($post); ?>
                 <div class="<?php echo $display_classes; ?>">
-                  <div class="latest-news-item">
+                  <div class="latest-news-item waypoint waypoint-bottom-to-top">
                     <div class="featured-image">
                     <?php
                       $featured_image_id = get_post_thumbnail_id();

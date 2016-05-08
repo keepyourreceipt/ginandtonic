@@ -22,6 +22,7 @@
         </div>
       <?php } ?>
     </div>
+
     <div class="toolbar-social-links">
       <?php if( get_field('facebook', 'option') ) { ?>
         <a href="<?php the_field('facebook', 'option'); ?>" target="_blank">
@@ -44,6 +45,7 @@
         </a>
       <?php } ?>
     </div>
+    
   </div>
 <?php } ?>
 

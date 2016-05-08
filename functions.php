@@ -50,11 +50,11 @@ function custom_excerpt_length( $length ) {
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
 // Add waypoints class to excerpt container
-function add_excerpt_class( $excerpt ) {
-  $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
-  return $excerpt;
-}
-add_filter( "the_excerpt", "add_excerpt_class" );
+// function add_excerpt_class( $excerpt ) {
+//   $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
+//   return $excerpt;
+// }
+// add_filter( "the_excerpt", "add_excerpt_class" );
 
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
