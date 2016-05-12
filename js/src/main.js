@@ -26,20 +26,9 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
-    initMasonryGrid();
-    // updatePageHearts();
+    initMasonryGrid();    
     FastClick.attach(document.body);
   }
-  //
-  // function updatePageHearts() {
-  //   var data = {
-  //      action: 'update_page_hearts'
-  //  };
-  //
-  //  jQuery.post('./wp-admin/admin-ajax.php', data, function( response ) {
-  //      alert( 'Got this from the server: ' + response );
-  //  });
-  // }
 
   function appendMobileToolbar() {
     if( ! $('.fixed-top-menu').hasClass('hide-top-toolbar') ) {
