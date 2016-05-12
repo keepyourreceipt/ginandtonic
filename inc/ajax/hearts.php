@@ -12,10 +12,15 @@
   add_action( 'ap_ajax_nopriv_update_hearts', 'update_post_hearts' );
 
   function update_post_hearts() {
-    $url            = wp_get_referer();
-    $post_id        = url_to_postid( $url );
-    $post_title     = get_the_title( $post_id );
 
+    $url = wp_get_referer();
+    $post_id = url_to_postid( $url );
+
+    if( $post_id == 0 ) {
+      $post_id = get_option('page_on_front');
+    }
+
+    $post_title = get_the_title( $post_id );
     $post_hearts = get_post_meta( $post_id, '_post_hearts', true );
 
     if( $post_hearts ) {
