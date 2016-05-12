@@ -12,17 +12,21 @@
   add_action( 'ap_ajax_nopriv_update_hearts', 'update_post_hearts' );
 
   function update_post_hearts() {
-    // global $post;
-
     $url            = wp_get_referer();
     $post_id        = url_to_postid( $url );
-    $post_permalink = get_permalink( $post_id );
     $post_title     = get_the_title( $post_id );
 
-    echo $post_title;
+    $post_hearts = get_post_meta( $post_id, '_post_hearts', true );
+
+    if( $post_hearts ) {
+      update_post_meta( $post_id, '_post_hearts', $post_hearts + 1 );
+    } else {
+      add_post_meta( $post_id, '_post_hearts', 1, true );
+    }
+
+    echo get_post_meta( $post_id, '_post_hearts', true );
 
     die();
   }
-
 
  ?>
