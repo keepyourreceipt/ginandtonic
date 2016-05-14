@@ -9,7 +9,7 @@
   // Add action to call the update_post_hearts function from JS
   // Support both logged in and logged out users
   add_action( 'wp_ajax_update_hearts', 'update_post_hearts' );
-  add_action( 'ap_ajax_nopriv_update_hearts', 'update_post_hearts' );
+  add_action( 'wp_ajax_nopriv_update_hearts', 'update_post_hearts' );
 
   function update_post_hearts() {
 

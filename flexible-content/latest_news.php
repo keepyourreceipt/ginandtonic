@@ -86,6 +86,9 @@
                           </div>
                           <div class="post-views pull-right">
                             <span>
+                              <button class="btn btn-sm heart-post">Heart this post</button>
+                            </span>
+                            <span>
                               <i class="fa fa-eye"></i>&nbsp;
                               <?php echo get_post_meta( get_the_ID(), '_number_of_views', true ); ?>
                             </span>

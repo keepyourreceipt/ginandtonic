@@ -12,12 +12,7 @@
   <div class="container waypoint waypoint-fade">
     <div class="mobile-overlay visible-xs">
       <?php // Shhhh, I'm hiding ?>
-    </div>
-    <!-- <video width="320" height="240" controls>
-      <source src="<?php echo $background_video_mp4; ?>" type="video/mp4">
-    Your browser does not support the video tag.
-    </video> -->
-    <button class="btn btn-large heart-post">Heart this post</button>
+    </div>    
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="padding-md"></div>
