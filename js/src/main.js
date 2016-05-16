@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
     addIndexToGalleryImage();
     launchPhotoSwipeGallery();
     submitSearchForm();
-    initMasonryGrid();    
+    initMasonryGrid();
     FastClick.attach(document.body);
   }
 
@@ -116,7 +116,9 @@ jQuery(document).ready(function($) {
 
     $('.hero-image').each(function( index ) {
       if( $(this).index() > 0 ) {
-        $(this).find('.table').css('min-height', '50vh');
+        $(this).find('.table')
+          .css('padding-top', '10vh')
+          .css('padding-bottom', '10vh');
       }
     });
   }
