@@ -14,24 +14,34 @@
   function update_post_hearts() {
 
     $url = wp_get_referer();
-    $post_id = url_to_postid( $url );
+    $post_id = $_POST['postID'];
 
-    if( $post_id == 0 ) {
-      $post_id = get_option('page_on_front');
-    }
+    if( !isset( $_COOKIE[ $post_id . '-liked-post' ] ) ) {
 
-    $post_title = get_the_title( $post_id );
-    $post_hearts = get_post_meta( $post_id, '_post_hearts', true );
+      if( $post_id == 0 ) {
+        $post_id = get_option('page_on_front');
+      }
 
-    if( $post_hearts ) {
-      update_post_meta( $post_id, '_post_hearts', $post_hearts + 1 );
+      $post_title = get_the_title( $post_id );
+      $post_hearts = get_post_meta( $post_id, '_post_hearts', true );
+
+      if( $post_hearts ) {
+        update_post_meta( $post_id, '_post_hearts', $post_hearts + 1 );
+      } else {
+        add_post_meta( $post_id, '_post_hearts', 1, true );
+      }
+
+      setcookie( $post_id . '-liked-post', $post_id, 90 * DAYS_IN_SECONDS, COOKIEPATH, COOKIE_DOMAIN );
+      echo get_post_meta( $post_id, '_post_hearts', true );
+
+      die();
+
     } else {
-      add_post_meta( $post_id, '_post_hearts', 1, true );
+
+      // User already liked this post
+      die();
     }
-
-    echo get_post_meta( $post_id, '_post_hearts', true );
-
-    die();
   }
+
 
  ?>

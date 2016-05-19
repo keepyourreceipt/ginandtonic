@@ -73,7 +73,7 @@
                       </div>
                       <div class="padding-sm"></div>
                       <div class="row">
-                        <div class="post-stats col-sm-12">
+                        <div class="post-meta col-sm-12">
                           <div class="post-category pull-left">
                             <span>
                               <?php
@@ -84,14 +84,23 @@
                                 <?php echo $first_category; ?>
                             </span>
                           </div>
-                          <div class="post-views pull-right">
-                            <span>
-                              <button class="btn btn-sm heart-post">Heart this post</button>
-                            </span>
-                            <span>
-                              <i class="fa fa-eye"></i>&nbsp;
-                              <?php echo get_post_meta( get_the_ID(), '_number_of_views', true ); ?>
-                            </span>
+                          <div class="post-stats pull-right">
+                            <div class="post-hearts">
+                              <?php if( !isset( $_COOKIE[ $post->ID . '-liked-post' ] ) ) { ?>
+                                <i class="fa fa-heart-o heart-post" data-post-id="<?php echo get_the_ID(); ?>" aria-hidden="true"></i>
+                              <?php } else { ?>
+                                <i class="fa fa-heart" data-post-id="<?php echo get_the_ID(); ?>" aria-hidden="true"></i>
+                              <?php } ?>
+                              <span class="post-hearts-label">
+                                <?php echo get_post_meta( $post->ID, '_post_hearts', true ); ?>
+                              </span>
+                            </div>
+                            <div class="post-views">
+                              <i class="fa fa-eye"></i>
+                              <span>
+                                &nbsp;<?php echo get_post_meta( get_the_ID(), '_number_of_views', true ); ?>
+                              </span>
+                            </div>
                           </div>
                           <div class="padding-md"></div>
                         </div>
