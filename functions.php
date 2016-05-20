@@ -108,6 +108,14 @@ function update_page_views() {
 	}
 }
 
+function update_hearts() {
+ $message = $post;
+ var_dump( $message );
+ die();
+}
+add_action( 'wp_ajax_update_page_hearts', 'update_hearts' );
+
+
 // Allow user to show of hide additional content types
 add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
 function remove_menu_items( $menu_order ){
@@ -151,3 +159,6 @@ function custom_field_excerpt( $field_name ) {
 	}
 	return apply_filters('the_excerpt', $text);
 }
+
+// Include hearts ajax handler
+require_once dirname( __FILE__ ) . '/inc/ajax/hearts.php';

@@ -6,12 +6,13 @@
     } else {
       $background_style = 'style="background-image: url(' . $background_image['url'] . ');"';
     }
+    $background_video_mp4 = get_sub_field( 'background_video_m4v' );
   ?>
 <section class="hero-image overlay parallax-window <?php echo $container_classes; ?>" <?php echo $background_style; ?>>
   <div class="container waypoint waypoint-fade">
     <div class="mobile-overlay visible-xs">
       <?php // Shhhh, I'm hiding ?>
-    </div>
+    </div>    
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="padding-md"></div>

@@ -27,19 +27,8 @@ jQuery(document).ready(function($) {
     launchPhotoSwipeGallery();
     submitSearchForm();
     initMasonryGrid();
-    // updatePageHearts();
     FastClick.attach(document.body);
   }
-  //
-  // function updatePageHearts() {
-  //   var data = {
-  //      action: 'update_page_hearts'
-  //  };
-  //
-  //  jQuery.post('./wp-admin/admin-ajax.php', data, function( response ) {
-  //      alert( 'Got this from the server: ' + response );
-  //  });
-  // }
 
   function appendMobileToolbar() {
     if( ! $('.fixed-top-menu').hasClass('hide-top-toolbar') ) {
@@ -127,7 +116,9 @@ jQuery(document).ready(function($) {
 
     $('.hero-image').each(function( index ) {
       if( $(this).index() > 0 ) {
-        $(this).find('.table').css('min-height', '50vh');
+        $(this).find('.table')
+          .css('padding-top', '10vh')
+          .css('padding-bottom', '10vh');
       }
     });
   }
