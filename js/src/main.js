@@ -27,6 +27,7 @@ jQuery(document).ready(function($) {
     launchPhotoSwipeGallery();
     submitSearchForm();
     initMasonryGrid();
+    isotopeGrid();
     FastClick.attach(document.body);
   }
 
@@ -35,6 +36,22 @@ jQuery(document).ready(function($) {
       var mobileToolbar = $('.mobile-nav-toolbar-container').html();
       $('.modal-menu').append( mobileToolbar );
     }
+  }
+
+  function isotopeGrid() {
+    var filterClass;
+    var isotopGrid = $('.portfolio-grid-items').isotope({
+      itemSelector: '.portfolio-grid-item',
+      layoutMode: 'fitRows'
+    });
+
+    $('.portfolio-grid-filter button').on('click', function() {
+      filterClass = $(this).data('filter');
+      console.log( filterClass );
+      isotopGrid.isotope({
+        filter: '.' + filterClass
+      });
+    });
   }
 
   function preventScrollJumpMobileMenuParentItem() {

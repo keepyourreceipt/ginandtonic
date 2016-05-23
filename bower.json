@@ -25,6 +25,7 @@
     "masonry": "~4.0.0"
   },
   "dependencies": {
-    "slick-carousel": "~1.5.9"
+    "slick-carousel": "~1.5.9",
+    "isotope": "^3.0.0"
   }
 }
