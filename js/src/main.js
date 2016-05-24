@@ -47,7 +47,6 @@ jQuery(document).ready(function($) {
 
     $('.portfolio-grid-filter button').on('click', function() {
       filterClass = $(this).data('filter');
-      console.log( filterClass );
       isotopGrid.isotope({
         filter: '.' + filterClass
       });
