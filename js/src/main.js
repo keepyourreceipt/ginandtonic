@@ -46,10 +46,18 @@ jQuery(document).ready(function($) {
     });
 
     $('.portfolio-grid-filter button').on('click', function() {
-      filterClass = $(this).data('filter');
-      isotopGrid.isotope({
-        filter: '.' + filterClass
-      });
+
+      if( $(this).hasClass( 'all' ) ) {
+        isotopGrid.isotope({
+          filter: '*'
+        });
+      } else {
+        filterClass = $(this).data('filter');
+        isotopGrid.isotope({
+          filter: '.' + filterClass
+        });
+      }
+      $(window).trigger('resize');
     });
   }
 

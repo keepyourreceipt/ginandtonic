@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="row portfolio-grid-filter">
-          <button class="btn btn-default" data-filter="*">All</button>
+          <button class="btn btn-default all">All</button>
           <?php
             $filter_cats = get_terms( 'portfoliocategory', array('hide_empty' => true));
             foreach( $filter_cats as $filter_cat ) { ?>
