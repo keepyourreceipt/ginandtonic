@@ -30,14 +30,19 @@
           $query = new WP_Query( array( 'post_type' => 'testimonial', 'posts_per_page' => -1 ) );
           while( $query->have_posts() ) : $query->the_post(); ?>
               <div class="col-sm-6 col-md-4 testimonial slide">
-                <div class="title">
-                  <h3><?php the_title(); ?></h3>
+                <div class="slide-content">
+                  <div class="title">
+                    <h3><?php the_title(); ?></h3>
+                  </div>
+                  <div class="content">
+                    <p>&ldquo;<?php the_field('testimonial_content'); ?>&rdquo;</p>
+                  </div>
                 </div>
-                <div class="content">
-                  <p>&ldquo;<?php the_field('testimonial_content'); ?>&rdquo;</p>
-                </div>
-                <div class="attribution">
-                  <span>&ndash;&nbsp;<?php the_field('attribution'); ?></span>
+                <div class="sm-diamond-pointer"></div>
+                <div class="slide-attribution">
+                  <div class="attribution">
+                    <strong><?php the_field('attribution'); ?></strong>
+                  </div>
                 </div>
               </div>
           <?php

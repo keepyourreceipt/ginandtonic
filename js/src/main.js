@@ -3,7 +3,8 @@ jQuery(document).ready(function($) {
   themeInit();
 
   $(window).on('resize', function() {
-    autoLayoutAdjustment();
+    // autoLayoutAdjustment();
+    // jsLayoutCalcFix();
   });
 
   function themeInit() {
@@ -46,17 +47,21 @@ jQuery(document).ready(function($) {
     });
 
     $('.portfolio-grid-filter button').on('click', function() {
-
+      $('.portfolio-grid-filter button.active').removeClass('active');
       if( $(this).hasClass( 'all' ) ) {
+        $(this).addClass('active');
         isotopGrid.isotope({
           filter: '*'
         });
       } else {
         filterClass = $(this).data('filter');
+        $(this).addClass('active');
         isotopGrid.isotope({
           filter: '.' + filterClass
         });
       }
+      // Trigger resize to re-calculate js pased positioning for
+      // parallax and dynamically positioned elements
       $(window).trigger('resize');
     });
   }
@@ -145,6 +150,14 @@ jQuery(document).ready(function($) {
           .css('padding-bottom', '10vh');
       }
     });
+  }
+
+  function jsLayoutCalcFix() {
+    settimeout(function() {
+      // Trigger resize to re-calculate layout and position of elements
+      // positioned by JS
+      $(window).trigger('resize');
+    }, 100);
   }
 
   function testimonialsSlider() {
@@ -371,5 +384,7 @@ jQuery(document).ready(function($) {
       })
     });
   }
+
+
 
 });
