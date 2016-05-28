@@ -10,10 +10,10 @@ h1
     font-size: 1.6em
 
 h2
-  line-height: 1.3em
+  line-height: 1.5em
   font-size: 2em
   letter-spacing: 0.04em
-  padding: 0 0 0.5em
+  padding: 0 0 1em
   margin: 0
   font-weight: 300
 
@@ -21,39 +21,67 @@ h2
     font-size: 1.4em
 
 h3
-  font-size: 1.3em
+  font-size: 1.4em
   letter-spacing: 0.03em
-  padding: 0 0 0.1em
+  padding: 0 0 0.75em
   margin: 0
   font-weight: 300
 
   @media screen and ( max-width: $tablet )
     font-size: 1.2em
 
-h4, h5
+h4
+  font-size: 1.3em
+  padding-bottom: 0.5em
+  letter-spacing: 0.025em
+
+h5
   font-size: 1.2em
-  padding-bottom: 0.2em
+  padding-bottom: 0.25em
+  letter-spacing: 0.025em
 
 h6
-  font-size: 0.9em
-  padding-bottom: 0em
+  font-size: 0.75em
+  padding-bottom: 0.15em
   line-height: 1.4em
+  letter-spacing: 0.025em
 
-p,
-.jumbotron p
+p
   font-size: 1.15em
   line-height: 1.75em
-  padding-bottom: 0.5em
+  padding-bottom: 0.75em
   letter-spacing: 0.025em
 
 a
   text-decoration: none !important
-  color: $body-copy
+  color: $theme-primary
   @include transition( color 0.2s ease )
 
   &:hover
     color: darken( $theme-primary, 10% )
 
-p
-  a
-    color: $theme-primary
+ul
+  padding-top: 1em
+  padding-bottom: 1em
+  font-size: 1.15em
+
+  li
+    line-height: 1.75em
+    letter-spacing: 0.025em
+
+ol
+  padding-top: 1em
+  padding-bottom: 1.5em
+  font-size: 1.15em
+
+  li
+    line-height: 1.75em
+    letter-spacing: 0.025em
+
+blockquote
+  margin: 1em 0 2.5em 20px
+  padding-top: 0
+  font-size: 1em
+  font-style: italic
+  padding-bottom: 0
+  border-left-color: $theme-primary

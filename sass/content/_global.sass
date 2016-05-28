@@ -24,6 +24,28 @@ img
   max-width: 100%
   height: auto
 
+  &.alignright
+    float: right
+    margin: 15px 0 15px 15px
+
+    @media screen and ( max-width: $tablet )
+      float: none
+      margin: 15px auto
+      display: block
+
+  &.alignleft
+    float: left
+    margin: 15px 15px 15px 0
+
+    @media screen and ( max-width: $tablet )
+      float: none
+      margin: 15px auto
+      display: block
+
+  &.alignright
+    display: block
+    margin: 10px auto
+
 .four-oh-four
   +content-row-padded
 
@@ -51,10 +73,6 @@ img
   hr
     margin-top: 30px
     margin-bottom: 30px
-
-.jumbotron
-  margin-bottom: 0px !important
-  background-color: #F0EEF1
 
 .padding-sm
   height: 10px
@@ -167,7 +185,6 @@ img
   +background-cover
 
 .share-post
-
   span
     padding-right: 1em
 
