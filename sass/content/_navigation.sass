@@ -51,7 +51,8 @@
   top: 40px
   z-index: 999
   box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2)
-  border-top: solid 1px $light-grey
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.2)
+  border-top: solid 1px $light-grey  
   background-color: rgba( 255,255,255,1 )
   width: 100%
   padding: 0 6em
@@ -59,6 +60,7 @@
   -webkit-backface-visibility: hidden
   @include transform( translate3d(0,0,0) )
   @include transition( all 0.3s ease )
+  opacity: 0.92
 
   &.hide-top-toolbar
     top: 0
@@ -136,6 +138,7 @@
         left: 10px
         border-bottom-left-radius: 2px
         border-bottom-right-radius: 2px
+        font-size: 0.9em
 
         &.sub-menu-active
           opacity: 1
@@ -166,6 +169,7 @@
         height: 30px
 
   &.active
+    opacity: 1
 
     .company-logo
       padding-top: 5px

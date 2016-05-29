@@ -19,3 +19,9 @@
     <?php get_template_part( 'template', 'parts/navigation' ); ?>
     <?php update_page_views(); ?>
   <div class="page-content">
+
+    <div class="loader-overlay">
+      <div class="loader-container">
+        <div class="loader">Loading...</div>
+      </div>
+    </div>

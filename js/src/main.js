@@ -1,13 +1,18 @@
 jQuery(document).ready(function($) {
 
+  // Setup theme functions
   themeInit();
 
+  // Remove page loader
+  $('.loader-overlay').fadeOut();
+
   $(window).on('resize', function() {
-    autoLayoutAdjustment();
+    // Call functions on resize
   });
 
   function themeInit() {
-    autoLayoutAdjustment();
+    autoLayout();
+    productFeatures();
     toggleMobileModalMenuOnClick();
     appendMobileToolbar();
     preventScrollJumpMobileMenuParentItem();
@@ -27,7 +32,26 @@ jQuery(document).ready(function($) {
     launchPhotoSwipeGallery();
     submitSearchForm();
     initMasonryGrid();
+    isotopeGrid();
     FastClick.attach(document.body);
+  }
+
+  function productFeatures() {
+    if( $('.product-features').length ) {
+      $('.product-features').each(function() {
+        var $container = $(this);
+        $container.find('button').on('click', function() {
+          var $activeSection = $(this).attr('class').split(' ')[0];
+          $container.find('.section').hide().removeClass('active');
+          $container.find('button').removeClass('active');
+          $container.find('.' + $activeSection).show().addClass('active');
+
+          // Trigger resize to re-calculate js pased positioning for
+          // parallax and dynamically positioned elements
+          $(window).trigger('resize');
+        });
+      });
+    }
   }
 
   function appendMobileToolbar() {
@@ -35,6 +59,33 @@ jQuery(document).ready(function($) {
       var mobileToolbar = $('.mobile-nav-toolbar-container').html();
       $('.modal-menu').append( mobileToolbar );
     }
+  }
+
+  function isotopeGrid() {
+    var filterClass;
+    var isotopGrid = $('.portfolio-grid-items').isotope({
+      itemSelector: '.portfolio-grid-item',
+      layoutMode: 'fitRows'
+    });
+
+    $('.portfolio-grid-filter button').on('click', function() {
+      $('.portfolio-grid-filter button.active').removeClass('active');
+      if( $(this).hasClass( 'all' ) ) {
+        $(this).addClass('active');
+        isotopGrid.isotope({
+          filter: '*'
+        });
+      } else {
+        filterClass = $(this).data('filter');
+        $(this).addClass('active');
+        isotopGrid.isotope({
+          filter: '.' + filterClass
+        });
+      }
+      // Trigger resize to re-calculate js pased positioning for
+      // parallax and dynamically positioned elements
+      $(window).trigger('resize');
+    });
   }
 
   function preventScrollJumpMobileMenuParentItem() {
@@ -82,7 +133,7 @@ jQuery(document).ready(function($) {
     }
   }
 
-  function autoLayoutAdjustment() {
+  function autoLayout() {
 
     if( $('.hero-image').length ) {
       $('.hero-image').each(function( index ) {

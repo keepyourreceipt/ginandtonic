@@ -3,7 +3,7 @@ html, body
   overflow-x: hidden
 
 body
-  font-size: 15.5px
+  font-size: 15px
   font-style: normal
   color: $dark-grey
   margin-left: 0px
@@ -24,8 +24,86 @@ img
   max-width: 100%
   height: auto
 
+  &.alignright
+    float: right
+    margin: 15px 0 15px 15px
+
+    @media screen and ( max-width: $tablet )
+      float: none
+      margin: 15px auto
+      display: block
+
+  &.alignleft
+    float: left
+    margin: 15px 15px 15px 0
+
+    @media screen and ( max-width: $tablet )
+      float: none
+      margin: 15px auto
+      display: block
+
+  &.alignright
+    display: block
+    margin: 10px auto
+
 .four-oh-four
   +content-row-padded
+
+.loader-overlay
+  width: 100vw
+  height: 100vh
+  position: fixed
+  top: 0px
+  left: 0px
+  background-color: $off-white
+  z-index: 99
+  display: table
+
+  .loader-container
+    display: table-cell
+    vertical-align: middle
+
+    .loader
+      margin: 20px auto
+      font-size: 8px
+      position: relative
+      text-indent: -9999em
+      border-top: 0.9em solid $theme-primary
+      border-right: 0.9em solid $theme-primary
+      border-bottom: 0.9em solid $theme-primary
+      border-left: 0.9em solid $light-grey
+      -webkit-transform: translateZ(0)
+      -ms-transform: translateZ(0)
+      transform: translateZ(0)
+      -webkit-animation: load8 1.1s infinite linear
+      animation: load8 1.1s infinite linear
+      border-radius: 50%
+      width: 10em
+      height: 10em
+
+      &:after
+        border-radius: 50%
+        width: 10em
+        height: 10em
+
+@-webkit-keyframes load8
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+  100%
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
+
+
+@keyframes load8
+  0%
+    -webkit-transform: rotate(0deg)
+    transform: rotate(0deg)
+
+  100%
+    -webkit-transform: rotate(360deg)
+    transform: rotate(360deg)
 
 .container
   overflow: hidden
@@ -52,10 +130,6 @@ img
     margin-top: 30px
     margin-bottom: 30px
 
-.jumbotron
-  margin-bottom: 0px !important
-  background-color: #F0EEF1
-
 .padding-sm
   height: 10px
 
@@ -79,6 +153,25 @@ img
 
 .linked-button-dark
   +linked-button-dark
+
+button,
+.shortcode-button
+  padding: 8px 18px
+  border: solid $dark-grey 1px
+  border-radius: 2px
+  background-color: transparent
+  @include transition( all 0.3s ease )
+  outline: none
+  display: inline-block
+  color: $body-copy
+
+  a
+    color: $body-copy
+
+  &.active,
+  &:hover
+    background-color: $dark-grey
+    color: $white
 
 .section-title
   margin-bottom: 3vh
@@ -167,7 +260,6 @@ img
   +background-cover
 
 .share-post
-
   span
     padding-right: 1em
 

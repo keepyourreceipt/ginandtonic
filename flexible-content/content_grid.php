@@ -3,18 +3,27 @@
   if( get_sub_field( 'background_image' ) ) {
     $background_image_obj = get_sub_field( 'background_image' );
     $background_image = $background_image_obj['sizes']['full-hd'];
+  }
 
-    $inline_styles = "style='";
+  $inline_styles = "style='";
+
+  if( $background_image ) {
     $inline_styles .= "background-image: url(";
     $inline_styles .= $background_image;
-    $inline_styles .= ")';";
-
-    if( get_sub_field( 'background_style' ) == "cover" ) {
-      $container_classes = "background-tiled";
-    } else {
-      $container_classes = "background-cover";
-    }
+    $inline_styles .= ");'";
   }
+  if( get_sub_field( 'background_color' ) ) {
+      $inline_styles .= "background-color: " . get_sub_field( 'background_color' ) . ";";
+  }
+
+  $inline_styles .= "'";
+
+  if( get_sub_field( 'background_style' ) == "cover" ) {
+    $container_classes = "background-tiled";
+  } else {
+    $container_classes = "background-cover";
+  }
+
 
   $padding_classes = ['padding-top' => 'default-padding-top', 'padding-bottom' => 'default-padding-bottom'];
   if( get_sub_field('padding_top') == "non-padded" ) {
@@ -24,7 +33,7 @@
     $padding_classes['padding-bottom'] = "remove-padding-bottom";
   }
  ?>
-<div class="content-grid flexible <?php echo implode(' ', $padding_classes); ?>" <?php if( $background_image ) { echo $inline_styles; } ?>>
+<div class="content-grid flexible <?php echo implode(' ', $padding_classes); ?>" <?php echo $inline_styles; ?>>
   <div class="container">
     <?php if( get_sub_field( 'background_style' ) == "cover" ) { ?>
       <div class="image-overlay light">

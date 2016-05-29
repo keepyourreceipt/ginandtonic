@@ -92,6 +92,8 @@ gulp.task('combine-vendor-js', ['clean-js'], function() {
       'bower_components/parallax.js/parallax.js',
       'bower_components/masonry/dist/masonry.pkgd.js',
       'bower_components/photoswipe/dist/photoswipe-ui-default.js',
+      'bower_components/outlayer/outlayer.js',
+      'bower_components/isotope/dist/isotope.pkgd.min.js'
     ])
     .pipe( concat('vendor.js'))
     .pipe(gulp.dest('js/'));

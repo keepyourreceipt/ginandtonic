@@ -22,9 +22,10 @@
     "fastclick": "~1.0.6",
     "photoswipe": "~4.1.1",
     "parallax.js": "~1.4.2",
-    "masonry": "~4.0.0"
+    "masonry": "~4.1.0"
   },
   "dependencies": {
-    "slick-carousel": "~1.5.9"
+    "slick-carousel": "~1.5.9",
+    "isotope": "^3.0.0"
   }
 }

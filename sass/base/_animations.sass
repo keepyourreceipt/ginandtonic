@@ -3,6 +3,7 @@
   opacity: 0
   @include transition( all 0.8s ease )
   @include transform( translateY( 60px ) )
+  will-change: transform
 
   &.waypoint-active
     opacity: 1
@@ -12,6 +13,7 @@
   opacity: 0
   @include transition( all 0.8s ease )
   @include transform( translatex( -60px ) )
+  will-change: transform
 
   &.waypoint-active
     opacity: 1
@@ -21,6 +23,7 @@
   opacity: 0
   @include transition( all 0.8s ease )
   @include transform( translatex( 60px ) )
+  will-change: transform
 
   &.waypoint-active
     opacity: 1
