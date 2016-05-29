@@ -1,20 +1,22 @@
 <section class="product-features">
   <div class="container">
     <div class="row">
-      <div class="section-nav text-center col-md-10 col-md-offset-1">
-        <?php if( get_sub_field( 'sec_one_section_title' ) ) { ?>
-          <button class="one active"><?php the_sub_field( 'sec_one_section_title' ); ?></button>
-        <?php } ?>
-        <?php if( get_sub_field( 'sec_two_section_title' ) ) { ?>
-          <button class="two"><?php the_sub_field( 'sec_two_section_title' ); ?></button>
-        <?php } ?>
+      <div class="section-nav text-center col-md-10 col-md-offset-1 waypoint waypoint-bottom-to-top">
+        <div class="btn-group" role="group">
+          <?php if( get_sub_field( 'sec_one_section_title' ) ) { ?>
+            <button class="one active"><?php the_sub_field( 'sec_one_section_title' ); ?></button>
+          <?php } ?>
+          <?php if( get_sub_field( 'sec_two_section_title' ) ) { ?>
+            <button class="two"><?php the_sub_field( 'sec_two_section_title' ); ?></button>
+          <?php } ?>
+        </div>
       </div>
       <div class="content-sections">
         <?php // Section one ?>
         <?php if( get_sub_field( 'sec_one_left_col_text_editor' ) || get_sub_field( 'sec_one_left_col_featured_image' ) ) { ?>
-          <div class="section one active col-md-10 col-md-offset-1">
+          <div class="section one active col-md-10 col-md-offset-1 waypoint waypoint-bottom-to-top anim-time-short">
             <div class="row">
-              <div class="left-column col-md-6">
+              <div class="left-column col-md-6 waypoint waypoint-bottom-to-top anim-time-short">
                 <?php
                   if( get_sub_field( 'sec_one_left_col_content_type' ) == "text" ) {
                     the_sub_field( 'sec_one_left_col_text_editor' );
@@ -27,7 +29,7 @@
                   </div>
                 <?php } ?>
               </div>
-              <div class="right-column col-md-6">
+              <div class="right-column col-md-6 waypoint waypoint-bottom-to-top anim-time-medium">
                 <?php
                   if( get_sub_field( 'sec_one_right_col_content_type' ) == "text" ) {
                     the_sub_field( 'sec_one_right_col_text_editor' );

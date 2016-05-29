@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
-        <div class="row portfolio-grid-filter">
+        <div class="row portfolio-grid-filter waypoint waypoint-bottom-to-top">
           <button class="all active">All</button>
           <?php
             $filter_cats = get_terms( 'portfoliocategory', array('hide_empty' => true));
@@ -11,7 +11,7 @@
             <?php }
             ?>
         </div>
-        <div class="row portfolio-grid-items">
+        <div class="row portfolio-grid-items waypoint waypoint-bottom-to-top">
           <?php
             $query = new WP_Query( array('post_type' => 'portfolio', 'posts_per_page' => -1) );
             if( $query->have_posts() ) {

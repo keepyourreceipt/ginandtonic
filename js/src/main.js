@@ -1,14 +1,17 @@
 jQuery(document).ready(function($) {
 
+  // Setup theme functions
   themeInit();
 
+  // Remove page loader
+  $('.loader-overlay').fadeOut();
+
   $(window).on('resize', function() {
-    // autoLayoutAdjustment();
-    // jsLayoutCalcFix();
+    // Call functions on resize
   });
 
   function themeInit() {
-    autoLayoutAdjustment();
+    autoLayout();
     productFeatures();
     toggleMobileModalMenuOnClick();
     appendMobileToolbar();
@@ -130,7 +133,7 @@ jQuery(document).ready(function($) {
     }
   }
 
-  function autoLayoutAdjustment() {
+  function autoLayout() {
 
     if( $('.hero-image').length ) {
       $('.hero-image').each(function( index ) {
@@ -169,14 +172,6 @@ jQuery(document).ready(function($) {
           .css('padding-bottom', '10vh');
       }
     });
-  }
-
-  function jsLayoutCalcFix() {
-    settimeout(function() {
-      // Trigger resize to re-calculate layout and position of elements
-      // positioned by JS
-      $(window).trigger('resize');
-    }, 100);
   }
 
   function testimonialsSlider() {
@@ -403,7 +398,5 @@ jQuery(document).ready(function($) {
       })
     });
   }
-
-
 
 });
