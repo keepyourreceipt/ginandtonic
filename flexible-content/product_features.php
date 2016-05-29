@@ -1,4 +1,42 @@
-<section class="product-features">
+<?php
+  $padding_classes = ['padding-top' => 'default-padding-top', 'padding-bottom' => 'default-padding-bottom'];
+  if( get_sub_field('padding_top') == "non-padded" ) {
+    $padding_classes['padding-top'] = "remove-padding-top";
+  }
+  if( get_sub_field('padding_bottom') == "non-padded" ) {
+    $padding_classes['padding-bottom'] = "remove-padding-bottom";
+  }
+?>
+
+<section class="product-features <?php echo implode(' ', $padding_classes); ?>">
+  <?php
+    $inline_styles = "style='";
+    if( get_sub_field( 'background_style' ) != "color" ) {
+      if( get_sub_field( 'background_image' ) ) {
+        $background_image_obj = get_sub_field( 'background_image' );
+        $background_image_url = $background_image_obj['sizes']['full-hd'];
+
+        $inline_styles .= "background-image: url(" . $background_image_url . ");";
+        if( get_sub_field( 'background_style' ) == "cover" ) {
+          $inline_styles .= " background-size: cover; background-repeat: no-repeat; background-position: 50% 50%;";
+        } else {
+          $inline_styles .= " background-repeat: repeat;";
+        }
+      }
+    } else {
+      if( get_sub_field( 'background_color' ) ) {
+        $inline_styles .= " background-color: " . get_sub_field( 'background_color' );
+      }
+    }
+    $inline_styles .= "'";
+  ?>
+  <div class="section-header waypoint waypoint-fade" <?php echo $inline_styles; ?>>
+    <div class="section-heading waypoint waypoint-bottom-to-top">
+      <?php if( get_sub_field( 'text_heading' ) ) { ?>
+        <h2><?php the_sub_field( 'text_heading' ); ?></h2>
+      <?php } ?>
+    </div>
+  </div>
   <div class="container">
     <div class="row">
       <div class="section-nav text-center col-md-10 col-md-offset-1 waypoint waypoint-bottom-to-top">

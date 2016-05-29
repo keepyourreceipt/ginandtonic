@@ -1,8 +1,25 @@
 .product-features
   +content-row-padded
 
+  button:not(.active)
+    background-color: $off-white
+
+    &:hover
+      background-color: $dark-grey
+
+  .section-header
+    min-height: 20vh
+    margin-bottom: -20px
+
+    .section-heading
+      text-align: center
+
+      h2
+        padding-top: 12vh
+        padding-bottom: 12vh
+
   .section-nav
-    padding-bottom: 5vh
+    padding-bottom: 15vh
 
   .section:not(.active)
     display: none
