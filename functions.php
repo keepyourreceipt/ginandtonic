@@ -162,3 +162,6 @@ function custom_field_excerpt( $field_name ) {
 
 // Include hearts ajax handler
 require_once dirname( __FILE__ ) . '/inc/ajax/hearts.php';
+
+// Include shortcodes
+require_once dirname( __FILE__ ) . '/inc/shortcodes/linked-button.php';
