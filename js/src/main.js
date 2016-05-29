@@ -9,6 +9,7 @@ jQuery(document).ready(function($) {
 
   function themeInit() {
     autoLayoutAdjustment();
+    productFeatures();
     toggleMobileModalMenuOnClick();
     appendMobileToolbar();
     preventScrollJumpMobileMenuParentItem();
@@ -30,6 +31,24 @@ jQuery(document).ready(function($) {
     initMasonryGrid();
     isotopeGrid();
     FastClick.attach(document.body);
+  }
+
+  function productFeatures() {
+    if( $('.product-features').length ) {
+      $('.product-features').each(function() {
+        var $container = $(this);
+        $container.find('button').on('click', function() {
+          var $activeSection = $(this).attr('class').split(' ')[0];
+          $container.find('.section').hide().removeClass('active');
+          $container.find('button').removeClass('active');
+          $container.find('.' + $activeSection).show().addClass('active');
+
+          // Trigger resize to re-calculate js pased positioning for
+          // parallax and dynamically positioned elements
+          $(window).trigger('resize');
+        });
+      });
+    }
   }
 
   function appendMobileToolbar() {

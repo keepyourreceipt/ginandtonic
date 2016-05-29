@@ -1,18 +1,18 @@
 <section class="product-features">
   <div class="container">
-    <div class="row">      
-      <div class="section-nav col-md-10 col-md-offset-1">
+    <div class="row">
+      <div class="section-nav text-center col-md-10 col-md-offset-1">
         <?php if( get_sub_field( 'sec_one_section_title' ) ) { ?>
-          <button><?php the_sub_field( 'sec_one_section_title' ); ?></button>
+          <button class="one active"><?php the_sub_field( 'sec_one_section_title' ); ?></button>
         <?php } ?>
         <?php if( get_sub_field( 'sec_two_section_title' ) ) { ?>
-          <button><?php the_sub_field( 'sec_two_section_title' ); ?></button>
+          <button class="two"><?php the_sub_field( 'sec_two_section_title' ); ?></button>
         <?php } ?>
       </div>
       <div class="content-sections">
         <?php // Section one ?>
         <?php if( get_sub_field( 'sec_one_left_col_text_editor' ) || get_sub_field( 'sec_one_left_col_featured_image' ) ) { ?>
-          <div class="section-one col-md-10 col-md-offset-1">
+          <div class="section one active col-md-10 col-md-offset-1">
             <div class="row">
               <div class="left-column col-md-6">
                 <?php
@@ -45,7 +45,7 @@
         <?php } ?>
         <?php // Section two ?>
         <?php if( get_sub_field( 'sec_two_left_col_text_editor' ) || get_sub_field( 'sec_two_left_col_featured_image' ) ) { ?>
-          <div class="section-two col-md-10 col-md-offset-1">
+          <div class="section two col-md-10 col-md-offset-1">
             <div class="row">
               <div class="left-column col-md-6">
                 <?php
