@@ -76,7 +76,7 @@
     @include transition( all 0.3s ease )
 
     a
-      display: inline-block
+      display: inline
       height: 40px
       @include transition( all 0.3s ease )
 
@@ -108,7 +108,7 @@
 
         > a
           &:after
-            content: "\f078"
+            content: "\f067"
             font-size: 0.6em
             vertical-align: middle
             padding-left: 8px
@@ -117,6 +117,9 @@
             height: 10px
             position: absolute
             display: inline-block
+
+            &.active
+              content: "\f068"
 
       a
         color: $body-copy
@@ -139,6 +142,8 @@
         border-bottom-left-radius: 2px
         border-bottom-right-radius: 2px
         font-size: 0.9em
+        padding-top: 15px
+        padding-bottom: 15px
 
         &.sub-menu-active
           opacity: 1
@@ -154,6 +159,9 @@
 
           &::after
             display: none
+
+          a
+            display: block
 
   @media screen and ( max-width: $laptop )
     padding: 0 0 0 15px
@@ -278,6 +286,22 @@
       li
         list-style: none
 
+        &.menu-item-has-children
+          > a
+            &:after
+              content: "\f067"
+              font-size: 0.4em
+              vertical-align: middle
+              padding-left: 10px
+              font-family: FontAwesome
+              width: auto
+              position: absolute
+              display: inline-block
+              line-height: 2.75em
+
+              &.active
+                content: "\f068"
+
         a
           font-size: 2em
           color: #fff
@@ -290,7 +314,7 @@
         opacity: 0
         @include transform( translateX(30px) )
         @include transition( all 0.4s ease )
-        padding-bottom: 5px
+        padding-bottom: 15px
 
         &.active
           opacity: 1
@@ -300,11 +324,30 @@
         max-height: 0
         overflow: hidden
         padding-left: 0
+        padding-top: 0
+        padding-bottom: 0
         @include transition( max-height 0.4s ease)
+        opacity: 0.9
 
         li
           font-size: 0.75em
           padding-top: 1em
+          padding-bottom: 0
+
+          &:last-child
+            padding-bottom: 15px
+
+            &::after
+              content: ""
+              width: 20%
+              height: 1px
+              background: $off-white
+              display: block
+              margin: 10px auto 0
+              opacity: 0.5
+
+          &:first-child
+            padding-top: 20px
 
         &.active
           max-height: 500px
