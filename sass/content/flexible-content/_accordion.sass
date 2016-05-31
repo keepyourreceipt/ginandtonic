@@ -8,5 +8,23 @@
     h4.panel-title
       padding: 0
 
+    .panel-title
+      a
+        padding-right: 30px
+
+        &:after
+          content: "\f068"
+          font-size: 0.75em
+          vertical-align: middle
+          font-family: FontAwesome
+          position: absolute
+          right: 25px
+          color: $theme-primary
+          line-height: 20px
+
+        &.collapsed
+          &::after
+            content: "\f067"
+
   .panel-default > .panel-heading
     background-color: $white

@@ -1,5 +1,4 @@
 <?php get_header(); ?>
-<?php get_header(); ?>
 <?php
   $posts_page = get_option( 'page_for_posts' );
   $background_image = get_field('header_image', $posts_page);
