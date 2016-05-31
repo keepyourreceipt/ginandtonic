@@ -3,22 +3,29 @@
   $posts_page = get_option( 'page_for_posts' );
   $background_image = get_field('header_image', $posts_page);
 ?>
-<div class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
+<section class="page-header overlay" data-parallax="scroll" data-image-src="<?php echo $background_image['sizes']['full-hd']; ?>">
   <div class="container">
-    <div class="row waypoint waypoint waypoint-fade parallax-window">
+    <div class="mobile-overlay hidden-md hidden-lg">
+      <?php // Shhhh, I'm hiding ?>
+    </div>
+    <div class="row waypoint waypoint-fade parallax-window">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-10 col-md-offset-1 table banner-text-container">
             <div class="table-cell banner-text">
-              <h1 class="waypoint waypoint-bottom-to-top">The Archives</h1>
-              <h4 class="waypoint waypoint-bottom-to-top">Archive <?php the_archive_title(); ?></h4>
+              <h1 class="waypoint waypoint-bottom-to-top"><?php echo single_cat_title(); ?></h1>
+              <?php if( category_description() ) { ?>
+                <h4 class="waypoint waypoint-bottom-to-top">
+                  <?php echo category_description(); ?>
+                </h4>
+              <?php } ?>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <?php
   if( have_posts() ) {
