@@ -20,7 +20,7 @@
             <span class="waypoint waypoint-bottom-to-top"><i class="fa fa-folder-o"></i>&nbsp;&nbsp;<?php echo get_the_category_list(' | '); ?></span>
           </div>
           <hr class="waypoint waypoint-bottom-to-top">
-          <div class="post-excerpt">
+          <div class="post-excerpt waypoint waypoint-bottom-to-top">
             <?php the_excerpt(); ?>
           </div>
         </div>

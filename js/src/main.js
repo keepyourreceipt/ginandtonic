@@ -33,6 +33,7 @@ jQuery(document).ready(function($) {
     submitSearchForm();
     initMasonryGrid();
     isotopeGrid();
+    bootstrapAccordionCallback();
     FastClick.attach(document.body);
   }
 
@@ -52,6 +53,14 @@ jQuery(document).ready(function($) {
         });
       });
     }
+  }
+
+  function bootstrapAccordionCallback() {
+    $('.panel-collapse').on('hidden.bs.collapse', function () {
+      // Trigger resize to re-calculate js pased positioning for
+      // parallax and dynamically positioned elements
+      $(window).trigger('resize');
+    });
   }
 
   function appendMobileToolbar() {
@@ -394,7 +403,7 @@ jQuery(document).ready(function($) {
       var waypoints = $element.waypoint(function( direction ) {
         $element.addClass('waypoint-active');
       }, {
-        offset: '85%'
+        offset: '95%'
       })
     });
   }

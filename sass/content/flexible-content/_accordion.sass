@@ -13,7 +13,7 @@
         padding-right: 30px
 
         &:after
-          content: "\f068"
+          content: "\f067"
           font-size: 0.75em
           vertical-align: middle
           font-family: FontAwesome
@@ -21,6 +21,10 @@
           right: 25px
           color: $theme-primary
           line-height: 20px
+
+        &[href="#collapse-1"]
+          &::after
+            content: "\f068"
 
         &.collapsed
           &::after
