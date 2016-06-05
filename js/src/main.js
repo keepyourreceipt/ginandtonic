@@ -34,7 +34,25 @@ jQuery(document).ready(function($) {
     initMasonryGrid();
     isotopeGrid();
     bootstrapAccordionCallback();
+    smoothScrollLinks();
     FastClick.attach(document.body);
+  }
+
+  function smoothScrollLinks() {
+    if( $('.nav-menu').length ) {
+      $('.nav-menu a').on( 'click', function(e) {
+        var $href = $(this).attr('href');
+        var $hrefHash = $href.split('#')[1];
+        if( $hrefHash && $('#' + $hrefHash).length ) {
+          if( ! $(this).attr('target') ) {
+            e.preventDefault();
+            $('html,body').animate({
+                 scrollTop: $('#' + $hrefHash).offset().top - 60
+             }, 1000, 'swing');
+          }
+        }
+      });
+    }
   }
 
   function productFeatures() {
