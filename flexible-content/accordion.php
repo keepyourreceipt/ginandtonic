@@ -2,6 +2,14 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">
+        <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+            <style>
+              .accordion .panel-heading .panel-title a:after {
+                color: <?php the_field( 'primary_brand_color', 'option' ); ?> !important;
+              }
+            </style>
+        <?php } ?>
+
         <?php $panel_group_id = rand(1, 100); ?>
         <div class="panel-group" id="accordion-<?php echo $panel_group_id; ?>" role="tablist" aria-multiselectable="true">
             <?php

@@ -20,9 +20,24 @@
     <?php get_template_part( 'template', 'parts/navigation' ); ?>
     <?php update_page_views(); ?>
   <div class="page-content">
-
+    <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+      <style>
+        a {
+          color: <?php the_field( 'primary_brand_color', 'option' ); ?>
+        }
+      </style>
+    <?php } ?>
     <div class="loader-overlay">
       <div class="loader-container">
-        <div class="loader">Loading...</div>
+        <?php
+          if( get_field( 'primary_brand_color', 'option' ) ) {
+            $primary_brand_color = get_field( 'primary_brand_color', 'option' );
+            $loader_border_color = "style='border-top-color: " . $primary_brand_color . "; ";
+            $loader_border_color .= "border-right-color: " . $primary_brand_color . "; ";
+            $loader_border_color .= "border-bottom-color: " . $primary_brand_color . ";";
+            $loader_border_color .= "'";
+          }
+        ?>
+        <div class="loader" <?php if( $primary_brand_color ) { echo $loader_border_color; } ?>>Loading...</div>
       </div>
     </div>

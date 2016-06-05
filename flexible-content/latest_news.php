@@ -1,5 +1,12 @@
 <section class="latest-news">
   <div class="container">
+    <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+      <style>
+        .latest-news .latest-news-item .post-content .post-date {
+          color: <?php echo the_field( 'primary_brand_color', 'option' ); ?> !important;
+        }
+      </style>
+    <?php } ?>
     <?php if( get_sub_field( 'text_heading' ) ) { ?>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -34,7 +41,7 @@
           <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 remove-padding">
           <?php
           $post_counter = 1;
-          foreach( $posts as $post) {            
+          foreach( $posts as $post) {
             if( $post_counter < 3 ) {
               $display_classes = "col-sm-6 col-md-6 col-lg-4";
             } else {
