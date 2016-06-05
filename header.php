@@ -19,18 +19,12 @@
 <body <?php body_class(); ?>>
   <?php get_template_part( 'template', 'parts/styles/dark-button-color-scheme' ); ?>
   <?php get_template_part( 'template', 'parts/styles/light-button-color-scheme' ); ?>
-  
+  <?php get_template_part( 'template', 'parts/styles/text-link-color-scheme' ); ?>
+
   <?php get_template_part( 'template', 'parts/custom-font-styles' ); ?>
   <?php get_template_part( 'template', 'parts/navigation' ); ?>
   <?php update_page_views(); ?>
   <div class="page-content">
-    <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
-      <style>
-        a {
-          color: <?php the_field( 'primary_brand_color', 'option' ); ?>
-        }
-      </style>
-    <?php } ?>
     <div class="loader-overlay">
       <div class="loader-container">
         <?php
