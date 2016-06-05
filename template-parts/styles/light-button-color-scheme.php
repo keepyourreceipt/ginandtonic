@@ -13,7 +13,7 @@
         border-color: <?php echo $light_button_color; ?>;
       }
     <?php } else { ?>
-      .linked-button-light {
+      .linked-button-light  {
         background-color: transparent;
         <?php if( $light_button_text_color ) { ?>
           border-color: <?php echo $light_button_text_color; ?>;
@@ -21,18 +21,20 @@
       }
     <?php } ?>
     <?php if( $light_button_text_color ) { ?>
-      .linked-button-light {
+      .linked-button-light  {
         color: <?php echo $light_button_text_color; ?>;
       }
     <?php } ?>
     <?php if( $light_button_hover_color ) { ?>
-        .linked-button-light:hover {
+        .linked-button-light:hover,
+        .linked-button-light.active {
           background-color: <?php echo $light_button_hover_color; ?>;
           border-color: <?php echo $light_button_hover_color; ?>;
         }
     <?php } ?>
     <?php if( $light_button_hover_text_color ) { ?>
-        .linked-button-light:hover {
+        .linked-button-light:hover,
+        .linked-button-light.active {
           color: <?php echo $light_button_hover_text_color; ?> !important;
         }
     <?php } ?>

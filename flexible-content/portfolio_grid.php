@@ -3,11 +3,11 @@
     <div class="row">
       <div class="col-md-10 col-md-offset-1">
         <div class="row portfolio-grid-filter waypoint waypoint-bottom-to-top">
-          <button class="all active">All</button>
+          <button class="linked-button linked-button-dark all active">All</button>
           <?php
             $filter_cats = get_terms( 'portfoliocategory', array('hide_empty' => true));
             foreach( $filter_cats as $filter_cat ) { ?>
-              <button data-filter="<?php echo $filter_cat->slug; ?>"><?php echo $filter_cat->name; ?></button>
+              <button class="linked-button linked-button-dark" data-filter="<?php echo $filter_cat->slug; ?>"><?php echo $filter_cat->name; ?></button>
             <?php }
             ?>
         </div>

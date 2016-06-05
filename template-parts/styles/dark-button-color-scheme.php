@@ -5,32 +5,37 @@
   $dark_button_hover_text_color = get_field( 'dark_button_hover_text_color', 'option' );
   ?>
 
-  <?php // Dark button color scheme ?>
-  <?php if( $dark_button_color ) { ?>
-    <style>
+  <?php // dark button color scheme ?>
+  <style>
+    <?php if( $dark_button_color ) { ?>
       .linked-button-dark {
-        background-color: <?php echo $dark_button_color; ?> !important;
+        background-color: <?php echo $dark_button_color; ?>;
+        border-color: <?php echo $dark_button_color; ?>;
       }
-    </style>
-  <?php } ?>
-  <?php if( $dark_button_text_color ) { ?>
-    <style>
-      .linked-button-dark {
-        color: <?php echo $dark_button_text_color; ?> !important;
+    <?php } else { ?>
+      .linked-button-dark  {
+        background-color: transparent;
+        <?php if( $dark_button_text_color ) { ?>
+          border-color: <?php echo $dark_button_text_color; ?>;
+        <?php } ?>
       }
-    </style>
-  <?php } ?>
-  <?php if( $dark_button_hover_color ) { ?>
-      <style>
-        .linked-button-dark:hover {
-          background-color: <?php echo $dark_button_hover_color; ?> !important;
+    <?php } ?>
+    <?php if( $dark_button_text_color ) { ?>
+      .linked-button-dark  {
+        color: <?php echo $dark_button_text_color; ?>;
+      }
+    <?php } ?>
+    <?php if( $dark_button_hover_color ) { ?>
+        .linked-button-dark:hover,
+        .linked-button-dark.active {
+          background-color: <?php echo $dark_button_hover_color; ?>;
+          border-color: <?php echo $dark_button_hover_color; ?>;
         }
-      </style>
     <?php } ?>
     <?php if( $dark_button_hover_text_color ) { ?>
-      <style>
-        .linked-button-dark:hover {
+        .linked-button-dark:hover,
+        .linked-button-dark.active {
           color: <?php echo $dark_button_hover_text_color; ?> !important;
         }
-      </style>
     <?php } ?>
+  </style>
