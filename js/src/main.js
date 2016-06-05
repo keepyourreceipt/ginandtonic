@@ -96,6 +96,7 @@ jQuery(document).ready(function($) {
     });
 
     $('.portfolio-grid-filter button').on('click', function() {
+      $(window).trigger('resize');
       $('.portfolio-grid-filter button.active').removeClass('active');
       if( $(this).hasClass( 'all' ) ) {
         $(this).addClass('active');
@@ -111,7 +112,9 @@ jQuery(document).ready(function($) {
       }
       // Trigger resize to re-calculate js pased positioning for
       // parallax and dynamically positioned elements
-      $(window).trigger('resize');
+      setTimeout(function() {
+        $(window).trigger('resize');
+      }, 750);
     });
   }
 
