@@ -34,13 +34,26 @@ if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
 		'page_title' 	=> 'Global Content',
-		'menu_title'	=> 'Global Content',
+		'menu_title'	=> 'Theme Settings',
 		'menu_slug' 	=> 'theme-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
 		'icon_url' => 'dashicons-admin-site',
 		'position' => 3
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Brand Colors',
+		'menu_title'	=> 'Brand Colors',
+		'parent_slug'	=> 'theme-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Developer',
+		'menu_title'	=> 'Developer',
+		'parent_slug'	=> 'theme-settings',
+	));
+
 }
 
 // Define custom excerpt length
@@ -122,18 +135,48 @@ function remove_menu_items( $menu_order ){
 
     foreach ( $menu as $mkey => $m ) {
 			$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+			$testimonials = array_search( 'edit.php?post_type=testimonial', $m );
+			$events = array_search( 'edit.php?post_type=events', $m );
+			$product = array_search( 'edit.php?post_type=product', $m );
 
-			if( get_field('show_events', 'option') == "Hide Events" ) {
-				$events = array_search( 'edit.php?post_type=events', $m );
+ 			// Hide portfolio custom post type
+			if( get_field('show_projects_portfolio', 'option') == "hide" ) {
+				if ( $portfolio ) {
+					unset( $menu[$mkey] );
+				}
 			}
-
-      if ( $events /*| $portfolio */ )
-          unset( $menu[$mkey] );
+			// Hide testimonials custom post type
+			if( get_field('show_testimonials', 'option') == "hide" ) {
+				if ( $testimonials ) {
+					unset( $menu[$mkey] );
+				}
+			}
+			// Hide events custom post type
+			if( get_field('show_events', 'option') == "hide" ) {
+				if ( $events ) {
+					unset( $menu[$mkey] );
+				}
+			}
+			// Hide woo commerce products post type
+			if( get_field('show_ecommerce', 'option') == "hide" ) {
+				if ( $product ) {
+					unset( $menu[$mkey] );
+				}
+			}
     }
 
     return $menu_order;
 }
 add_filter( 'menu_order', 'remove_menu_items' );
+
+
+// Hide main woo commerce menu page
+function toggle_woocommerce_menu_pages() {
+	if( get_field('show_ecommerce', 'option') == "hide" ) {
+    remove_menu_page( 'woocommerce' );
+	}
+}
+add_action( 'admin_menu', 'toggle_woocommerce_menu_pages' );
 
 
 // Custom excerpt more link

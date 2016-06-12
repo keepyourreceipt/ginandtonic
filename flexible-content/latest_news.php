@@ -68,7 +68,7 @@
                         </div>
                         <div class="post-title remove-padding-left col-xs-9">
                           <a href="<?php the_permalink(); ?>">
-                            <h3><?php the_title(); ?></h3>
+                            <h3 style="color: <?php echo the_field( 'primary_brand_color', 'option' ); ?>;"><?php the_title(); ?></h3>
                           </a>
                         </div>
                       </div>
