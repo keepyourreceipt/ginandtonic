@@ -20,6 +20,24 @@ function ginandtonic_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ginandtonic_scripts' );
 
+// Load admin scripts and styles
+function load_custom_wp_admin_style() {
+	$theme_url = get_bloginfo('template_directory');
+	if( get_field('show_projects_portfolio', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-portfolio-css', $theme_url . '/admin/stylesheets/hide-acf-portfolio.css' );
+	}
+
+	if( get_field('show_testimonials', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-testimonials-css', $theme_url . '/admin/stylesheets/hide-acf-testimonials.css' );
+	}
+
+	if( get_field('show_events', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-events-css', $theme_url . '/admin/stylesheets/hide-acf-events.css' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
+
 // Add Woo Commerce support
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
