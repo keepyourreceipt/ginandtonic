@@ -4,8 +4,12 @@
   $map_lng = $map_address['lng'];
   $custom_map_pin_obj = get_sub_field('custom_map_pin');
   $custom_map_pin_url = $custom_map_pin_obj['url'];
+
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
 ?>
-<disectionv class="row-fluid google-map">
+<section class="row-fluid google-map" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div id="map" data-lat="<?php echo $map_lat; ?>" data-lng="<?php echo $map_lng; ?>" data-custom-map-pin="<?php echo $custom_map_pin_url; ?>">
     <?php // Google maps container ?>
   </div>

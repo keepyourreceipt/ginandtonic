@@ -1,4 +1,9 @@
-<section class="accordion">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="accordion" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1">

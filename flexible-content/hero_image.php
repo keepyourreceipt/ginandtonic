@@ -11,6 +11,10 @@
     if( get_sub_field( 'section_id' ) ) {
       $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
     }
+
+    if( get_sub_field( 'section_id' ) ) {
+      $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+    }
   ?>
 <section class="hero-image overlay parallax-window <?php echo $container_classes; ?>" <?php if( $scroll_to ) { echo $scroll_to; } ?> <?php echo $background_style; ?>>
   <div class="container waypoint waypoint-fade">

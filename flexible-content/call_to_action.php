@@ -1,9 +1,14 @@
-<?php if( get_sub_field('image_orientation') == "Display image on the left" ) {
-  $image_orientation = "left";
-} else {
-  $image_orientation = "right";
-} ?>
-<section class="container-fluid">
+<?php
+  if( get_sub_field('image_orientation') == "Display image on the left" ) {
+    $image_orientation = "left";
+  } else {
+    $image_orientation = "right";
+  }
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="container-fluid" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="row hidden-xs hidden-sm call-to-action">
     <?php $featured_image_obj = get_sub_field('featured_image'); ?>
     <?php if( $image_orientation == "left" ) { ?>

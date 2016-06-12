@@ -12,6 +12,7 @@
     $inline_styles .= $background_image;
     $inline_styles .= ");'";
   }
+
   if( get_sub_field( 'background_color' ) ) {
       $inline_styles .= "background-color: " . get_sub_field( 'background_color' ) . ";";
   }
@@ -24,7 +25,6 @@
     $container_classes = "background-cover";
   }
 
-
   $padding_classes = ['padding-top' => 'default-padding-top', 'padding-bottom' => 'default-padding-bottom'];
   if( get_sub_field('padding_top') == "non-padded" ) {
     $padding_classes['padding-top'] = "remove-padding-top";
@@ -32,8 +32,12 @@
   if( get_sub_field('padding_bottom') == "non-padded" ) {
     $padding_classes['padding-bottom'] = "remove-padding-bottom";
   }
+
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
  ?>
-<div class="content-grid flexible <?php echo implode(' ', $padding_classes); ?>" <?php echo $inline_styles; ?>>
+<section class="content-grid flexible <?php echo implode(' ', $padding_classes); ?>" <?php if( $scroll_to ) { echo $scroll_to; } ?> <?php echo $inline_styles; ?>>
   <div class="container">
     <?php if( get_sub_field( 'background_style' ) == "cover" ) { ?>
       <div class="image-overlay light">
@@ -97,4 +101,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

@@ -116,7 +116,8 @@ gulp.task('release-theme', function() {
       '*inc/**',
       '*fonts/**',
       '*template-parts/**',
-      '*woocommerce/**'
+      '*woocommerce/**',
+      '*admin/**'
     ])
     .pipe(gulp.dest('dist/'));
 });

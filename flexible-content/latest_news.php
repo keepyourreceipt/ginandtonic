@@ -1,4 +1,9 @@
-<section class="latest-news">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="latest-news" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
     <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
       <style>

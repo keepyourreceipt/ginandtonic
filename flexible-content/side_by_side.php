@@ -1,4 +1,9 @@
-<section class="side-by-side">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="side-by-side" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
     <?php
       $featured_image = get_sub_field( 'side_by_side_featured_image' );
