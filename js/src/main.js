@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
 
   function themeInit() {
     autoLayout();
+    // fixedTopMenu();
     productFeatures();
     toggleMobileModalMenuOnClick();
     appendMobileToolbar();
@@ -36,6 +37,16 @@ jQuery(document).ready(function($) {
     bootstrapAccordionCallback();
     smoothScrollLinks();
     FastClick.attach(document.body);
+  }
+
+  function fixedTopMenu() {
+    if( $('.fixed-top-menu').length ) {
+      var $menu = $('.fixed-top-menu');
+      var $menuLinks = $menu.find('.fixed-top-menu-inner');
+      var $logo = $('.company-logo');
+      var $logoHeight = $logo.find('img').height() + 20;
+      $logo.css('height', $logoHeight + "px");
+    }
   }
 
   function smoothScrollLinks() {

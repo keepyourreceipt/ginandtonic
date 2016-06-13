@@ -93,7 +93,7 @@ add_image_size( 'news-lising', 768, 276, true );
 add_image_size( 'news-grid-lising', 768, 768, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
-add_image_size( 'nav-logo', 999, 50, false );
+add_image_size( 'nav-logo', 600, 100, false );
 add_image_size( 'featured-image-portrait', 376, 345, true );
 add_image_size( 'featured-image-landscape', 458, 358, true );
 

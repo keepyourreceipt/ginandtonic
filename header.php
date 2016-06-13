@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title><?php wp_title(); ?></title>
+    <title><?php wp_title('|','true','right'); ?><?php bloginfo('name'); ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?php // Google varification ?>
     <meta name="google-site-verification" content="uTilvixm63uU6mVTpR7BMbwYvflF86eftiwR7z_83As" />
@@ -20,9 +20,11 @@
   <?php get_template_part( 'template', 'parts/styles/dark-button-color-scheme' ); ?>
   <?php get_template_part( 'template', 'parts/styles/light-button-color-scheme' ); ?>
   <?php get_template_part( 'template', 'parts/styles/text-link-color-scheme' ); ?>
-
   <?php get_template_part( 'template', 'parts/custom-font-styles' ); ?>
-  <?php get_template_part( 'template', 'parts/navigation' ); ?>
+  <?php
+    $desktop_menu_style = get_field('desktop_navigation_style', 'option');
+    get_template_part( 'template', 'parts/navigation/' . $desktop_menu_style . '-navigation' );
+  ?>
   <?php update_page_views(); ?>
   <div class="page-content">
     <div class="loader-overlay">
