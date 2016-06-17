@@ -80,13 +80,6 @@ function custom_excerpt_length( $length ) {
 }
 add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
 
-// Add waypoints class to excerpt container
-// function add_excerpt_class( $excerpt ) {
-//   $excerpt = str_replace( "<p", "<p class=\"waypoint waypoint-bottom-to-top\"", $excerpt );
-//   return $excerpt;
-// }
-// add_filter( "the_excerpt", "add_excerpt_class" );
-
 // Define custom image sizes
 add_image_size( 'post-listing', 768, 476, true );
 add_image_size( 'news-lising', 768, 276, true );
@@ -145,36 +138,43 @@ function update_hearts() {
 }
 add_action( 'wp_ajax_update_page_hearts', 'update_hearts' );
 
-
 // Allow user to show of hide additional content types
 add_filter( 'custom_menu_order', 'toggle_custom_menu_order' );
 function remove_menu_items( $menu_order ){
     global $menu;
-
     foreach ( $menu as $mkey => $m ) {
 			$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
-			$testimonials = array_search( 'edit.php?post_type=testimonial', $m );
-			$events = array_search( 'edit.php?post_type=events', $m );
-			$product = array_search( 'edit.php?post_type=product', $m );
 
- 			// Hide portfolio custom post type
+			// Hide portfolio custom post type
 			if( get_field('show_projects_portfolio', 'option') == "hide" ) {
 				if ( $portfolio ) {
 					unset( $menu[$mkey] );
 				}
 			}
+    }
+
+    foreach ( $menu as $mkey => $m ) {
+			$testimonials = array_search( 'edit.php?post_type=testimonial', $m );
 			// Hide testimonials custom post type
 			if( get_field('show_testimonials', 'option') == "hide" ) {
 				if ( $testimonials ) {
 					unset( $menu[$mkey] );
 				}
 			}
+    }
+
+    foreach ( $menu as $mkey => $m ) {
+			$events = array_search( 'edit.php?post_type=events', $m );
 			// Hide events custom post type
 			if( get_field('show_events', 'option') == "hide" ) {
 				if ( $events ) {
 					unset( $menu[$mkey] );
 				}
 			}
+    }
+
+    foreach ( $menu as $mkey => $m ) {
+			$product = array_search( 'edit.php?post_type=product', $m );
 			// Hide woo commerce products post type
 			if( get_field('show_ecommerce', 'option') == "hide" ) {
 				if ( $product ) {
