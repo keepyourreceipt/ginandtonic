@@ -6,9 +6,13 @@
   if( get_sub_field('padding_bottom') == "non-padded" ) {
     $padding_classes['padding-bottom'] = "remove-padding-bottom";
   }
+
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
 ?>
 
-<section class="product-features <?php echo implode(' ', $padding_classes); ?>">
+<section class="product-features <?php echo implode(' ', $padding_classes); ?>" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <?php
     $inline_styles = "style='";
     if( get_sub_field( 'background_style' ) != "color" ) {
@@ -42,10 +46,10 @@
       <div class="section-nav text-center col-md-10 col-md-offset-1 waypoint waypoint-bottom-to-top">
         <div class="btn-group" role="group">
           <?php if( get_sub_field( 'sec_one_section_title' ) ) { ?>
-            <button class="one active"><?php the_sub_field( 'sec_one_section_title' ); ?></button>
+            <button class="one linked-button linked-button-dark active"><?php the_sub_field( 'sec_one_section_title' ); ?></button>
           <?php } ?>
           <?php if( get_sub_field( 'sec_two_section_title' ) ) { ?>
-            <button class="two"><?php the_sub_field( 'sec_two_section_title' ); ?></button>
+            <button class="two linked-button linked-button-dark"><?php the_sub_field( 'sec_two_section_title' ); ?></button>
           <?php } ?>
         </div>
       </div>

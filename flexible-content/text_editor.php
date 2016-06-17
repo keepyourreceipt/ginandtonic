@@ -15,8 +15,12 @@
   } else {
     $width_classes = "col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2";
   }
+
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
 ?>
-<section class="text-editor" style="background-color: <?php echo $background_color; ?>; color: <?php echo $text_color; ?>;">
+<section class="text-editor" style="background-color: <?php echo $background_color; ?>; color: <?php echo $text_color; ?>;" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container waypoint waypoint-bottom-to-top <?php echo implode(' ', $padding_classes); ?>">
     <div class="row">
       <div class="<?php echo $width_classes; ?>">

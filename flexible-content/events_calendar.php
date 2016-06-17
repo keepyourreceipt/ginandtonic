@@ -1,4 +1,9 @@
-<section class="events-calendar">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="events-calendar" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
     <?php
     $posts = get_sub_field('choose_events');

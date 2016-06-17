@@ -20,6 +20,24 @@ function ginandtonic_scripts() {
 
 add_action( 'wp_enqueue_scripts', 'ginandtonic_scripts' );
 
+// Load admin scripts and styles
+function load_custom_wp_admin_style() {
+	$theme_url = get_bloginfo('template_directory');
+	if( get_field('show_projects_portfolio', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-portfolio-css', $theme_url . '/admin/stylesheets/hide-acf-portfolio.css' );
+	}
+
+	if( get_field('show_testimonials', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-testimonials-css', $theme_url . '/admin/stylesheets/hide-acf-testimonials.css' );
+	}
+
+	if( get_field('show_events', 'option') == "hide" ) {
+		wp_enqueue_style( 'hide-acf-events-css', $theme_url . '/admin/stylesheets/hide-acf-events.css' );
+	}
+}
+add_action( 'admin_enqueue_scripts', 'load_custom_wp_admin_style' );
+
+
 // Add Woo Commerce support
 add_action( 'after_setup_theme', 'woocommerce_support' );
 function woocommerce_support() {
@@ -34,13 +52,26 @@ if( function_exists('acf_add_options_page') ) {
 
 	acf_add_options_page(array(
 		'page_title' 	=> 'Global Content',
-		'menu_title'	=> 'Global Content',
+		'menu_title'	=> 'Theme Settings',
 		'menu_slug' 	=> 'theme-settings',
 		'capability'	=> 'edit_posts',
 		'redirect'		=> false,
 		'icon_url' => 'dashicons-admin-site',
 		'position' => 3
 	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Brand Colors',
+		'menu_title'	=> 'Brand Colors',
+		'parent_slug'	=> 'theme-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Developer',
+		'menu_title'	=> 'Developer',
+		'parent_slug'	=> 'theme-settings',
+	));
+
 }
 
 // Define custom excerpt length
@@ -62,7 +93,7 @@ add_image_size( 'news-lising', 768, 276, true );
 add_image_size( 'news-grid-lising', 768, 768, true );
 add_image_size( 'full-hd', 1920, 1080, true );
 add_image_size( 'preview', 768, 276, true );
-add_image_size( 'nav-logo', 999, 50, false );
+add_image_size( 'nav-logo', 600, 100, false );
 add_image_size( 'featured-image-portrait', 376, 345, true );
 add_image_size( 'featured-image-landscape', 458, 358, true );
 
@@ -122,18 +153,48 @@ function remove_menu_items( $menu_order ){
 
     foreach ( $menu as $mkey => $m ) {
 			$portfolio 	= array_search( 'edit.php?post_type=portfolio', $m );
+			$testimonials = array_search( 'edit.php?post_type=testimonial', $m );
+			$events = array_search( 'edit.php?post_type=events', $m );
+			$product = array_search( 'edit.php?post_type=product', $m );
 
-			if( get_field('show_events', 'option') == "Hide Events" ) {
-				$events = array_search( 'edit.php?post_type=events', $m );
+ 			// Hide portfolio custom post type
+			if( get_field('show_projects_portfolio', 'option') == "hide" ) {
+				if ( $portfolio ) {
+					unset( $menu[$mkey] );
+				}
 			}
-
-      if ( $events /*| $portfolio */ )
-          unset( $menu[$mkey] );
+			// Hide testimonials custom post type
+			if( get_field('show_testimonials', 'option') == "hide" ) {
+				if ( $testimonials ) {
+					unset( $menu[$mkey] );
+				}
+			}
+			// Hide events custom post type
+			if( get_field('show_events', 'option') == "hide" ) {
+				if ( $events ) {
+					unset( $menu[$mkey] );
+				}
+			}
+			// Hide woo commerce products post type
+			if( get_field('show_ecommerce', 'option') == "hide" ) {
+				if ( $product ) {
+					unset( $menu[$mkey] );
+				}
+			}
     }
 
     return $menu_order;
 }
 add_filter( 'menu_order', 'remove_menu_items' );
+
+
+// Hide main woo commerce menu page
+function toggle_woocommerce_menu_pages() {
+	if( get_field('show_ecommerce', 'option') == "hide" ) {
+    remove_menu_page( 'woocommerce' );
+	}
+}
+add_action( 'admin_menu', 'toggle_woocommerce_menu_pages' );
 
 
 // Custom excerpt more link

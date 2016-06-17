@@ -12,6 +12,7 @@ jQuery(document).ready(function($) {
 
   function themeInit() {
     autoLayout();
+    // fixedTopMenu();
     productFeatures();
     toggleMobileModalMenuOnClick();
     appendMobileToolbar();
@@ -34,7 +35,35 @@ jQuery(document).ready(function($) {
     initMasonryGrid();
     isotopeGrid();
     bootstrapAccordionCallback();
+    smoothScrollLinks();
     FastClick.attach(document.body);
+  }
+
+  function fixedTopMenu() {
+    if( $('.fixed-top-menu').length ) {
+      var $menu = $('.fixed-top-menu');
+      var $menuLinks = $menu.find('.fixed-top-menu-inner');
+      var $logo = $('.company-logo');
+      var $logoHeight = $logo.find('img').height() + 20;
+      $logo.css('height', $logoHeight + "px");
+    }
+  }
+
+  function smoothScrollLinks() {
+    if( $('.nav-menu').length ) {
+      $('.nav-menu a').on( 'click', function(e) {
+        var $href = $(this).attr('href');
+        var $hrefHash = $href.split('#')[1];
+        if( $hrefHash && $('#' + $hrefHash).length ) {
+          if( ! $(this).attr('target') ) {
+            e.preventDefault();
+            $('html,body').animate({
+                 scrollTop: $('#' + $hrefHash).offset().top - 60
+             }, 1000, 'swing');
+          }
+        }
+      });
+    }
   }
 
   function productFeatures() {
@@ -78,6 +107,7 @@ jQuery(document).ready(function($) {
     });
 
     $('.portfolio-grid-filter button').on('click', function() {
+      $(window).trigger('resize');
       $('.portfolio-grid-filter button.active').removeClass('active');
       if( $(this).hasClass( 'all' ) ) {
         $(this).addClass('active');
@@ -93,7 +123,9 @@ jQuery(document).ready(function($) {
       }
       // Trigger resize to re-calculate js pased positioning for
       // parallax and dynamically positioned elements
-      $(window).trigger('resize');
+      setTimeout(function() {
+        $(window).trigger('resize');
+      }, 750);
     });
   }
 

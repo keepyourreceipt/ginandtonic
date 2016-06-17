@@ -45,7 +45,7 @@
         </a>
       <?php } ?>
     </div>
-    
+
   </div>
 <?php } ?>
 
@@ -59,6 +59,15 @@
       <img src="<?php echo $company_logo; ?>" alt="" />
     </a>
   </div>
+
+  <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+      <style>
+        #menu-main-nav > .current-menu-parent::before, #menu-main-nav > .current-menu-item::before {
+          background-color: <?php the_field( 'primary_brand_color', 'option' ); ?> !important;
+        }
+      </style>
+  <?php } ?>
+
   <?php
     $defaults = array(
       'theme_location'  => '',

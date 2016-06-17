@@ -1,6 +1,18 @@
-<section class="testimonials">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="testimonials" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
     <div class="section-title">
+      <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+        <style>
+          .testimonials .testimonial .title {
+            color: <?php the_field( 'primary_brand_color', 'option' ); ?> !important;
+          }
+        </style>
+      <?php } ?>
       <div class="row waypoint waypoint-bottom-to-top">
         <div class="col-sm-12 col-md-10 col-md-offset-1">
           <div class="section-heading text-center">

@@ -1,5 +1,17 @@
-<section class="latest-news">
+<?php
+  if( get_sub_field( 'section_id' ) ) {
+    $scroll_to = "id='" . get_sub_field( 'section_id' ) . "'";
+  }
+?>
+<section class="latest-news" <?php if( $scroll_to ) { echo $scroll_to; } ?>>
   <div class="container">
+    <?php if( get_field( 'primary_brand_color', 'option' ) ) { ?>
+      <style>
+        .latest-news .latest-news-item .post-content .post-date {
+          color: <?php echo the_field( 'primary_brand_color', 'option' ); ?> !important;
+        }
+      </style>
+    <?php } ?>
     <?php if( get_sub_field( 'text_heading' ) ) { ?>
       <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -34,7 +46,7 @@
           <div class="col-sm-12 col-sm-offset-0 col-md-10 col-md-offset-1 remove-padding">
           <?php
           $post_counter = 1;
-          foreach( $posts as $post) {            
+          foreach( $posts as $post) {
             if( $post_counter < 3 ) {
               $display_classes = "col-sm-6 col-md-6 col-lg-4";
             } else {
@@ -61,7 +73,7 @@
                         </div>
                         <div class="post-title remove-padding-left col-xs-9">
                           <a href="<?php the_permalink(); ?>">
-                            <h3><?php the_title(); ?></h3>
+                            <h3 style="color: <?php echo the_field( 'primary_brand_color', 'option' ); ?>;"><?php the_title(); ?></h3>
                           </a>
                         </div>
                       </div>
