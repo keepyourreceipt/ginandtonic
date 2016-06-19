@@ -150,33 +150,23 @@ img
   &.active
     display: block
 
-.linked_buttons
-  padding-top: 1em
+button,
+a.linked-button
+  padding: 0.6em 1.3em 0.5em
+  border-radius: 2px
+  text-align: center
+  display: inline-block
+  margin: 0.5em 0.5em 0 0
+  text-transform: uppercase
+  letter-spacing: 1px
+  font-weight: 400
+  @include transition( background-color 0.3s ease )
 
 .linked-button-light
   +linked-button-light
 
 .linked-button-dark
   +linked-button-dark
-
-button,
-.shortcode-button
-  padding: 8px 18px
-  border: solid $dark-grey 1px
-  border-radius: 2px
-  background-color: transparent
-  @include transition( all 0.3s ease )
-  outline: none
-  display: inline-block
-  color: $body-copy
-
-  a
-    color: $body-copy
-
-  &.active,
-  &:hover
-    background-color: $dark-grey
-    color: $white
 
 .section-title
   margin-bottom: 3vh
