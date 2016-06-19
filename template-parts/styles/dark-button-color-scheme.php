@@ -14,7 +14,6 @@
       }
     <?php } else { ?>
       .linked-button-dark  {
-        background-color: transparent;
         <?php if( $dark_button_text_color ) { ?>
           border-color: <?php echo $dark_button_text_color; ?>;
         <?php } ?>
