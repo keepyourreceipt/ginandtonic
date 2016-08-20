@@ -5,11 +5,22 @@
 
   // Get selected layout
   $layout = get_sub_field( 'events_layout' );
+  $post_counter = 0;
 
   if ( $layout == "multi-column" ) {
     $layout_classes = "col-sm-12 multi-column";
   } else {
     $layout_classes = "col-sm-12 col-md-3 col-md-offset-1 col-md-offset-1 col-lg-2 col-lg-offset-1";
+  }
+
+  $post_per_page = -1;
+
+  if ( get_sub_field( 'number_of_events' ) == "two" ) {
+    $posts_per_page = 2;
+  }
+
+  if ( get_sub_field( 'number_of_events' ) == "four" ) {
+    $posts_per_page = 4;
   }
 
   // If displaying events by category, get category
@@ -27,7 +38,7 @@
   <div class="container">
 
     <?php
-      $query = new WP_Query( array( 'post_type' => 'events', 'post_per_page' => -1, 'tax_query' => array(
+      $query = new WP_Query( array( 'post_type' => 'events', 'posts_per_page' => $posts_per_page, 'tax_query' => array(
   		array(
   			'taxonomy' => 'eventcategory',
         'field' => 'slug',
@@ -35,9 +46,11 @@
   		  ),
   	  ), ));
     ?>
-    <div class="row event-listing waypoint waypoint-bottom-to-top">
     <?php while( $query->have_posts() ) : $query->the_post(); ?>
         <?php if ( $layout == "multi-column" ) { ?>
+          <?php if ( $post_counter % 2 == 0 ) { ?>
+            <div class="row event-listing waypoint waypoint-bottom-to-top">
+          <?php }  ?>
           <div class="col-md-6 multi-column-event">
         <?php } ?>
         <div class="<?php echo $layout_classes; ?> event-date">
@@ -126,8 +139,11 @@
         <?php if ( $layout == "multi-column" ) { ?>
         </div>
         <?php } ?>
+        <?php $post_counter++; ?>
+        <?php if ( $post_counter % 2 == 0 ) { ?>
+          </div>
+        <?php }  ?>
     <?php endwhile; ?>
-    </div> <!-- end row -->
 
   </div>
 </section>
